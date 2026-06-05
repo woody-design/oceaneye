@@ -3,6 +3,14 @@
   "version": "0.0.11",
   "description": "An open, curated, interactive 3D ocean life atlas.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/woody-design/oceaneye.git"
+  },
+  "bugs": {
+    "url": "https://github.com/woody-design/oceaneye/issues"
+  },
+  "homepage": "https://github.com/woody-design/oceaneye#readme",
   "type": "module",
   "scripts": {
     "dev": "vite",

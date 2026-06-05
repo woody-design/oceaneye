@@ -40,6 +40,6 @@ Suggested GitHub Pages flow:
 - The app loads each public model path under `/models/*.glb`.
 - No private memory, raw research, Content Studio, sandbox, local absolute path,
   model-production trace, or draft model path is present.
-- Source, model license, and public-copy review have been completed for the
-  intended release level.
-
+- Source-copy review has been completed for the intended release level.
+- If deploying to a permanent domain, add the final canonical URL, `og:url`,
+  and a domain-specific `sitemap.xml`.

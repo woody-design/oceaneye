@@ -2,11 +2,11 @@
 
 OceanEye is an open, curated, interactive 3D ocean life atlas.
 
-The app presents static, reviewed-for-release-candidate creature models,
+The app presents static release-candidate creature models,
 depth-based navigation, concise insight cards, and visible source links. It does
 not run user-facing AI generation at runtime. AI-assisted tools may help create
-draft assets offline, but only static GLB files and sourced content enter the
-public app.
+candidate assets offline, but only static GLB files and sourced content enter
+the public app.
 
 Status: public release candidate / preview.
 
@@ -74,8 +74,6 @@ See `docs/PROVENANCE.md` for source and model provenance policy, and
 
 ## Release Candidate Notes
 
-The current GLB files are public clean-path assets, but their metadata still
-marks them as `model-draft`. Treat this repo as a transparent preview until
-model license, science, performance, and source-copy review are finalized for a
-full public release.
-
+The current GLB files are public clean-path release-candidate assets. Treat this
+repo as a transparent preview until science, performance, and source-copy review
+are finalized for a full public release.

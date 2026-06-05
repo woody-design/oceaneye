@@ -20,7 +20,7 @@
     "primarySource": "https://fishbase.se/summary/6555"
   },
   "model": {
-    "type": "ai-assisted-draft",
+    "type": "ai-assisted-release-candidate",
     "url": "/models/yellow-boxfish.glb",
     "scale": 0.58,
     "rotation": [
@@ -229,7 +229,7 @@
     }
   },
   "provenance": {
-    "modelType": "ai-assisted-draft",
+    "modelType": "ai-assisted-release-candidate",
     "generationProvider": "Hyper3D Rodin web UI",
     "generationModel": "Rodin Gen-2",
     "prompt": "Public release candidate: AI-assisted static model generation from curated visual references, followed by human review and web normalization. See docs/AI_WORKFLOW.md and docs/PROVENANCE.md.",
@@ -238,7 +238,7 @@
       "Added or preserved annotation anchors and view metadata for static model inspection.",
       "Retained public source links in the content record; private production logs are not part of this release candidate."
     ],
-    "reviewStatus": "model-draft",
+    "reviewStatus": "release-candidate",
     "reviewers": [],
     "sourceDossier": "docs/PROVENANCE.md"
   },

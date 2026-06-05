@@ -10,7 +10,7 @@ AI tools may be used offline as creator/editor aids. The reusable workflow is:
    structures, acceptable stylization, failure modes, first insight anchors,
    and source/license questions.
 3. Prepare visual references and prompts outside the runtime product.
-4. Generate draft model candidates with an image-to-3D provider or compare
+4. Generate candidate model assets with an image-to-3D provider or compare
    existing GLB candidates.
 5. Reject candidates with major form, anatomy, license, or file-size problems.
 6. Normalize the selected candidate in a 3D editor: orientation, scale, origin,
@@ -43,4 +43,3 @@ Public releases should include only the final static assets and public
 provenance summaries. They should not include raw provider downloads, private
 prompts, local editor files, rejected candidates, source-asset packages, or
 internal run logs.
-

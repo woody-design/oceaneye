@@ -269,7 +269,7 @@ function schedTick(now: number) {
       try {
         fn(dt, now / 1000)
       } catch {
-        // Keep parity with the DepthCanvas Design scheduler: one bad board should
+        // Keep parity with the depth canvas scheduler: one bad board should
         // not stop the shared animation loop.
       }
     })

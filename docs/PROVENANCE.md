@@ -17,30 +17,29 @@ quotes, images, names, trademarks, or institutional material.
 
 | Creature | Scientific name | Public model path | Provider metadata | Status |
 | --- | --- | --- | --- | --- |
-| Yellow boxfish | Ostracion cubicus | `/models/yellow-boxfish.glb` | Hyper3D Rodin web UI, Rodin Gen-2 | model-draft |
-| Spiny seahorse | Hippocampus histrix | `/models/longspine-seahorse.glb` | Hyper3D Rodin web UI, Rodin web model | model-draft |
-| Giant manta ray | Mobula birostris | `/models/giant-manta-ray.glb` | Hyper3D Rodin web UI, Rodin Gen-2 | model-draft |
-| Ocean sunfish | Mola mola | `/models/ocean-sunfish.glb` | Hyper3D Rodin web UI, Rodin web generation | model-draft |
-| Orca | Orcinus orca | `/models/orca.glb` | Hyper3D Rodin web UI, Rodin Gen-2 | model-draft |
-| Giant oarfish | Regalecus glesne | `/models/giant-oarfish.glb` | Hyper3D Rodin web UI, Rodin web generation | model-draft |
-| Dumbo octopus | Grimpoteuthis | `/models/dumbo-octopus.glb` | Hyper3D Rodin web UI, Rodin Gen-2 | model-draft |
-| Tripod fish | Bathypterois grallator | `/models/tripod-fish.glb` | Hyper3D Rodin web UI, Rodin Gen-2 | model-draft |
-| Hadal snailfish | Pseudoliparis swirei | `/models/hadal-snailfish.glb` | Hyper3D Rodin web UI, model setting not recorded | model-draft |
+| Yellow boxfish | Ostracion cubicus | `/models/yellow-boxfish.glb` | Hyper3D Rodin web UI, Rodin Gen-2 | release-candidate |
+| Spiny seahorse | Hippocampus histrix | `/models/longspine-seahorse.glb` | Hyper3D Rodin web UI, Rodin web model | release-candidate |
+| Giant manta ray | Mobula birostris | `/models/giant-manta-ray.glb` | Hyper3D Rodin web UI, Rodin Gen-2 | release-candidate |
+| Ocean sunfish | Mola mola | `/models/ocean-sunfish.glb` | Hyper3D Rodin web UI, Rodin web generation | release-candidate |
+| Orca | Orcinus orca | `/models/orca.glb` | Hyper3D Rodin web UI, Rodin Gen-2 | release-candidate |
+| Giant oarfish | Regalecus glesne | `/models/giant-oarfish.glb` | Hyper3D Rodin web UI, Rodin web generation | release-candidate |
+| Dumbo octopus | Grimpoteuthis | `/models/dumbo-octopus.glb` | Hyper3D Rodin web UI, Rodin Gen-2 | release-candidate |
+| Tripod fish | Bathypterois grallator | `/models/tripod-fish.glb` | Hyper3D Rodin web UI, Rodin Gen-2 | release-candidate |
+| Hadal snailfish | Pseudoliparis swirei | `/models/hadal-snailfish.glb` | Hyper3D Rodin web UI, model setting not recorded | release-candidate |
 
-The `model-draft` status is intentional for this release candidate. It means
-the asset is included for transparent preview and local verification, but it
-should not be represented as a final science-reviewed model.
+The `release-candidate` status means the asset is included for transparent
+public preview and local verification, but it should not be represented as a
+final science-reviewed model.
 
 ## License Boundary
 
 OceanEye-authored public content and public model files are released under CC BY
-4.0 by the maintainer. Before a broader public launch, the maintainer should
-confirm that upstream generation-provider terms and any reference-input rights
-allow redistribution under that boundary.
+4.0 by the maintainer. Direct quotations, institution names, source names,
+scientific names, trademarks, and linked external references remain subject to
+their original rights and are not relicensed by OceanEye.
 
 ## Private Material Not Published
 
 The public repo does not include internal research workspaces, project memory,
 private prompts, provider downloads, Blender source files, rejected model
 candidates, local run logs, or source-asset packages.
-

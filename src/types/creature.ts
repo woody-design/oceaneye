@@ -4,6 +4,7 @@ export type ReviewStatus =
   | 'draft'
   | 'source-backed'
   | 'model-draft'
+  | 'release-candidate'
   | 'visual-reviewed'
   | 'science-reviewed'
   | 'published'
@@ -12,6 +13,7 @@ export type ReviewStatus =
 export type ModelType =
   | 'procedural-placeholder'
   | 'ai-assisted-draft'
+  | 'ai-assisted-release-candidate'
   | 'ai-assisted-human-reviewed'
   | 'manual-reviewed'
   | 'reference'
