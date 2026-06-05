@@ -22,8 +22,8 @@ AI tools may be used offline as creator/editor aids. The reusable workflow is:
 9. Update the matching creature JSON with model URL, quality metadata, camera
    framing, source links, and public provenance.
 10. Run local build and visual review.
-11. Publish only after license, science, performance, visual, and source-copy
-   review are acceptable for the intended release level.
+11. Publish only after license, science, performance, visual, and source review
+   are acceptable for the intended release level.
 
 ## Review Gates
 

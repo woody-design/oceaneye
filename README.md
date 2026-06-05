@@ -75,5 +75,5 @@ See `docs/PROVENANCE.md` for source and model provenance policy, and
 ## Release Candidate Notes
 
 The current GLB files are public clean-path release-candidate assets. Treat this
-repo as a transparent preview until science, performance, and source-copy review
-are finalized for a full public release.
+repo as a transparent preview until final science/performance polish is complete
+for a full public release.
