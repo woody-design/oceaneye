@@ -1,0 +1,223 @@
+{
+  "id": "hadal-snailfish",
+  "commonName": "Hadal snailfish",
+  "scientificName": "Pseudoliparis swirei",
+  "zone": "hadal",
+  "productLayer": "Deepest-ever fish",
+  "displayDepthMeters": 8000,
+  "actualDepthRangeMeters": {
+    "min": 6198,
+    "max": 8178,
+    "source": "https://www.fishbase.se/summary/Pseudoliparis-swirei",
+    "note": "FishBase lists 6198-8178 m and notes Pseudoliparis swirei is usually found from 7000-8000 m. OceanEye's 8000 m display depth remains a curated hadal-trench encounter."
+  },
+  "habitat": "Ocean trenches where pressure, cold, and darkness define the edge of fish life.",
+  "summary": "“Most snailfishes (family Liparidae) live near the seafloor, riding the currents that sweep along the bottom. A hungry snailfish may swim against the currents to hover above the seafloor while searching for snacks buried in the mud. In some species, frilled fins probe the seafloor for hidden morsels of food. \n\nSnailfishes make their homes in a variety of ocean habitats, from shallow tide pools to deep-sea trenches. In fact, a snailfish holds the record for the deepest-dwelling fish. Remote cameras deployed by researchers studying the Izu-Ogasawara Trench off Japan filmed a white snailfish in the genus Pseudoliparis at the remarkable depth of 8,336 meters (27,349 feet)—more than five miles deep!” - MBARI",
+  "lifeStrategy": [],
+  "links": {
+    "wikipedia": "https://en.wikipedia.org/wiki/Pseudoliparis_swirei",
+    "googleImages": "https://www.google.com/search?tbm=isch&q=hadal+snailfish+Pseudoliparis+swirei",
+    "primarySource": "https://oceanexplorer.noaa.gov/ocean-fact/what-is-the-deepest-living-fish/"
+  },
+  "model": {
+    "type": "ai-assisted-draft",
+    "url": "/models/hadal-snailfish.glb",
+    "scale": 0.62,
+    "rotation": [
+      0,
+      0,
+      0
+    ],
+    "defaultCamera": [
+      0.5889,
+      3.3165,
+      0.0347
+    ],
+    "viewTarget": [
+      0.6783,
+      -0.1263,
+      0.1301
+    ],
+    "stagePosition": [
+      0.8,
+      -0.12,
+      0
+    ],
+    "entryView": {
+      "camera": [
+        -0.027,
+        4.2851,
+        0.9142
+      ],
+      "target": [
+        0.092,
+        -0.115,
+        1.0417
+      ],
+      "stagePosition": [
+        0.8,
+        -0.12,
+        0
+      ],
+      "scale": 0.62
+    },
+    "viewPresets": {
+      "pressure-limit": {
+        "camera": [
+          -2.7358,
+          -0.5278,
+          0.205
+        ],
+        "target": [
+          0.6872,
+          -0.1391,
+          0.1656
+        ],
+        "stagePosition": [
+          0.8,
+          -0.12,
+          0
+        ],
+        "scale": 0.62
+      },
+      "new-insight": {
+        "camera": [
+          -0.9697,
+          2.8299,
+          -0.4081
+        ],
+        "target": [
+          0.8007,
+          -0.0799,
+          0.1105
+        ],
+        "stagePosition": [
+          0.8,
+          -0.12,
+          0
+        ],
+        "scale": 0.62
+      }
+    },
+    "placeholderKind": "hadal-snailfish",
+    "quality": {
+      "triangleCount": 120000,
+      "textureCount": 1,
+      "fileBytes": 7231368
+    }
+  },
+  "annotations": [
+    {
+      "id": "pressure-limit",
+      "title": "Pressure edge",
+      "anchor": [
+        0,
+        0.42,
+        0
+      ],
+      "anchorSpace": "named-node",
+      "anchorNodeName": "OE_anchor_pressure-limit",
+      "shortText": "",
+      "body": "\"Due to the extreme pressure, 8,000–8,500 m (26,200–27,900 ft) appears to be around the theoretical maximum depth possible for fish.\n\nCompared to shallow-water snailfish, Pseudoliparis swirei has several unusual adaptions for its dark and high pressure habitat, including transparent skin that lacks pigment, certain organs and eggs that are enlarged, the muscles are thinner, the ossification of its bones (notably the skull) is incomplete, it appears to have little or no ability to see, there are mechanisms that allow proteins in its body to still function, and differences in the cell membranes for maintaining their flexibility.\" - Wiki",
+      "sourceUrls": [
+        {
+          "name": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pseudoliparis_swirei"
+        }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "new-insight",
+      "title": "Reproduction",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "shortText": "",
+      "body": "\"A study of females showed that mature eggs are unusually large, up to 9.4 mm (0.37 in) in diameter. In total, there were up to 23 mature eggs for each female (each larger than 5 mm or 0.20 in in diameter), which were alternated with immature, small eggs, the number of which was about 850. Eggs of intermediate size were rarely seen. Even in the largest eggs, no structures were found that indicate the development of the embryo within the eggs. There are indications that the larvae of P. swirei and at least some other hadal fish spend time in the open water at relatively shallow depths, less than 1,000 m (3,300 ft).\" - Wiki",
+      "sourceUrls": [
+        {
+          "name": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pseudoliparis_swirei"
+        }
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "translations": {
+    "zh": {
+      "commonName": "超深渊狮子鱼",
+      "productLayer": "记录最深鱼类",
+      "actualDepthRangeNote": "FishBase 记录 Pseudoliparis swirei 的深度范围为 6198-8178 米，并注明通常见于 7000-8000 米。OceanEye 的 8000 米展示深度仍是策展式海沟相遇点。",
+      "habitat": "海沟世界，压力、寒冷和黑暗定义了鱼类生命接近极限的环境。",
+      "stageSummary": "苍白、柔软的盲眼鱼，代表鱼类接近压力极限的生命形式。",
+      "summary": "“大多数狮子鱼（Liparidae 科）生活在海底附近，乘着沿海底扫过的水流移动。饥饿的狮子鱼可能逆流游动，悬停在海底上方，寻找埋在泥中的小食。有些物种会用褶边状鳍探查海底，寻找隐藏食物。\n\n狮子鱼生活在多种海洋栖息地中，从浅水潮池到深海海沟都有。事实上，一种狮子鱼保持着最深栖息鱼类纪录。研究人员在日本附近伊豆-小笠原海沟部署的远程摄像机，曾在 8,336 米（27,349 英尺）的惊人深度拍到 Pseudoliparis 属的一条白色狮子鱼，超过五英里深！” - MBARI",
+      "lifeStrategy": [],
+      "vitals": {
+        "typicalDepth": "6198-8178 米",
+        "waterPressure": "约 619.8-817.8 atm",
+        "adultLength": "最长约 50 厘米"
+      },
+      "annotations": {
+        "pressure-limit": {
+          "title": "压力边界",
+          "shortText": "",
+          "body": "“由于极端压力，8,000-8,500 米（26,200-27,900 英尺）似乎接近鱼类理论上可能达到的最大深度。\n\n与浅水狮子鱼相比，Pseudoliparis swirei 对黑暗和高压栖息地有几种不寻常适应，包括缺乏色素的透明皮肤、增大的某些器官和卵、更薄的肌肉、骨骼骨化不完全（尤其是头骨）、似乎几乎没有视觉能力、让体内蛋白质仍能运作的机制，以及维持细胞膜柔韧性的差异。” - Wiki"
+        },
+        "new-insight": {
+          "title": "大卵与幼体",
+          "shortText": "",
+          "body": "“一项对雌性的研究显示，成熟卵异常大，直径可达 9.4 毫米（0.37 英寸）。每条雌性最多有 23 枚成熟卵（每枚直径都大于 5 毫米或 0.20 英寸），并与未成熟的小卵交替出现；小卵数量约为 850 枚。中等大小的卵很少见。即使在最大的卵中，也没有发现显示胚胎在卵内发育的结构。有迹象表明，P. swirei 以及至少一些其他超深渊鱼类的幼体，会在相对较浅、低于 1,000 米（3,300 英尺）的开放水体中生活一段时间。” - Wiki"
+        }
+      }
+    }
+  },
+  "provenance": {
+    "modelType": "ai-assisted-draft",
+    "generationProvider": "Hyper3D Rodin web UI",
+    "generationModel": "Rodin web UI model setting not recorded",
+    "prompt": "Public release candidate: AI-assisted static model generation from curated visual references, followed by human review and web normalization. See docs/AI_WORKFLOW.md and docs/PROVENANCE.md.",
+    "humanEdits": [
+      "Normalized model scale, orientation, and web framing for the OceanEye runtime.",
+      "Added or preserved annotation anchors and view metadata for static model inspection.",
+      "Retained public source links in the content record; private production logs are not part of this release candidate."
+    ],
+    "reviewStatus": "model-draft",
+    "reviewers": [],
+    "sourceDossier": "docs/PROVENANCE.md"
+  },
+  "stageSummary": "A pale, soft-bodied trench fish carrying the stillness and pressure of the hadal zone.",
+  "vitals": {
+    "adultLength": "50 cm max",
+    "typicalDepth": "6198 m - 8178 m",
+    "waterPressure": "619.8 - 817.8 atm"
+  },
+  "overviewLinks": [
+    {
+      "name": "Google Images",
+      "url": "https://www.google.com/search?tbm=isch&q=hadal+snailfish+Pseudoliparis+swirei"
+    },
+    {
+      "name": "NOAA",
+      "url": "https://oceanexplorer.noaa.gov/ocean-fact/what-is-the-deepest-living-fish/"
+    },
+    {
+      "name": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Pseudoliparis_swirei"
+    },
+    {
+      "name": "FishBase",
+      "url": "https://www.fishbase.se/summary/Pseudoliparis-swirei"
+    },
+    {
+      "name": "Natural History Museum",
+      "url": "https://www.nhm.ac.uk/discover/news/2023/april/deepest-ever-fish-filmed-depth-8336-metres.html"
+    },
+    {
+      "name": "MBARI",
+      "url": "https://www.mbari.org/animal/snailfish/"
+    }
+  ]
+}

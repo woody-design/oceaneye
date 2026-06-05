@@ -1,0 +1,45 @@
+{
+  "id": "sunlight",
+  "title": "Sunlight Zone",
+  "mechanism": "Light becomes food.",
+  "body": "“Because water strongly absorbs light, sunlight penetrates only to depths of about 200 meters (656 feet), This upper layer of the ocean is known as the sunlit, or euphotic, zone. Along the continental shelf the sunlit zone includes all water down to the seafloor, but this zone is restricted to the uppermost layer of the water column once out in the open ocean. Since ocean depths can reach 4,000 meters or more, this represents a thin layer across the top of the open ocean.” - WHOI",
+  "backgroundMeaning": "Clear cyan water, higher contrast, and cleaner motion show a world where sunlight still organizes visibility, color, and food.",
+  "quote": {
+    "text": "“The sun shines not on us but in us.”",
+    "attribution": "John Muir"
+  },
+  "sources": [
+    {
+      "name": "WHOI",
+      "url": "https://www.whoi.edu/ocean-learning-hub/ocean-topics/how-the-ocean-works/ocean-zones/sunlit-zone/"
+    },
+    {
+      "name": "NOAA light zones",
+      "url": "https://oceanservice.noaa.gov/facts/light_travel.html"
+    },
+    {
+      "name": "AIDA CNF record",
+      "url": "https://aidainternational.org/WorldRecords/History/ConstantWeightWithoutFins"
+    },
+    {
+      "name": "AIDA CWT record",
+      "url": "https://aidainternational.org/WorldRecords/History/ConstantWeight"
+    },
+    {
+      "name": "Guinness scuba record",
+      "url": "https://www.guinnessworldrecords.com/world-records/deepest-scuba-dive-male"
+    }
+  ],
+  "translations": {
+    "zh": {
+      "title": "阳光层",
+      "mechanism": "光变成食物。",
+      "body": "“因为水会强烈吸收光，阳光只能穿透到约 200 米（656 英尺）的深度。海洋上层被称为阳光层，或透光层。在大陆架沿岸，阳光层包括直到海底的全部水体；但一旦进入开阔海洋，这一层就只限于水柱最上方。由于海洋深度可达 4,000 米或更深，这只代表开阔海洋顶部一层很薄的水。” - WHOI",
+      "backgroundMeaning": "清透的青蓝水体、更高对比度和更干净的运动，显示的是一个阳光仍在组织可见性、颜色和食物的世界。",
+      "quote": {
+        "text": "“The sun shines not on us but in us.”",
+        "attribution": "John Muir"
+      }
+    }
+  }
+}

@@ -1,0 +1,160 @@
+import type { Locale } from '../types/creature'
+
+export const DEFAULT_LOCALE: Locale = 'en'
+export const PRODUCT_LOCALES: Locale[] = ['en', 'zh']
+export const LOCALE_STORAGE_KEY = 'oceaneye.productLocale'
+
+export const uiCopy = {
+  zh: {
+    depthNavigator: '深度导航',
+    creatureKnowledge: '观察笔记',
+    zoneOverview: '水层概览',
+    zoneOverviewAriaSuffix: '水层概览',
+    zoneSources: '水层资料来源',
+    knowledge: '知识',
+    overview: '概览',
+    reference: '参考来源',
+    conservation: '保护现状',
+    conservationPlaceholderSummary: '保护状态与人类影响信息仍在复核中。',
+    references: '延伸阅读',
+    sources: '来源',
+    noaa: 'NOAA',
+    habitat: '栖息地',
+    scientificName: '学名',
+    vitals: '基本数据',
+    typicalDepth: '深度范围',
+    pressure: '环境水压',
+    adultLength: '成年体长',
+    adultWeight: '成年体重',
+    unknown: '未知',
+    primarySource: '主要来源',
+    imageReferences: '谷歌图片',
+    wikipedia: 'Wikipedia',
+    deeper: '更深',
+    depthRangeUnderReview: '范围待复核',
+    dragToRotate: '拖动旋转',
+    panView: '右键或双指平移',
+    chooseInsight: '选择右侧卡片观察',
+    languageLabel: '语言',
+    stageAriaSuffix: '3D 展示区',
+    stageInteractionHints: [
+      { action: '左键拖动', separator: ':', result: '旋转' },
+      { action: '右键拖动', separator: ':', result: '移动视角' },
+      { action: '滚轮', separator: ':', result: '缩放' },
+    ],
+    lifeStrategies: '生命策略',
+    autoRotate: '自动旋转',
+    pauseAutoRotate: '暂停自动旋转',
+    resumeAutoRotate: '继续自动旋转',
+    resetView: '重置视角',
+    spotifyPlaceholder: 'Spotify 曲目待定',
+    openSpotify: '在 Spotify 打开',
+    openRightPanel: '打开右侧面板',
+    closeRightPanel: '关闭右侧面板',
+  },
+  en: {
+    depthNavigator: 'Depth navigator',
+    creatureKnowledge: 'Observation notes',
+    zoneOverview: 'Zone overview',
+    zoneOverviewAriaSuffix: 'zone overview',
+    zoneSources: 'Zone sources',
+    knowledge: 'Knowledge',
+    overview: 'Overview',
+    reference: 'Reference',
+    conservation: 'Conservation',
+    conservationPlaceholderSummary: 'Conservation status and human pressure notes are under review.',
+    references: 'Further reading',
+    sources: 'Sources',
+    noaa: 'NOAA',
+    habitat: 'Habitat',
+    scientificName: 'Scientific name',
+    vitals: 'Vitals',
+    typicalDepth: 'Depth range',
+    pressure: 'Water pressure',
+    adultLength: 'Adult length',
+    adultWeight: 'Adult weight',
+    unknown: 'Unknown',
+    primarySource: 'Primary source',
+    imageReferences: 'Google Images',
+    wikipedia: 'Wikipedia',
+    deeper: 'deeper',
+    depthRangeUnderReview: 'Range under review',
+    dragToRotate: 'Drag to rotate',
+    panView: 'Right-drag or two-finger pan',
+    chooseInsight: 'Choose a note to inspect',
+    languageLabel: 'Language',
+    stageAriaSuffix: '3D stage',
+    stageInteractionHints: [
+      { action: 'Drag', separator: 'to', result: 'Rotate' },
+      { action: 'Right mouse drag', separator: 'to', result: 'Move' },
+      { action: 'Scroll', separator: 'to', result: 'Zoom' },
+    ],
+    lifeStrategies: 'life strategies',
+    autoRotate: 'Auto Rotate',
+    pauseAutoRotate: 'Pause Auto Rotate',
+    resumeAutoRotate: 'Resume Auto Rotate',
+    resetView: 'Reset',
+    spotifyPlaceholder: 'Spotify track placeholder',
+    openSpotify: 'Open Spotify',
+    openRightPanel: 'Open right panel',
+    closeRightPanel: 'Close right panel',
+  },
+} as const
+
+export function isLocale(value: string | null): value is Locale {
+  return PRODUCT_LOCALES.includes(value as Locale)
+}
+
+export function getStoredLocale(): Locale {
+  if (typeof window === 'undefined') return DEFAULT_LOCALE
+
+  try {
+    const storedLocale = window.localStorage.getItem(LOCALE_STORAGE_KEY)
+    return isLocale(storedLocale) ? storedLocale : DEFAULT_LOCALE
+  } catch {
+    return DEFAULT_LOCALE
+  }
+}
+
+export function storeLocale(locale: Locale): void {
+  if (typeof window === 'undefined') return
+
+  try {
+    window.localStorage.setItem(LOCALE_STORAGE_KEY, locale)
+  } catch {
+    // Locale persistence is a convenience; the app should still work without it.
+  }
+}
+
+export function formatDepth(depthMeters: number, locale: Locale): string {
+  const value = `${depthMeters.toLocaleString(locale === 'zh' ? 'zh-CN' : 'en-US')} m`
+
+  return locale === 'zh'
+    ? value.replace('m', '米')
+    : value
+}
+
+export function formatDepthRange(
+  depthRange: { min: number | null; max: number | null },
+  locale: Locale,
+): string {
+  const copy = uiCopy[locale]
+
+  if (depthRange.min === null && depthRange.max === null) {
+    return copy.depthRangeUnderReview
+  }
+
+  if (depthRange.min === null) {
+    return locale === 'zh'
+      ? `浅于 ${formatDepth(depthRange.max ?? 0, locale)}`
+      : `shallower than ${formatDepth(depthRange.max ?? 0, locale)}`
+  }
+
+  if (depthRange.max === null) {
+    return locale === 'zh'
+      ? `${formatDepth(depthRange.min, locale)} 或更深`
+      : `${formatDepth(depthRange.min, locale)} or deeper`
+  }
+
+  return `${formatDepth(depthRange.min, locale)} - ${formatDepth(depthRange.max, locale)}`
+}

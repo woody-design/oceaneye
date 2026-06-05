@@ -1,0 +1,274 @@
+{
+  "id": "dumbo-octopus",
+  "commonName": "Dumbo octopus",
+  "scientificName": "Grimpoteuthis",
+  "zone": "midnight",
+  "productLayer": "Midnight drift",
+  "displayDepthMeters": 3200,
+  "actualDepthRangeMeters": {
+    "min": 100,
+    "max": 7000,
+    "source": "https://oceana.org/marine-life/cephalopods-crustaceans-other-shellfish/dumbo-octopus",
+    "note": "Broad public genus-level range for Grimpoteuthis / dumbo octopus. Smithsonian and BOEM present 3000-4000 m as the common public range, while deeper records approach 7000 m; treat this as a genus-level Overview range, not a single-species range."
+  },
+  "habitat": "Species of Grimpoteuthis are assumed to have a worldwide distribution, living in the cold, abyssal depths.",
+  "summary": "\"The dumbo octopus (Grimpoteuthis) is a deep sea animal that lives on the ocean floor at extreme depths of 9,800 to 13,000 feet. They are small animals, around 8 inches tall, and have a pair of fins located on their mantle—their namesake—and webbing between their arms. Grimpoteuthis swim often hover just above the seafloor looking for snails, worms, and other food.\" - Ocean.si.edu",
+  "lifeStrategy": [],
+  "links": {
+    "wikipedia": "https://en.wikipedia.org/wiki/Grimpoteuthis",
+    "googleImages": "https://www.google.com/search?tbm=isch&q=Grimpoteuthis+dumbo+octopus",
+    "primarySource": "https://oceantoday.noaa.gov/dumbooctopus/"
+  },
+  "model": {
+    "type": "ai-assisted-draft",
+    "url": "/models/dumbo-octopus.glb",
+    "scale": 0.68,
+    "rotation": [
+      0,
+      0,
+      0
+    ],
+    "defaultCamera": [
+      -2.9782,
+      0.4606,
+      3.7423
+    ],
+    "viewTarget": [
+      0.7855,
+      -0.3384,
+      0.0532
+    ],
+    "stagePosition": [
+      0.8,
+      -0.34,
+      0
+    ],
+    "entryView": {
+      "camera": [
+        -2.6988,
+        0.8891,
+        2.3581
+      ],
+      "target": [
+        1.7347,
+        -0.3656,
+        1.1189
+      ],
+      "stagePosition": [
+        0.8,
+        -0.34,
+        0
+      ],
+      "scale": 0.68
+    },
+    "viewPresets": {
+      "ear-fins": {
+        "camera": [
+          -1.0561,
+          3.2856,
+          3.5011
+        ],
+        "target": [
+          0.7855,
+          -0.3384,
+          0.0532
+        ],
+        "stagePosition": [
+          0.8,
+          -0.34,
+          0
+        ],
+        "scale": 0.68
+      },
+      "umbrella-web": {
+        "camera": [
+          0.6467,
+          -5.28,
+          0.6902
+        ],
+        "target": [
+          0.7855,
+          -0.3384,
+          0.0532
+        ],
+        "stagePosition": [
+          0.8,
+          -0.34,
+          0
+        ],
+        "scale": 0.68
+      },
+      "new-insight": {
+        "camera": [
+          -4.4039,
+          -0.2935,
+          1.1461
+        ],
+        "target": [
+          0.7858,
+          -0.3384,
+          0.052
+        ],
+        "stagePosition": [
+          0.8,
+          -0.34,
+          0
+        ],
+        "scale": 0.68
+      }
+    },
+    "placeholderKind": "dumbo-octopus",
+    "quality": {
+      "triangleCount": 123950,
+      "textureCount": 2,
+      "fileBytes": 7896116
+    }
+  },
+  "annotations": [
+    {
+      "id": "ear-fins",
+      "title": "Ear-like fins",
+      "anchor": [
+        -0.52,
+        -0.06,
+        0.82
+      ],
+      "anchorSpace": "named-node",
+      "anchorNodeName": "OE_anchor_ear-fins",
+      "shortText": "",
+      "body": "\"The name \"dumbo\" originates from their resemblance to the title character of Disney's 1941 film Dumbo, having two prominent ear-like fins which extend from the mantle above each eye.\"",
+      "sourceUrls": [
+        {
+          "name": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Grimpoteuthis"
+        }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "umbrella-web",
+      "title": "Umbrella body",
+      "anchor": [
+        0,
+        -0.2,
+        0.34
+      ],
+      "anchorSpace": "named-node",
+      "anchorNodeName": "OE_anchor_umbrella-web",
+      "shortText": "",
+      "body": "\"Observations of animals in the Atlantic reveal that Grimpoteuthis often rest on the seafloor with the arms and web spread out and uses its arms to slowly crawl along the seafloor. When disturbed, the webbing and arms are contracted to propel the animal off the seafloor and using the mantle fins for rapid locomotion.\n\nThe cushiony cartilage that can be found in the proximal position of the fin of Grimpoteuthis is responsible for acting as a support for the thick muscles that allow for rapid locomotion.\n\nAlthough it has been suggested that species of Grimpoteuthis are capable of jet-propulsion (while swimming using the fins), this has since been deemed unlikely.\n\nFeeding behavior has not been directly observed in Grimpoteuthis, but presumably is similar to Opisthoteuthis which can trap small prey items in the webbing (either by enclosing the prey in the arm webbing or between the webbing and the seafloor) and then use the cirri (fingerlike projections along the arms) to move food to the mouth. Known prey items (from dissected animals) include benthic polychaetes, benthopelagic copepods, amphipods and isopods.\" - Wiki",
+      "sourceUrls": [
+        {
+          "name": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Grimpoteuthis"
+        }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "new-insight",
+      "title": "Breeding",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "shortText": "",
+      "body": "\"The cirrate octopuses are classified as 'continuous spawners': Females carry multiple eggs in various stages of maturation, and only lay one or two eggs at a time, with no seasonality in spawning (however, most of these aspects of reproductive biology have only been confirmed in Opisthoteuthis, not Grimpoteuthis). Mating in cirrate octopuses has never been observed, and unlike other octopuses, members of Cirrata lack a hectocotylus for the transfer of sperm packets. The Grimpoteuthis male uses its large suckers to pass sperm packets, each within an operculum, directly into the female's mantle cavity. The female will then store the sperm and uses it to fertilize her eggs when she is ready to lay them. Cirrate octopus eggs are large and have a tough casing surrounding the chorion (not found in other octopuses), which solidify on contact with the cold seawater. Grimpoteuthis in particular attach their eggs to deep sea corals (octocorals).\n\nUnlike other octopuses, the female cirrate octopus does not guard or incubate the eggs. Grimpoteuthis hatchlings emerge as \"fully competent\" juveniles with all of the sensory and motor features to survive on their own.\n\nSexual dimorphism between males and females is less noticeable and consistent in Grimpoteuthis compared to other cirrate octopuses (such as Opisthoteuthis). In some species (e.g., G. bathynectes and G.. discoveryi), the males have enlarged suckers relative to the females, but no such enlargement is found in other Grimpoteuthis species.\" -Wiki",
+      "sourceUrls": [
+        {
+          "name": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Grimpoteuthis"
+        }
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "translations": {
+    "zh": {
+      "commonName": "小飞象章鱼",
+      "productLayer": "午夜的精灵",
+      "actualDepthRangeNote": "这里采用属级完整范围口径：Oceana 给出小飞象章鱼约 100-7000 米的宽泛深度范围。Smithsonian 和 BOEM 常用 3000-4000 米作为公共介绍范围；这里应理解为 Grimpoteuthis 属级范围，不是单一物种范围。",
+      "habitat": "深海开放水域和近海底环境，鳍状章鱼会在其中悬停或漂游。",
+      "stageSummary": "柔软的鳍状章鱼，像耳朵一样的鳍，伞状腕网，让午夜层不再只是黑暗。",
+      "summary": "“小飞象章鱼（Grimpoteuthis）是一种深海动物，生活在 9,800 到 13,000 英尺的极端深度海底。它们体型很小，约 8 英寸高，外套膜上有一对鳍（这也正是它们名字的来源），腕之间还有网膜。小飞象章鱼常在海底上方悬停，寻找螺类、蠕虫和其他食物。” - Ocean.si.edu",
+      "lifeStrategy": [],
+      "vitals": {
+        "typicalDepth": "100-7000 米",
+        "waterPressure": "约 10-700 atm",
+        "adultLength": "约 20 厘米"
+      },
+      "annotations": {
+        "ear-fins": {
+          "title": "像耳朵的鳍",
+          "shortText": "",
+          "body": "“‘dumbo’ 这个名字来自它们与 1941 年 Disney 电影《Dumbo》主角的相似之处：在每只眼睛上方，从外套膜伸出两片显眼、像耳朵一样的鳍。” - Wiki"
+        },
+        "umbrella-web": {
+          "title": "伞状身体",
+          "shortText": "",
+          "body": "“对大西洋个体的观察显示，小飞象章鱼常常停在海底，腕和网膜展开，并用腕在海底缓慢爬行。受到干扰时，网膜和腕会收缩，推动动物离开海底，并用外套膜上的鳍快速移动。\n\n小飞象章鱼鳍基部附近的软骨垫负责支撑厚实肌肉，使其能够快速移动。\n\n虽然曾有人认为小飞象章鱼物种在用鳍游泳时也能进行喷射推进，但这一说法后来被认为不太可能。\n\n小飞象章鱼的取食行为尚未被直接观察到，但推测与 Opisthoteuthis 相似：它可以用腕间网膜困住小型猎物，或把猎物包在腕网与海底之间，再用腕上的 cirri（指状突起）把食物移向口部。已知猎物（来自解剖个体）包括底栖多毛类、底层浮游桡足类、端足类和等足类。” - Wiki"
+        },
+        "new-insight": {
+          "title": "深海繁殖",
+          "shortText": "",
+          "body": "“有鳍章鱼被归类为‘连续产卵者’：雌性携带多个处于不同成熟阶段的卵，每次只产下一两枚，产卵没有季节性（不过这些繁殖生物学方面多数只在 Opisthoteuthis 中得到确认，而非小飞象章鱼）。有鳍章鱼的交配从未被观察到；不同于其他章鱼，Cirrata 成员没有用于转移精包的交接腕。小飞象章鱼雄性会用较大的吸盘，把每个带有盖的精包直接传入雌性的外套腔。雌性随后储存精子，并在准备产卵时用其使卵受精。Cirrata 章鱼的卵较大，卵膜外有坚韧外壳（其他章鱼没有这种结构），接触寒冷海水后会固化。小飞象章鱼尤其会把卵附着在深海珊瑚（八放珊瑚）上。\n\n不同于其他章鱼，雌性有鳍章鱼不会守护或孵育卵。小飞象章鱼幼体孵化时已经是‘完全能胜任’的幼年个体，具备独立生存所需的感觉和运动特征。” - Wiki"
+        }
+      },
+      "conservation": {
+        "title": "动物保护",
+        "summary": "",
+        "body": "“小飞象章鱼物种面临的人类直接威胁很少，主要是因为它们生活在 1,000 米（3,300 英尺）及以下深度。有鳍章鱼的天然捕食者包括大型真骨鱼和鲨鱼，甚至还包括抹香鲸和海豹等海洋哺乳动物，但这些大多是其他有鳍章鱼属的捕食者。小飞象章鱼只在鲨鱼胃内容物中有记录。\n\n小飞象章鱼没有墨囊（所有有鳍章鱼都是如此）。此外，有鳍章鱼缺少受神经支配的色素胞，因此不能改变颜色（尽管有些未注明来源的说法声称相反）。有鳍章鱼如何逃脱或避开捕食者，在很大程度上仍不清楚。” - Wiki"
+      }
+    }
+  },
+  "provenance": {
+    "modelType": "ai-assisted-draft",
+    "generationProvider": "Hyper3D Rodin web UI",
+    "generationModel": "Rodin Gen-2",
+    "prompt": "Public release candidate: AI-assisted static model generation from curated visual references, followed by human review and web normalization. See docs/AI_WORKFLOW.md and docs/PROVENANCE.md.",
+    "humanEdits": [
+      "Normalized model scale, orientation, and web framing for the OceanEye runtime.",
+      "Added or preserved annotation anchors and view metadata for static model inspection.",
+      "Retained public source links in the content record; private production logs are not part of this release candidate."
+    ],
+    "reviewStatus": "model-draft",
+    "reviewers": [],
+    "sourceDossier": "docs/PROVENANCE.md"
+  },
+  "stageSummary": "A soft finned octopus whose ear-like fins and umbrella web. It makes the midnight ocean feel delicate rather than monstrous.",
+  "vitals": {
+    "typicalDepth": "100 m - 7000 m",
+    "waterPressure": "10 - 700 atm",
+    "adultLength": "20 cm"
+  },
+  "overviewLinks": [
+    {
+      "name": "Google Images",
+      "url": "https://www.google.com/search?tbm=isch&q=Grimpoteuthis+dumbo+octopus"
+    },
+    {
+      "name": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Grimpoteuthis"
+    },
+    {
+      "name": "Smithsonian Ocean",
+      "url": "https://ocean.si.edu/ocean-life/invertebrates/grimpoteuthis-dumbo-octopus"
+    },
+    {
+      "name": "Oceana",
+      "url": "https://oceana.org/marine-life/cephalopods-crustaceans-other-shellfish/dumbo-octopus"
+    }
+  ],
+  "conservation": {
+    "title": "Conservation",
+    "summary": "",
+    "body": "\"Species of Grimpoteuthis face few direct threats from humans largely due to living at depths of 1,000 meters (3,300 ft) and below. Natural predators of cirrate octopuses include large teleost fish and sharks, and even marine mammals such as sperm whales and seals, but these are mostly predators of other cirrate genera. Grimpoteuthis has only been recorded in the stomach contents of a shark.\n\nThe Grimpoteuthis do not have an ink sac (as is the case with all cirrate octopuses). Furthermore, the cirrate octopuses lack innervated chromatophores and therefore are not capable of changing color (despite some unreferenced statements to the contrary). How cirrate octopuses escape or avoid predators is largely unknown.\" - Wiki",
+    "sourceUrls": [
+      {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Grimpoteuthis"
+      }
+    ]
+  }
+}

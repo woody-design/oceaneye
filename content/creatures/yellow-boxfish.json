@@ -1,0 +1,280 @@
+{
+  "id": "yellow-boxfish",
+  "commonName": "Yellow boxfish",
+  "scientificName": "Ostracion cubicus",
+  "zone": "sunlight",
+  "productLayer": "Sunlit reef box",
+  "displayDepthMeters": 17,
+  "actualDepthRangeMeters": {
+    "min": 1,
+    "max": 280,
+    "source": "https://fishbase.se/summary/6555",
+    "note": "FishBase lists 1-280 m and notes the species is usually found from 1-50 m. OceanEye's 15 m display depth is a curated shallow-reef first encounter, not the full species range."
+  },
+  "habitat": "Coral and rocky reefs in tropical seas",
+  "summary": "\"The yellow boxfish is a species of marine ray-finned fish belonging to the family Ostraciidae, the boxfishes. This species is found in reefs throughout the Pacific Ocean and Indian Ocean as well as the southeastern Atlantic Ocean.\" - Wiki",
+  "lifeStrategy": [],
+  "links": {
+    "wikipedia": "https://en.wikipedia.org/wiki/Yellow_boxfish",
+    "googleImages": "https://www.google.com/search?tbm=isch&q=Ostracion+cubicum+yellow+boxfish",
+    "primarySource": "https://fishbase.se/summary/6555"
+  },
+  "model": {
+    "type": "ai-assisted-draft",
+    "url": "/models/yellow-boxfish.glb",
+    "scale": 0.58,
+    "rotation": [
+      0,
+      0,
+      0
+    ],
+    "defaultCamera": [
+      0.7658,
+      0.3378,
+      3.5497
+    ],
+    "viewTarget": [
+      0.8,
+      -0.22,
+      0.15
+    ],
+    "stagePosition": [
+      0.8,
+      -0.08,
+      0
+    ],
+    "entryView": {
+      "camera": [
+        0.8003,
+        -0.362,
+        5.7297
+      ],
+      "target": [
+        0.8,
+        -0.22,
+        0.15
+      ],
+      "stagePosition": [
+        0.8,
+        -0.08,
+        0
+      ],
+      "scale": 0.58
+    },
+    "viewPresets": {
+      "box-body": {
+        "camera": [
+          -1.8002,
+          -0.1574,
+          2.6026
+        ],
+        "target": [
+          0.8,
+          -0.22,
+          0.15
+        ],
+        "stagePosition": [
+          0.8,
+          -0.08,
+          0
+        ],
+        "scale": 0.58
+      },
+      "tiny-fins": {
+        "camera": [
+          -3.7927,
+          -0.3239,
+          0.7236
+        ],
+        "target": [
+          0.8,
+          -0.22,
+          0.15
+        ],
+        "stagePosition": [
+          0.8,
+          -0.08,
+          0
+        ],
+        "scale": 0.58
+      },
+      "new-insight": {
+        "camera": [
+          -2.4786,
+          1.4803,
+          2.9416
+        ],
+        "target": [
+          0.8,
+          -0.22,
+          0.15
+        ],
+        "stagePosition": [
+          0.8,
+          -0.08,
+          0
+        ],
+        "scale": 0.58
+      }
+    },
+    "placeholderKind": "yellow-boxfish",
+    "quality": {
+      "triangleCount": 119999,
+      "textureCount": 2,
+      "fileBytes": 6743268
+    }
+  },
+  "annotations": [
+    {
+      "id": "box-body",
+      "title": "Box body",
+      "anchor": [
+        0,
+        0.48,
+        0
+      ],
+      "anchorSpace": "named-node",
+      "anchorNodeName": "OE_anchor_box-body",
+      "shortText": "",
+      "body": "\"Boxfish are notable for having hard, fused hexagonal scales. This allows them to protect themselves inside a solid frame which gives them the appearance of a box. Due to this protective frame, the movements of boxfish are slow and limited. Their skin is hard and covered with small, thorny scales.\n\nBoxfish are a family of fish closely related with puffer fish.\" - Oceanogràfic\n\n\"In 2006, Mercedes-Benz unveiled its Bionic concept car, which was inspired by the shape of the yellow boxfish. It was assumed that due to the extreme agility with which boxfish maneuver, that their shape was aerodynamic and self-stabilizing. However, analysis by scientists suggests that boxfish agility is instead due to the combination of an aerodynamically unstable body and the manner in which the fish use their fins for movement.\" - Wiki\n\n",
+      "sourceUrls": [
+        {
+          "name": "Oceanogràfic",
+          "url": "https://www.oceanografic.org/en/especie/yellow-boxfish/"
+        },
+        {
+          "name": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Yellow_boxfish"
+        },
+        {
+          "name": "Frontiers",
+          "url": "https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2023.1170704/full"
+        }
+      ],
+      "confidence": "medium-high"
+    },
+    {
+      "id": "tiny-fins",
+      "title": "Tiny fins",
+      "anchor": [
+        -0.36,
+        0.38,
+        0.04
+      ],
+      "anchorSpace": "named-node",
+      "anchorNodeName": "OE_anchor_tiny-fins",
+      "shortText": "",
+      "body": "“Despite having a stiff and rigid covering, the yellow boxfish are strong and swift swimmers. They are able to swim steadily for long periods and they are able to maneuver in complex reefs. It was thought that boxfish swam with burst movements and by sculling their fins like an oar of a boat. However, they use a combination of movements with their dorsal, anal, and pectoral fins. The dorsal and anal fins move stiffly either simultaneously or non-simultaneously. It is with these fins they can reach maximum speeds. The pectoral fins provide thrust, moving in a figure-eight motion. At low speeds, the fish rely primarily on their pectoral and anal fins. At more moderate and faster speeds, this transitions to dorsal and caudal fin dominant.\n\nAdditionally, boxfish have a keel that aid them in swimming. A keel is a ridge near the caudal peduncle, aiding in support and stability. For the boxfish, its keel helps with stabilization against roll.” - Wiki",
+      "sourceUrls": [
+        "https://fishbase.se/summary/6555",
+        "https://en.wikipedia.org/wiki/Yellow_boxfish"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "new-insight",
+      "title": "Defense mechanisms",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "shortText": "",
+      "body": "“The yellow boxfish is able to secrete the neurotoxin ostracitoxin as mucus when stressed. Ostracitoxin is highly toxic to marine fishes and is hemolytic agglutinating, meaning the red blood cells of fish are broken down and clump together. Surrounding fishes may be killed when exposed to this neurotoxin.\n\nThe yellow boxfish has a symbiotic relationship with the bacterium Vibrio parahaemolyticus, which was found in the toxic mucus that the fish secrete when stressed. It is thought that this bacterium plays a role in yellow boxfish defense mechanisms.\n\nThe bright yellow color and black spots are a form of warning coloration (aposematism) to any potential predators.In juveniles, the bright warning coloration is brighter, thought to have evolved as an early defense mechanism to deter predators.” - Wiki",
+      "sourceUrls": [
+        {
+          "name": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Yellow_boxfish"
+        }
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "translations": {
+    "zh": {
+      "commonName": "黄箱鲀",
+      "productLayer": "阳光珊瑚礁欢迎您",
+      "actualDepthRangeNote": "FishBase 列出 1-280 米，并注明本种通常见于 1-50 米。OceanEye 的 15 米展示深度是一次浅礁初遇的策展位置，不代表完整物种范围。",
+      "habitat": "热带海域的珊瑚礁和岩礁",
+      "stageSummary": "亮黄身体上布满黑点，方盒一样的硬壳，危险时分泌有毒黏液。",
+      "summary": "“黄箱鲀是一种海洋辐鳍鱼，隶属于箱鲀科。本种分布于太平洋、印度洋各地的礁区，也见于东南大西洋。” - Wiki",
+      "lifeStrategy": [],
+      "vitals": {
+        "typicalDepth": "1-280 米",
+        "waterPressure": "约 0.1-28 atm",
+        "adultLength": "4-45 厘米"
+      },
+      "annotations": {
+        "box-body": {
+          "title": "箱形硬壳",
+          "shortText": "",
+          "body": "“箱鲀以坚硬、融合的六角形鳞片而著称。这让它们能把自己保护在一个坚固框架里，也因此看起来像一个盒子。由于这个保护框架，箱鲀的动作缓慢且受限。它们的皮肤坚硬，覆盖着细小带刺的鳞片。箱鲀是一类与河鲀亲缘关系很近的鱼。” - Oceanogràfic\n\n“2006 年，Mercedes-Benz 发布 Bionic 概念车，灵感来自黄箱鲀的外形。当时人们认为，箱鲀机动性极强，是因为它的形状符合空气动力学并能自我稳定。但科学分析认为，箱鲀的灵活性反而来自空气动力学上不稳定的身体，以及它使用鱼鳍运动的方式。” - Wiki"
+        },
+        "tiny-fins": {
+          "title": "小鳍控制",
+          "shortText": "",
+          "body": "“尽管黄箱鲀有一层僵硬的外壳，它们仍然是强壮而迅速的游泳者。它们可以长时间稳定游动，也能在复杂的礁区中机动。过去有人认为箱鲀通过爆发式动作、像船桨一样划动鱼鳍来游泳；但它们实际使用的是背鳍、臀鳍和胸鳍的组合运动。背鳍和臀鳍会以较僵硬的方式同步或不同步运动；这些鱼鳍帮助它们达到最高速度。胸鳍提供推进力，并以八字形轨迹运动。低速时，鱼主要依赖胸鳍和臀鳍；中等和较快速度下，则转向以背鳍和尾鳍为主。\n\n此外，箱鲀有一条帮助游泳的 keel。keel 是尾柄附近的一道脊，能提供支撑和稳定。对箱鲀来说，它的 keel 有助于抵抗翻滚、保持稳定。” - Wiki"
+        },
+        "new-insight": {
+          "title": "有毒黏液",
+          "shortText": "",
+          "body": "“黄箱鲀在受压时能够以黏液形式分泌神经毒素 ostracitoxin。Ostracitoxin 对海水鱼有很强毒性，并具有溶血和凝集作用，也就是会破坏鱼类红细胞并使其聚集在一起。周围的鱼接触到这种神经毒素后可能会死亡。\n\n黄箱鲀与副溶血性弧菌 Vibrio parahaemolyticus 有一种共生关系；这种细菌在它们受压时分泌的有毒黏液中被发现。研究认为，这种细菌可能参与了黄箱鲀的防御机制。\n\n亮黄色和黑色斑点是一种警戒色，用来提醒潜在捕食者。幼体的警戒色更鲜亮，可能作为早期防御机制演化出来，用于吓阻捕食者。” - Wiki"
+        }
+      },
+      "conservation": {
+        "title": "动物保护",
+        "summary": "",
+        "body": "“根据 IUCN 红色名录，黄箱鲀被列为 ’无危’。\n\n在亚喀巴湾，研究发现镀金鲷养殖场周围会聚集野生鱼群。这些野生鱼多数是礁鱼，其中包括黄箱鲀。养殖网箱附近的野生鱼丰度高于开放海域。鱼场对野生鱼可能有好处，因为它们可以摄食养殖产生的多余有机物，但这也可能成为黄箱鲀的保护问题。鱼场可能发生逃逸，进而把疾病传播给聚集在附近的野生鱼。此外，礁鱼在这些鱼场周围增多，也可能吸引生态旅游和农业观光。这些都是黄箱鲀面临的威胁。” - Wiki"
+      }
+    }
+  },
+  "provenance": {
+    "modelType": "ai-assisted-draft",
+    "generationProvider": "Hyper3D Rodin web UI",
+    "generationModel": "Rodin Gen-2",
+    "prompt": "Public release candidate: AI-assisted static model generation from curated visual references, followed by human review and web normalization. See docs/AI_WORKFLOW.md and docs/PROVENANCE.md.",
+    "humanEdits": [
+      "Normalized model scale, orientation, and web framing for the OceanEye runtime.",
+      "Added or preserved annotation anchors and view metadata for static model inspection.",
+      "Retained public source links in the content record; private production logs are not part of this release candidate."
+    ],
+    "reviewStatus": "model-draft",
+    "reviewers": [],
+    "sourceDossier": "docs/PROVENANCE.md"
+  },
+  "vitals": {
+    "typicalDepth": "1 m - 280 m",
+    "waterPressure": "0.1 - 28 atm",
+    "adultLength": "4 cm - 45 cm"
+  },
+  "stageSummary": "Cuboid body shape, bright yellow and black spotted coloration, and the secretion of a toxic mucus when threatened.",
+  "overviewLinks": [
+    {
+      "name": "Google Images",
+      "url": "https://www.google.com/search?tbm=isch&q=Ostracion+cubicum+yellow+boxfish"
+    },
+    {
+      "name": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Yellow_boxfish"
+    },
+    {
+      "name": "FishBase",
+      "url": "https://fishbase.se/summary/6555"
+    },
+    {
+      "name": "Australian Museum",
+      "url": "https://australian.museum/learn/animals/fishes/yellow-boxfish-ostracion-cubicus/"
+    }
+  ],
+  "conservation": {
+    "title": "Conservation",
+    "summary": "",
+    "body": "\"The yellow boxfish is listed as Least Concern according to the IUCN Red List. \n\nIn the Gulf of Aqaba, it was found that there were wild fish aggregations around gilt-head seabream farms. Most of these wild fish were reef fish, which includes the yellow boxfish. The abundance of wild fish was greater at the farm cages than in the open ocean. While fish farms can be advantageous for wild fish as they are able to eat the excess organic matter from the farms, it may be a conservation issue for the yellow boxfish. Fish farms experience escapes, which could lead to the spread of disease to the wild fish aggregating there. Additionally, with the influx of reef fishes at these farms, it could attract ecotourism and agrotourism. These are all threats to the yellow boxfish.\" - Wiki",
+    "sourceUrls": [
+      {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Yellow_boxfish"
+      }
+    ]
+  }
+}

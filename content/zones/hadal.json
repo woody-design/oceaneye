@@ -1,0 +1,37 @@
+{
+  "id": "hadal",
+  "title": "Hadal Zone",
+  "mechanism": "Pressure becomes architecture.",
+  "body": "“In most areas, the ocean floor lies 4,000 to 6,000 meters (13,000 to 20,000 feet) below the surface, but deep ocean trenches can extend this depth to 11,000 meters (36,000 feet). The region extending from 6,000 to 11,000 meters is called the hadal, or hadalpelagic, zone after Hades, the Greek god of the underworld. This zone occurs only in trenches; combined across all oceans, they make up an area about the size of Australia. The hadal zone is characterized by extreme depth and pressure, temperatures that hover just above freezing, and complete darkness—at least in terms of light from the sun. Bioluminescence allows organisms in the ocean depths to communicate. Walls of trenches are steep and descend through a gradient of depths and pressures, creating a variety of habitats along the slope.” - WHOI",
+  "backgroundMeaning": "The scene should feel sealed, compressed, and slow; Hadal is not more abyssal, but a different relationship between life, pressure, and isolation.",
+  "quote": {
+    "text": "“The soft and weak overcome the hard and strong.\"",
+    "attribution": "Laozi"
+  },
+  "sources": [
+    {
+      "name": "WHOI",
+      "url": "https://www.whoi.edu/ocean-learning-hub/ocean-topics/how-the-ocean-works/ocean-zones/hadal-zone/"
+    },
+    {
+      "name": "NOAA",
+      "url": "https://oceanexplorer.noaa.gov/okeanos/explorations/ex2102/features/hadalzone/hadalzone.html"
+    },
+    {
+      "name": "NOAA marine life",
+      "url": "https://oceanexplorer.noaa.gov/explainers/marine-life/"
+    }
+  ],
+  "translations": {
+    "zh": {
+      "title": "超深渊层",
+      "mechanism": "压力变成结构。",
+      "body": "“在大多数区域，海底位于海面以下 4,000 至 6,000 米（13,000 至 20,000 英尺），但深海海沟可将深度延伸到 11,000 米（36,000 英尺）。6,000 至 11,000 米的区域称为超深渊层，或 hadalpelagic zone，名称来自希腊冥府之神 Hades。这个区域只出现在海沟中；把所有海洋中的超深渊区域合在一起，面积约等于澳大利亚。超深渊层的特征是极端深度和压力、接近冰点的温度，以及完全黑暗——至少就来自太阳的光而言。生物发光让深海中的生物能够交流。海沟壁陡峭，并沿着深度和压力梯度下降，在斜坡上形成多种栖息地。” - WHOI",
+      "backgroundMeaning": "画面应该封闭、压缩、缓慢；超深渊不是更深的深渊，而是生命、压力和隔绝之间的另一种关系。",
+      "quote": {
+        "text": "“The soft and weak overcome the hard and strong.\"",
+        "attribution": "Laozi"
+      }
+    }
+  }
+}

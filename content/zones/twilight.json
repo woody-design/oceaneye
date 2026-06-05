@@ -1,0 +1,41 @@
+{
+  "id": "twilight",
+  "title": "Twilight Zone",
+  "mechanism": "Light becomes timing.",
+  "body": "“The ocean twilight zone is a layer of water that stretches around the globe. It lies 200 to 1,000 meters (about 650 to 3,300 feet) below the ocean surface, just beyond the reach of sunlight. Also known as the midwater or mesopelagic, the twilight zone is cold and its light is dim, but with flashes of bioluminescence—light produced by living organisms. The region teems with life. Recent studies suggest that the biomass of fish in the twilight zone may be ten times greater than previously thought—more than in all the rest of the ocean combined.\n\nAnimals in the twilight zone range in size from microscopic to among the largest on the planet. Some organisms spend their lives in its shadowy depths, while others travel to and from the surface every day in the largest animal migration on Earth. Animals in the twilight zone help support the ocean’s food web and transport huge amounts of carbon from surface waters into the deep ocean, helping to regulate global climate.\n\nSo far, the twilight zone is largely unexplored and its rich biodiversity has remained mostly beyond the reach of commercial fishing—and the international laws that govern the high seas. But some fishing interests are poised to begin extracting the biological resources of the twilight zone, with unknown consequences for marine ecosystems and Earth’s climate.” - WHOI",
+  "backgroundMeaning": "The background narrows from clear water into blue shadow because visibility itself becomes a survival strategy.",
+  "quote": {
+    "text": "“The night illuminates what the day conceals.”",
+    "attribution": "Charles Baudelaire"
+  },
+  "sources": [
+    {
+      "name": "WHOI",
+      "url": "https://www.whoi.edu/ocean-learning-hub/ocean-topics/how-the-ocean-works/ocean-zones/twilight-zone/"
+    },
+    {
+      "name": "NOAA light zones",
+      "url": "https://oceanservice.noaa.gov/facts/light_travel.html"
+    },
+    {
+      "name": "MBARI vertical migration",
+      "url": "https://www.mbari.org/news/vertical-migration-timing-illuminates-importance-of-predator-pressure-in-the-oceans-twilight-zone/"
+    },
+    {
+      "name": "WHOI carbon pump",
+      "url": "https://www.whoi.edu/news-insights/content/the-ocean-twilight-zones-crucial-carbon-pump/"
+    }
+  ],
+  "translations": {
+    "zh": {
+      "title": "暮光层",
+      "mechanism": "光变成时机。",
+      "body": "“海洋暮光层是一层环绕全球的水体。它位于海面以下 200 至 1,000 米（约 650 至 3,300 英尺），刚好超出阳光可及的范围。暮光层也称中层水体或中深层，寒冷、光线昏暗，但会有生物发光的闪烁——由生物产生的光。这个区域充满生命。近期研究显示，暮光层鱼类生物量可能比过去认为的高十倍，比海洋其余部分加起来还多。\n\n暮光层动物大小不一，从微小生物到地球上最大的动物之一都有。有些生物一生生活在它的阴影深处，另一些每天往返于海面，参与地球上最大的动物迁徙。暮光层动物帮助支撑海洋食物网，并把大量碳从表层水体运送到深海，帮助调节全球气候。\n\n到目前为止，暮光层大多仍未被探索；它丰富的生物多样性也大多尚未触及商业捕捞，以及管理公海的国际法律。但一些捕捞利益方正准备开始开发暮光层的生物资源，这可能对海洋生态系统和地球气候造成未知后果。” - WHOI",
+      "backgroundMeaning": "背景从清澈水体收窄到蓝色阴影，因为可见性本身变成一种生存策略。",
+      "quote": {
+        "text": "“The night illuminates what the day conceals.”",
+        "attribution": "Charles Baudelaire"
+      }
+    }
+  }
+}

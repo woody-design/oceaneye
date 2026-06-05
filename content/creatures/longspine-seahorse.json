@@ -1,0 +1,235 @@
+{
+  "id": "longspine-seahorse",
+  "commonName": "Spiny seahorse",
+  "scientificName": "Hippocampus histrix",
+  "zone": "sunlight",
+  "productLayer": "Sunlit reef jewel",
+  "displayDepthMeters": 20,
+  "actualDepthRangeMeters": {
+    "min": 0,
+    "max": 82,
+    "source": "https://www.fishbase.se/summary/5954",
+    "note": "FishBase lists 0-82 m and notes the species is usually found from 15-40 m. OceanEye's 20 m display depth is a curated Sunlight reef encounter, not the full species range."
+  },
+  "habitat": "The spiny seahorse is relatively rare but widespread throughout the Indo-Pacific.",
+  "summary": "\"The longspine seahorse (Hippocampus histrix), named for the spines covering its body, has a long snout and eyes that move independently of each other. Like other seahorses, the male carries the eggs and gives birth. \" - Ocean.si.edu",
+  "lifeStrategy": [],
+  "links": {
+    "wikipedia": "https://en.wikipedia.org/wiki/Hippocampus_histrix",
+    "googleImages": "https://www.google.com/search?tbm=isch&q=Hippocampus+histrix+longspine+seahorse",
+    "primarySource": "https://www.fishbase.se/summary/5954"
+  },
+  "model": {
+    "type": "ai-assisted-draft",
+    "url": "/models/longspine-seahorse.glb",
+    "scale": 0.64,
+    "rotation": [
+      0,
+      0,
+      0
+    ],
+    "defaultCamera": [
+      5.2555,
+      -0.4368,
+      0.0811
+    ],
+    "viewTarget": [
+      0.8,
+      -0.1,
+      0.05
+    ],
+    "stagePosition": [
+      0.8,
+      -0.12,
+      0
+    ],
+    "entryView": {
+      "camera": [
+        3.1247,
+        -0.5905,
+        3.6416
+      ],
+      "target": [
+        0.8,
+        -0.1,
+        0.05
+      ],
+      "stagePosition": [
+        0.8,
+        -0.12,
+        0
+      ],
+      "scale": 0.64
+    },
+    "viewPresets": {
+      "thorny-spines": {
+        "camera": [
+          4.0832,
+          0.1046,
+          -4.2002
+        ],
+        "target": [
+          0.8,
+          -0.1,
+          0.05
+        ],
+        "stagePosition": [
+          0.8,
+          -0.12,
+          0
+        ],
+        "scale": 0.64
+      },
+      "new-insight": {
+        "camera": [
+          5.8903,
+          -1.2394,
+          1.3243
+        ],
+        "target": [
+          0.8,
+          -0.1,
+          0.05
+        ],
+        "stagePosition": [
+          0.8,
+          -0.12,
+          0
+        ],
+        "scale": 0.64
+      }
+    },
+    "placeholderKind": "longspine-seahorse",
+    "quality": {
+      "triangleCount": 120000,
+      "textureCount": 1,
+      "fileBytes": 5904764
+    }
+  },
+  "annotations": [
+    {
+      "id": "thorny-spines",
+      "title": "Thorny spines",
+      "anchor": [
+        0,
+        0.14,
+        1.42
+      ],
+      "anchorSpace": "named-node",
+      "anchorNodeName": "OE_anchor_thorny-spines",
+      "shortText": "",
+      "body": "\"The body is slender, elongated and completely covered with thorns. These are sharp with dark tips, and uniformly sized on the prehensile tail. The trunk has long thorns which continue until the coronet, which has 4–5. The head is also provided with numerous spines especially on the forehead, the base of the cheeks, the nose and above the eyes. The snout is very long and tapered.\" - Wiki",
+      "sourceUrls": [
+        {
+          "name": "Smithsonian Ocean",
+          "url": "https://www.ocean.si.edu/ocean-life/fish/longspine-seahorse"
+        },
+        {
+          "name": "FishBase",
+          "url": "https://www.fishbase.se/FieldGuide/FieldGuideSummary.php?c_code=608&genusname=Hippocampus&print=1&speciesname=histrix"
+        }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "new-insight",
+      "title": "Male carries the eggs",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "shortText": "",
+      "body": "\"It is ovoviviparous and the female uses an ovipositor to transfer her eggs into an enclosed pouch under the abdomen of the male.[3] It is the male who broods the eggs in its ventral brood pouch. The latter includes villi rich in capillaries that surround each fertilized egg creating a sort of placenta supplying the embryos. The male fertilizes the eggs inside the pouch and provides physical protection for them as they develop. He also osmoregulates, aerates the embryos, and may provide some nourishment until the offspring are born.[3] When fully grown, pups will be expelled from the pocket and evolve in complete autonomy.\" - Wiki",
+      "sourceUrls": [
+        {
+          "name": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Hippocampus_histrix"
+        }
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "translations": {
+    "zh": {
+      "commonName": "长刺海马",
+      "productLayer": "阳光珊瑚礁里的珠宝",
+      "actualDepthRangeNote": "FishBase 记录为 0-82 米，并注明通常见于 15-40 米。OceanEye 的 20 米是策展式阳光礁相遇位置，不代表完整物种范围。",
+      "habitat": "浅水有遮蔽的礁区、藻丛、海草床、海绵、软珊瑚，以及礁区附近的软质底环境。",
+      "stageSummary": "红橙色的海马，长吻、卷尾、环状身体和细棘。一件有生命的珊瑚礁瑰宝。",
+      "summary": "“长刺海马（Hippocampus histrix）因覆盖全身的棘刺而得名，它有很长的吻部，两只眼睛可以彼此独立运动。和其他海马一样，雄性携带卵并产下幼体。” - Ocean.si.edu",
+      "lifeStrategy": [],
+      "vitals": {
+        "typicalDepth": "0-82 米",
+        "waterPressure": "约 0-8.2 atm",
+        "adultLength": "最长约 17 厘米"
+      },
+      "annotations": {
+        "thorny-spines": {
+          "title": "长刺",
+          "shortText": "",
+          "body": "“身体纤细、修长，并完全覆盖着棘刺。这些棘刺尖锐、末端颜色较暗，在可缠绕的尾部上大小均匀。躯干有较长的棘刺，并一直延续到冠部；冠部有 4-5 枚。头部也有许多棘刺，尤其分布在额部、颊部基部、鼻部和眼睛上方。吻部很长，并逐渐变细。” - Wiki"
+        },
+        "new-insight": {
+          "title": "雄性育儿袋",
+          "shortText": "",
+          "body": "“长刺海马是卵胎生动物，雌性会用产卵管把卵转移到雄性腹部下方封闭的育儿袋中。孵育卵的是雄性，卵在它腹面的育儿袋中发育。育儿袋含有富含毛细血管的绒毛，围绕每一枚受精卵，形成类似胎盘的结构，为胚胎供给物质。雄性在袋内使卵受精，并在胚胎发育期间提供物理保护。它还会调节渗透压、为胚胎通气，并可能提供一些营养，直到后代出生。幼体发育完成后，会从育儿袋中被排出，并完全独立生活。” - Wiki"
+        }
+      },
+      "conservation": {
+        "title": "动物保护",
+        "summary": "",
+        "body": "“长刺海马被 IUCN 列为 ’易危’。\n\n其种群被认为在过去 10-15 年下降超过 30%。它既会因传统医药和水族贸易而被定向捕捞，也会因虾类渔业兼捕而造成种群损失。本种常活动的近岸海草栖息地也在退化。和所有海马一样，它被列入《濒危野生动植物种国际贸易公约》，意味着其贸易必须受到控制，以确保物种能够存续。\n\n种群数量下降可能与国际贸易开发、兼捕和栖息地破坏有关。海草栖息地的主要威胁包括富营养化、沉积作用、海岸建设、疏浚和入侵物种；这些威胁会导致海草栖息地衰退和破碎化。即使不考虑该物种的贸易需求，它也常在非选择性渔业中作为兼捕出现，例如鱼类和虾类拖网。虾拖网是 Hippocampus histrix 面临的一个主要问题。\n\n该物种是 CITES 报告中六种最常见的国际贸易海马之一。然而，它的常用名也常被当作印度-太平洋任何带刺海马的标签，因此其中可能包含其他物种的个体。” - Wiki"
+      }
+    }
+  },
+  "provenance": {
+    "modelType": "ai-assisted-draft",
+    "generationProvider": "Hyper3D Rodin web UI",
+    "generationModel": "Rodin web model",
+    "prompt": "Public release candidate: AI-assisted static model generation from curated visual references, followed by human review and web normalization. See docs/AI_WORKFLOW.md and docs/PROVENANCE.md.",
+    "humanEdits": [
+      "Normalized model scale, orientation, and web framing for the OceanEye runtime.",
+      "Added or preserved annotation anchors and view metadata for static model inspection.",
+      "Retained public source links in the content record; private production logs are not part of this release candidate."
+    ],
+    "reviewStatus": "model-draft",
+    "reviewers": [],
+    "sourceDossier": "docs/PROVENANCE.md"
+  },
+  "stageSummary": "A red-orange reef seahorse with long snout, curled tail, ringed body, and fine spines. Make it feel like a living natural-history jewelry.",
+  "vitals": {
+    "adultLength": "17 cm max",
+    "typicalDepth": "0 m - 82 m",
+    "waterPressure": "0 - 8.2 atm"
+  },
+  "overviewLinks": [
+    {
+      "name": "Google Images",
+      "url": "https://www.google.com/search?tbm=isch&q=Hippocampus+histrix+longspine+seahorse"
+    },
+    {
+      "name": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Hippocampus_histrix"
+    },
+    {
+      "name": "FishBase",
+      "url": "https://www.fishbase.se/summary/5954"
+    },
+    {
+      "name": "Smithsonian Ocean",
+      "url": "https://ocean.si.edu/ocean-life/fish/longspine-seahorse"
+    }
+  ],
+  "conservation": {
+    "title": "Conservation",
+    "summary": "",
+    "body": "\"H. histrix is listed as vulnerable by the IUCN. Populations are thought to have declined by more than 30% over the last 10-15 years. It is subject both to targeted exploitation for use in traditional medicine and the aquarium trade, and to population losses from bycatch in the shrimp fishery. Inshore sea-grass habitats frequented by the species are also in decline. Like all seahorses, it is listed in the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES), meaning that it is on the list of species the trade of which must be controlled to ensure their survival. As most seahorses enter trade as bycatch, imposing export quotas would achieve next to nothing for wild populations.\n\nDecreases in population sizes are likely due to exploitation for international trade, and to bycatch and habitat destruction. Major threats to seagrass habitats include eutrophication, sedimentation, coastal construction, dredging and invasive species and these threats result in decline in and fragmentation of seagrass habitats. It is reasonable to expect that all of these threats will continue into the future. Even excluding the trade demand for this species, it is known to often be bycatch in non-selective fisheries, for example, fish and shrimp trawls which occurs throughout the range of the species and leads to the degradation of the habitat for those seahorses. Shrimp trawls are a major concern to the Hippocampus histrix species. Trade is supplied by catching the species directly but also as bycatch in other non-selective fisheries such as shrimp trawls. The trade of the thorny seahorses is reported throughout the range of the species. It had been reported in international trade since the mid 1990s and to this day fishers and traders report declines in seahorse availability.\n\nThe species is one of the six most common internationally traded species of seahorse that is reported to CITES. However, its common name is often used as a label for any spiny seahorse from the Indo-Pacific, which means it could contain specimens of other species as well. It is not often collected for the aquarium trade business because it lives in moderately deep waters, but may be used more often dried and sold for the medicine trade or as antiques/decoration. Its spines make it undesirable for the medicine trade.\" - Wiki",
+    "sourceUrls": [
+      {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Hippocampus_histrix"
+      }
+    ]
+  }
+}

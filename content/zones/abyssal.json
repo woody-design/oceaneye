@@ -1,0 +1,37 @@
+{
+  "id": "abyssal",
+  "title": "Abyssal Zone",
+  "mechanism": "Food becomes falling memory.",
+  "body": "“Marine snow is a shower of organic material falling from upper waters to the deep ocean. \n\nAs plants and animals near the surface of the ocean die and decay, they fall toward the seafloor, just like leaves and decaying material fall onto a forest floor. In addition to dead animals and plants, marine snow also includes fecal matter, sand, soot, and other inorganic dust.\n\nThe decaying material is referred to as “marine snow” because it looks a little bit like white fluffy bits. The “snowflakes” grow as they fall, some reaching several centimeters in diameter. Some flakes fall for weeks before finally reaching the ocean floor. This continuous rain of marine snow provides food for many deep-sea creatures. ” - NOAA\n\n“Earth’s vast oceans run deep, bottoming out around 4,000 meters (13,123 feet) in most places, although trenches can form underwater canyons extending another 7,000 meters (22,965 feet). The seafloor and water column from 3,000 to 6,500 meters (9,842 to 21,325 feet) depth is known as the abyssal zone, or the abyss. Sunlight doesn’t penetrate to these depths, so the waters here are extremely dark, and the animals that live here often use bioluminescence to communicate.\n\nThe seafloor itself consists of large plains broken by trenches, sea mounts, and oceanic ridges. These features are the result of geologic activity. Trenches occur where one tectonic plate is subducted under another. Ridges are areas where new oceanic crust is formed by volcanic activity and two plates are moving apart. Sea mounts, individual underwater volcanoes, form when a magma from a hot spot in the mantle below pushes its way up through the crust. Repeated eruptions build ever-taller undersea mountains. When these eruptions persist long enough, mounts continue to grow, extending beyond the abyss into shallower waters, even creating volcanic islands when they” - WHOI",
+  "backgroundMeaning": "Marine snow is the movement language here: a food chain descending, not a dark wallpaper.",
+  "quote": {
+    "text": "“If you gaze long into an abyss, the abyss also gazes into you.”",
+    "attribution": "Friedrich Nietzsche"
+  },
+  "sources": [
+    {
+      "name": "WHOI",
+      "url": "https://www.whoi.edu/ocean-learning-hub/ocean-topics/how-the-ocean-works/ocean-zones/abyssal-zone/"
+    },
+    {
+      "name": "NOAA",
+      "url": "https://oceanexplorer.noaa.gov/history/quotes-abyss/"
+    },
+    {
+      "name": "NOAA Marine Snow",
+      "url": "https://oceanservice.noaa.gov/facts/marinesnow.html"
+    }
+  ],
+  "translations": {
+    "zh": {
+      "title": "深渊层",
+      "mechanism": "食物变成坠落的记忆。",
+      "body": "“海雪是一场有机物质的降落，从上层水域落向深海。\n\n当海洋表层附近的植物和动物死亡并腐烂时，它们会向海底下沉，就像树叶和腐烂物落到森林地面上一样。除了死亡的动物和植物，海雪还包括粪便物质、沙粒、煤烟和其他无机尘埃。\n\n这些腐烂物质被称为‘海雪’，因为它看起来有点像白色蓬松的小块。‘雪花’在下落时会不断变大，有些直径可达数厘米。有些碎片要下落数周，最终才到达海底。海雪持续不断的降落，为许多深海生物提供食物。” - NOAA\n\n“地球广阔的海洋很深，大多数地方在约 4,000 米（13,123 英尺）处触底，不过海沟可以形成水下峡谷，再向下延伸 7,000 米（22,965 英尺）。3,000 至 6,500 米（9,842 至 21,325 英尺）深的海底和水柱被称为深渊层，或深渊。阳光无法穿透到这些深度，因此这里的水极其黑暗，生活在这里的动物常用生物发光进行交流。\n\n海底本身由大片平原组成，其间被海沟、海山和洋中脊打断。这些特征是地质活动的结果。海沟出现在一个构造板块俯冲到另一个板块之下的地方。洋中脊是火山活动形成新洋壳、两个板块彼此分离的区域。海山是单独的水下火山，当下方地幔热点的岩浆穿过地壳向上推进时形成。反复喷发会建起越来越高的海底山体。当这些喷发持续足够久，海山会继续生长，越过深渊进入较浅水域，甚至形成火山岛。” - WHOI",
+      "backgroundMeaning": "海雪是这一层的运动语言：不是黑色壁纸，而是一条正在下降的食物链。",
+      "quote": {
+        "text": "“If you gaze long into an abyss, the abyss also gazes into you.”",
+        "attribution": "Friedrich Nietzsche"
+      }
+    }
+  }
+}

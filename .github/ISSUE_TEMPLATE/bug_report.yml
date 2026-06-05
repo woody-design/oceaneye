@@ -1,0 +1,28 @@
+name: Bug report
+description: Report a runtime, browser, or interaction problem.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen?
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and device
+      placeholder: "Chrome 125 on macOS, Safari on iPhone, etc."
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Screenshots, console output, or reproduction steps.
+

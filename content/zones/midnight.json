@@ -1,0 +1,37 @@
+{
+  "id": "midnight",
+  "title": "Midnight Zone",
+  "mechanism": "Light becomes behavior.",
+  "body": "“Sunlight is rapidly absorbed as it travels through water. Red, orange, and yellow are absorbed quickly, leaving water a brilliant blue, but even these wavelengths disappear as light travels deeper. By about 1,000 meters (about 3,300 feet) depth, even the faintest light has been extinguished, leaving these deep ocean waters in perpetual darkness. The resulting bathypelagic, or midnight, zone extends to about 4,000 meters (about 13,100 feet), which reaches the ocean floor in many places.\n\nIn addition to the lack of light, the midnight zone is characterized by a steady temperature of around 4° Celsius (39° Fahrenheit). Life that exists in this zone must be able to function in cold temperatures and withstand extreme hydrostatic pressure. Pressure varies with depth, and in this zone it ranges from 100 to 400 atmospheres. Despite the extreme environment, organisms here must find food and mates and avoid predators, just as they do in any ecosystem, and they have special adaptations that allow them to do so. These include well developed visual systems, bioluminescence used both to lure prey and attract mates, and well-developed auditory systems that allow them to hear other animals moving nearby.” - WHOI",
+  "backgroundMeaning": "Any visible light should feel chosen by life, not cast from above.",
+  "quote": {
+    "text": "“Night is the natural state of the universe; it is in daytime that anomalies occur.”",
+    "attribution": "Jean-Paul Sartre"
+  },
+  "sources": [
+    {
+      "name": "WHOI",
+      "url": "https://www.whoi.edu/ocean-learning-hub/ocean-topics/how-the-ocean-works/ocean-zones/midnight-zone/"
+    },
+    {
+      "name": "NOAA light zones",
+      "url": "https://oceanservice.noaa.gov/facts/light_travel.html"
+    },
+    {
+      "name": "NOAA deep ocean",
+      "url": "https://oceanexplorer.noaa.gov/ocean-fact/deep-ocean/"
+    }
+  ],
+  "translations": {
+    "zh": {
+      "title": "午夜层",
+      "mechanism": "光变成行为。",
+      "body": "“阳光穿过水时会迅速被吸收。红、橙、黄很快被吸收，留下明亮的蓝色水体；但随着光继续向深处传播，即使这些波长也会消失。到约 1,000 米（约 3,300 英尺）深时，连最微弱的光也已经熄灭，使这些深海水域处在永久黑暗中。由此形成的深海层，或午夜层，延伸到约 4,000 米（约 13,100 英尺），在许多地方到达海底。\n\n除了缺少光，午夜层还以稳定在约 4°C（39°F）的温度为特征。生活在这一层的生命必须能在寒冷中运作，并承受极端静水压力。压力随深度变化，在这一层范围为 100 至 400 个大气压。尽管环境极端，这里的生物也必须像任何生态系统中的生命一样寻找食物和配偶、避开捕食者，并且拥有让它们做到这些的特殊适应。这些适应包括发达的视觉系统、既用于引诱猎物也用于吸引配偶的生物发光，以及能听见附近动物移动的发达听觉系统。” - WHOI",
+      "backgroundMeaning": "任何可见的光都应该像由生命选择出来，而不是从上方投射下来。",
+      "quote": {
+        "text": "“Night is the natural state of the universe; it is in daytime that anomalies occur.”",
+        "attribution": "Jean-Paul Sartre"
+      }
+    }
+  }
+}

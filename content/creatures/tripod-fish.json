@@ -1,0 +1,240 @@
+{
+  "id": "tripod-fish",
+  "commonName": "Tripod fish",
+  "scientificName": "Bathypterois grallator",
+  "zone": "abyssal",
+  "productLayer": "Deep benthic stillness",
+  "displayDepthMeters": 4500,
+  "actualDepthRangeMeters": {
+    "min": 878,
+    "max": 4720,
+    "source": "https://www.fishbase.se/summary/9136",
+    "note": "FishBase lists 878-4720 m for Bathypterois grallator. OceanEye's 4,500 m display depth is a curated abyssal benthic encounter, not the full species range."
+  },
+  "habitat": "It is a wide-ranging eurybathic and eurythermal fish found from 878 to 4,720 m (2,881 to 15,486 ft) in depth and in water temperatures ranging from 2.7 to 13.5 degrees Celsius. ",
+  "summary": "“The tripod fish, (also known as the tripod spiderfish), Bathypterois grallator, is a grinner in the family Ipnopidae found at lower latitudes. Because of its unique way of \"standing\" on the seafloor.” - Wiki",
+  "lifeStrategy": [],
+  "links": {
+    "wikipedia": "https://en.wikipedia.org/wiki/Tripod_fish",
+    "googleImages": "https://www.google.com/search?tbm=isch&q=Bathypterois+grallator+tripod+fish",
+    "primarySource": "https://www.fishbase.se/summary/9136"
+  },
+  "model": {
+    "type": "ai-assisted-draft",
+    "url": "/models/tripod-fish.glb",
+    "scale": 0.74,
+    "rotation": [
+      0,
+      0,
+      0
+    ],
+    "defaultCamera": [
+      2.7764,
+      1.6037,
+      -1.7055
+    ],
+    "viewTarget": [
+      0.6877,
+      -0.1856,
+      -0.0697
+    ],
+    "stagePosition": [
+      0.8,
+      -0.18,
+      0
+    ],
+    "entryView": {
+      "camera": [
+        3.7876,
+        1.591,
+        -1.2762
+      ],
+      "target": [
+        1.1759,
+        0.2213,
+        0.7444
+      ],
+      "stagePosition": [
+        0.8,
+        -0.18,
+        0
+      ],
+      "scale": 0.74
+    },
+    "viewPresets": {
+      "tripod-support-rays": {
+        "camera": [
+          3.2257,
+          0.4887,
+          -1.9245
+        ],
+        "target": [
+          0.7121,
+          -0.1653,
+          -0.0291
+        ],
+        "stagePosition": [
+          0.8,
+          -0.18,
+          0
+        ],
+        "scale": 0.74
+      },
+      "sensory-pectoral-fins": {
+        "camera": [
+          3.9763,
+          -0.1157,
+          -0.5053
+        ],
+        "target": [
+          0.7078,
+          -0.0931,
+          0.0789
+        ],
+        "stagePosition": [
+          0.8,
+          -0.18,
+          0
+        ],
+        "scale": 0.74
+      }
+    },
+    "placeholderKind": "tripod-fish",
+    "quality": {
+      "triangleCount": 159999,
+      "textureCount": 1,
+      "fileBytes": 7681236
+    }
+  },
+  "annotations": [
+    {
+      "id": "tripod-support-rays",
+      "title": "Tripod stance",
+      "anchor": [
+        0,
+        -0.46,
+        0
+      ],
+      "anchorSpace": "named-node",
+      "anchorNodeName": "OE_anchor_tripod-support-rays",
+      "shortText": "",
+      "body": "\"Most notably, it has greatly extended fin rays on the lower lobe of its caudal fin and both of its pelvic fins. When feeding, it is often seen standing on the seafloor using these extensions, in a distinctive \"tripod\" configuration that gives the species its name. These extensions have been observed to be flexible when swimming but stiff when resting, and it is suggested that fluids are pumped into these fins when the fish is standing to make them more rigid. These fin modifications contain no sensory cells and they likely have no further purpose other than supporting the fish as it stands.\n\nB. grallator is a subcarangiform swimmer, using a combination of its fins, tail, and body to move. Because its adaptations are almost entirely tailored to sitting still, B. grallator's movements are exaggerated and inefficient, and it is an overall poor swimmer. Its style of locomotion alternates between swimming and resting on the seafloor using its fins, using a unique bathypteroiform style of movement that is unique to the genus. When swimming, its pectoral, dorsal, and anal fins are held directly away from the body and are used for stabilization, while its elongated pelvic fins are held directly downward and perpendicular to its body.\n\nWhen it descends to the seafloor, the tripod fish lifts its caudal fin extension horizontally behind it before touching down on the substrate, and lands on its pelvic fins first. Afterwards, it lowers its caudal fin, which possibly allows the fish to adjust its orientation and body angle relative to the water column. Like other tripod fish, it uses muscle tension on its tendon to move the fin rays, however, independent movement of the caudal fin ray has only been observed in B. grallator. \" - Wiki",
+      "sourceUrls": [
+        {
+          "name": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Bathypterois_grallator"
+        }
+      ],
+      "confidence": "medium-high"
+    },
+    {
+      "id": "sensory-pectoral-fins",
+      "title": "Sensing the current",
+      "anchor": [
+        -0.34,
+        0.06,
+        0.34
+      ],
+      "anchorSpace": "named-node",
+      "anchorNodeName": "OE_anchor_sensory-pectoral-fins",
+      "shortText": "",
+      "body": "\"Like most members of class Ipnopidae, B. grallator has extremely poor eyesight and no special visual adaptations to help it find food in low-light environments. Instead, it uses tactile and mechanosensory cues to identify prey. While feeding, the tripod fish stands motionless on its pelvic and tail fins and faces into the current. The ends of B. grallator's pectoral fins are receptive to sensory input and can both feel for prey and direct water into the fish's mouth. In early stages in life, it is primarily a filter feeder, however, as it grows larger, it can also exhibit ambush hunting behavior. B. grallator is extremely well suited to sit-and-wait feeding, and spends much of its life sitting as it waits for prey to drift by.\n\nB. grallator's diet consists mostly of zooplankton and small animals in the water column, and it undergoes an ontogenetic shift as it grows larger. Specimens below 200mm in length are mostly recorded eating small invertebrates such as copepods, amphipods, and crustacean larvae, while larger fish also eat mysids. Above 240mm, the tripod fish's diet consists mostly of teleosts and decapods by weight, with approximately 78.7% of their diet consisting of teleosts. Due to its height, B. grallator has also been hypothesized to feed on larger gelatinous prey that floats higher in the water column. \" - Wiki",
+      "sourceUrls": [
+        {
+          "name": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Bathypterois_grallator"
+        }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "new-insight",
+      "title": "Hermaphrodites",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "shortText": "",
+      "body": "\"Tripod fish are simultaneous hermaphrodites, where each individual has both male and female reproductive organs. Specifically, the fish has both female and male reproductive tissues through from ovotestes. It mates by releasing both sperm and eggs into the water, which can be externally fertilized by another B. grallator. In the event one fish cannot find a mate, it can also self-fertilize, which increases the likelihood of reproduction in the sparsely populated abyssal plain. \" - Wiki",
+      "sourceUrls": [
+        {
+          "name": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Bathypterois_grallator"
+        }
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "translations": {
+    "zh": {
+      "commonName": "三脚鱼",
+      "productLayer": "深海海底的静默猎手",
+      "actualDepthRangeNote": "FishBase 记录 Bathypterois grallator 的深度范围为 878-4720 米。OceanEye 的 4,500 米是策展式深渊底栖相遇点，不代表完整物种范围。",
+      "habitat": "深海底栖环境，包括大陆坡下部、大陆隆、洋脊和深海平原。",
+      "stageSummary": "用细长鳍条‘站’在深海沉积物上方，拥有发达触觉，雌雄同体。",
+      "summary": "“三脚鱼（也称 tripod spiderfish），Bathypterois grallator，是 Ipnopidae 科的一种 grinner，分布于较低纬度地区。它因独特的在海底‘站立’方式而得名。” - Wiki",
+      "lifeStrategy": [],
+      "vitals": {
+        "typicalDepth": "878-4720 米",
+        "waterPressure": "约 87.8-472 atm",
+        "adultLength": "约 30-43.4 厘米"
+      },
+      "annotations": {
+        "tripod-support-rays": {
+          "title": "三脚架站姿",
+          "shortText": "",
+          "body": "“三角鱼在尾鳍下叶以及两侧腹鳍上有极度延长的鳍条。取食时，人们常看到它利用这些延伸结构站在海底，形成一种独特的‘三脚架’构型，也由此得名。这些延伸结构游泳时柔韧，休息时僵硬；有人提出，当鱼站立时，流体会被泵入这些鳍，使其更坚硬。这些鳍的改造部分没有感觉细胞，除支撑鱼体站立外，很可能没有进一步用途。” - Wiki"
+        },
+        "sensory-pectoral-fins": {
+          "title": "感知水流",
+          "shortText": "",
+          "body": "“和 Ipnopidae 科多数成员一样，B. grallator 视力极差，也没有特殊视觉适应用于在弱光环境中寻找食物。相反，它使用触觉和机械感觉线索识别猎物。取食时，三脚鱼会一动不动地站在腹鳍和尾鳍上，并面向水流。B. grallator 胸鳍末端能接收感觉输入，既可以感知猎物，也可以把水导入鱼口。” - Wiki"
+        },
+        "new-insight": {
+          "title": "雌雄同体",
+          "shortText": "",
+          "body": "“三脚鱼是同时雌雄同体，每个个体同时具有雄性和雌性生殖器官。具体来说，它通过卵精巢同时具有雌性和雄性生殖组织。它通过向水中释放精子和卵进行交配，随后可由另一条 B. grallator 在体外受精。如果一条鱼找不到配偶，也可以自体受精，这提高了在个体稀少的深渊层中繁殖的可能性。” - Wiki"
+        }
+      }
+    }
+  },
+  "provenance": {
+    "modelType": "ai-assisted-draft",
+    "generationProvider": "Hyper3D Rodin web UI",
+    "generationModel": "Rodin Gen-2",
+    "prompt": "Public release candidate: AI-assisted static model generation from curated visual references, followed by human review and web normalization. See docs/AI_WORKFLOW.md and docs/PROVENANCE.md.",
+    "humanEdits": [
+      "Normalized model scale, orientation, and web framing for the OceanEye runtime.",
+      "Added or preserved annotation anchors and view metadata for static model inspection.",
+      "Retained public source links in the content record; private production logs are not part of this release candidate."
+    ],
+    "reviewStatus": "model-draft",
+    "reviewers": [],
+    "sourceDossier": "docs/PROVENANCE.md"
+  },
+  "stageSummary": "A deep-sea fish that makes stillness visible, resting above the sediment on long fin rays while it senses the current.",
+  "overviewLinks": [
+    {
+      "name": "Google Images",
+      "url": "https://www.google.com/search?tbm=isch&q=Bathypterois+grallator+tripod+fish"
+    },
+    {
+      "name": "NOAA",
+      "url": "https://oceanexplorer.noaa.gov/okeanos/explorations/ex1903/dailyupdates/june29/june29.html"
+    },
+    {
+      "name": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Bathypterois_grallator"
+    },
+    {
+      "name": "FishBase",
+      "url": "https://www.fishbase.se/summary/9136"
+    }
+  ],
+  "vitals": {
+    "typicalDepth": "878 m - 4720 m",
+    "waterPressure": "87.8 - 472 atm",
+    "adultLength": "30 cm - 43.4 cm"
+  }
+}

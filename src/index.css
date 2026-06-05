@@ -1,0 +1,152 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "OceanEye SF Pro";
+  src:
+    local("SF Pro Text"),
+    local("SF Pro Display"),
+    local("SF Pro");
+}
+
+@font-face {
+  font-family: "OceanEye SF Pro Rounded";
+  src:
+    local("SF Pro Rounded"),
+    local("SF Pro Rounded Regular");
+}
+
+html {
+  --oe-font-ui:
+    "OceanEye SF Pro", "SF Pro", -apple-system, BlinkMacSystemFont, "PingFang SC",
+    "Hiragino Sans GB", "Segoe UI", sans-serif;
+  --oe-font-title:
+    "OceanEye SF Pro Rounded", "SF Pro Rounded", var(--oe-font-ui);
+
+  --oe-space-1: 4px;
+  --oe-space-2: 8px;
+  --oe-space-3: 12px;
+  --oe-space-4: 16px;
+  --oe-space-5: 20px;
+  --oe-space-6: 24px;
+  --oe-space-8: 32px;
+  --oe-space-10: 40px;
+
+  --oe-type-caption-1-size: 0.75rem;      /* 12px */
+  --oe-type-caption-1-line: 1rem;         /* 16px */
+  --oe-type-footnote-size: 0.8125rem;     /* 13px */
+  --oe-type-footnote-line: 1.125rem;      /* 18px */
+  --oe-type-footnote-tight-line: 1rem;    /* 16px */
+  --oe-type-body-size: 0.9375rem;         /* 15px */
+  --oe-type-body-line: 1.25rem;           /* 20px */
+  --oe-type-card-title-size: 1rem;        /* 16px */
+  --oe-type-card-title-line: 1.3125rem;   /* 21px */
+  --oe-type-subheadline-size: 0.9375rem;  /* 15px */
+  --oe-type-subheadline-line: 1.25rem;    /* 20px */
+  --oe-type-subheadline-tight-line: 1.125rem; /* 18px */
+  --oe-type-callout-size: 1rem;           /* 16px */
+  --oe-type-callout-line: 1.3125rem;      /* 21px */
+  --oe-type-rail-reading-line: 1.4375rem; /* 23px */
+  --oe-type-stage-title-size: 2.5rem;     /* 40px */
+  --oe-type-stage-title-mobile-size: 1.75rem; /* 28px */
+  --oe-type-stage-title-line: 2.75rem;    /* 44px */
+  --oe-type-stage-copy-line: 1.5625rem;   /* 25px */
+
+  --oe-weight-regular: 400;
+  --oe-weight-medium: 500;
+  --oe-weight-semibold: 600;
+  --oe-weight-bold: 700;
+  --oe-weight-heavy: 800;
+
+  --oe-text-primary: #fff;
+  --oe-text-body: #fff;
+  --oe-text-secondary: #fff;
+  --oe-text-tertiary: #fff;
+  --oe-text-muted: #fff;
+  --oe-text-page: #fff;
+  --oe-text-inverse: #001018;
+
+  --oe-bg-page: #02070d;
+  --oe-selection-bg: #baf7ff;
+  --oe-surface-rail: rgba(1, 10, 18, 0.26);
+  --oe-surface-rail-strong: rgba(1, 10, 18, 0.36);
+  --oe-surface-stage-tint: rgba(1, 10, 18, 0.12);
+  --oe-control-bg: rgba(255, 255, 255, 0.08);
+  --oe-control-bg-hover: rgba(255, 255, 255, 0.12);
+  --oe-control-bg-active: rgba(255, 255, 255, 0.16);
+  --oe-control-bg-quiet: rgba(255, 255, 255, 0.07);
+  --oe-label-bg: transparent;
+  --oe-label-border: rgba(255, 255, 255, 0.08);
+  --oe-toggle-bg: rgba(0, 0, 0, 0.18);
+
+  --oe-border-subtle: rgba(238, 250, 255, 0.12);
+  --oe-border-default: rgba(238, 250, 255, 0.16);
+  --oe-border-control: rgba(255, 255, 255, 0.14);
+  --oe-border-control-strong: rgba(255, 255, 255, 0.18);
+  --oe-border-hover: rgba(255, 255, 255, 0.3);
+  --oe-border-focus: rgba(238, 250, 255, 0.34);
+  --oe-light-line: rgba(255, 255, 255, 0.7);
+  --oe-light-faint: rgba(255, 255, 255, 0.04);
+
+  --oe-radius-panel: 12px;
+  --oe-radius-card: 12px;
+  --oe-radius-label: 24px;
+  --oe-radius-control: 24px;
+  --oe-radius-toggle: 12px;
+  --oe-radius-round: 999px;
+
+  --oe-blur-panel: blur(18px);
+  --oe-blur-control: blur(14px);
+  --oe-shadow-rail: 0 20px 70px rgba(0, 0, 0, 0.18);
+  --oe-shadow-control: 0 12px 34px rgba(0, 0, 0, 0.14);
+  --oe-shadow-control-hover: 0 14px 34px rgba(0, 0, 0, 0.22);
+  --oe-shadow-text: 0 18px 48px rgba(0, 0, 0, 0.36);
+  --oe-highlight-subtle: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --oe-highlight-control: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  --oe-highlight-strong: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+  --oe-duration-fast: 120ms;
+  --oe-duration-base: 180ms;
+  --oe-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --oe-transition-control:
+    color var(--oe-duration-fast) var(--oe-ease-standard),
+    background var(--oe-duration-fast) var(--oe-ease-standard),
+    border-color var(--oe-duration-fast) var(--oe-ease-standard),
+    box-shadow var(--oe-duration-base) var(--oe-ease-standard),
+    transform var(--oe-duration-base) var(--oe-ease-standard);
+
+  color-scheme: dark;
+  font-family: var(--oe-font-ui);
+  background: var(--oe-bg-page);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--oe-text-primary);
+  outline-offset: 3px;
+}
+
+::selection {
+  color: var(--oe-text-inverse);
+  background: var(--oe-selection-bg);
+}

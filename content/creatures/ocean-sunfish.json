@@ -1,0 +1,254 @@
+{
+  "id": "ocean-sunfish",
+  "commonName": "Ocean sunfish",
+  "scientificName": "Mola mola",
+  "zone": "twilight",
+  "productLayer": "Open-ocean monument",
+  "displayDepthMeters": 200,
+  "actualDepthRangeMeters": {
+    "min": 30,
+    "max": 1515,
+    "source": "https://www.fishbase.org/Summary/Mola-mola",
+    "note": "FishBase lists 30-1515 m and notes the species is usually found from 30-70 m. OceanEye's 200 m display depth is a curated twilight-threshold open-ocean encounter, not the full species range."
+  },
+  "habitat": "Ocean sunfish are native to the temperate and tropical waters of every ocean in the world.",
+  "summary": "“The ocean sunfish (Mola mola) looks like the invention of a mad scientist. This peculiar silvery-gray fish is laterally compressed, meaning they look like they’ve been squished flat from the side. Their tiny mouths and big eyes vanish into even bigger bodies with small, truncated tails. Though their appearance suggests ocean sunfish weren’t built for life in the fast lane, their impressive distribution throughout the world’s ocean proves that ocean sunfish can hold their own against faster and flashier fishes! ” - Monterey bay aquarium",
+  "lifeStrategy": [],
+  "links": {
+    "wikipedia": "https://en.wikipedia.org/wiki/Ocean_sunfish",
+    "googleImages": "https://www.google.com/search?tbm=isch&q=Mola+mola+ocean+sunfish",
+    "primarySource": "https://www.fishbase.org/Summary/Mola-mola"
+  },
+  "model": {
+    "type": "ai-assisted-draft",
+    "url": "/models/ocean-sunfish.glb",
+    "scale": 0.68,
+    "rotation": [
+      0,
+      0,
+      0
+    ],
+    "defaultCamera": [
+      0.7066,
+      -0.4068,
+      3.2305
+    ],
+    "viewTarget": [
+      0.7518,
+      -0.2377,
+      0.0353
+    ],
+    "stagePosition": [
+      0.8,
+      -0.18,
+      0
+    ],
+    "entryView": {
+      "camera": [
+        -0.7622,
+        -0.3363,
+        3.2134
+      ],
+      "target": [
+        -0.717,
+        -0.1691,
+        0.0181
+      ],
+      "stagePosition": [
+        0.8,
+        -0.18,
+        0
+      ],
+      "scale": 0.68
+    },
+    "viewPresets": {
+      "new-insight": {
+        "camera": [
+          -1.3883,
+          -0.4951,
+          4.7645
+        ],
+        "target": [
+          0.7518,
+          -0.2377,
+          0.0353
+        ],
+        "stagePosition": [
+          0.8,
+          -0.18,
+          0
+        ],
+        "scale": 0.68
+      },
+      "new-insight-2": {
+        "camera": [
+          -0.8808,
+          0.0092,
+          2.7166
+        ],
+        "target": [
+          0.7999,
+          -0.1802,
+          0.0001
+        ],
+        "stagePosition": [
+          0.8,
+          -0.18,
+          0
+        ],
+        "scale": 0.68
+      },
+      "new-insight-3": {
+        "camera": [
+          -0.6732,
+          -0.456,
+          2.8273
+        ],
+        "target": [
+          0.8,
+          -0.18,
+          0
+        ],
+        "stagePosition": [
+          0.8,
+          -0.18,
+          0
+        ],
+        "scale": 0.68
+      }
+    },
+    "placeholderKind": "ocean-sunfish",
+    "quality": {
+      "triangleCount": 119999,
+      "textureCount": 1,
+      "fileBytes": 4981836
+    }
+  },
+  "annotations": [
+    {
+      "id": "new-insight",
+      "title": "Sunfish & Moonfish",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "shortText": "",
+      "body": "\"Its common English name, sunfish, refers to the animal's habit of sunbathing at the surface of the sea. Its common names in Catalan, Dutch, French, German, Greek, Hungarian, Italian, Norwegian, Portuguese, Russian, Spanish, and Ukrainian (peix lluna, maanvis, Poisson lune, Mondfisch, φεγγαρόψαρο, holdhal, Pesce luna, månefisk, peixe lua, рыба-луна, pez luna, and риба-місяць, respectively) mean \"moon fish\", in reference to its rounded shape. In German, the fish is also known as Schwimmender Kopf, or \"swimming head\". In Polish, it is named samogłów, meaning \"head alone\" or \"only head\", because it has no true tail. In Swedish and Danish it is known as klumpfisk, in Dutch klompvis, in Finnish möhkäkala, all of which mean \"lump fish\". The Chinese translation of its academic name is 翻車魚; fān chē yú, meaning \"overturned car fish\". Many of the sunfish's various names allude to its flattened shape.\" - Wiki",
+      "sourceUrls": [
+        {
+          "name": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ocean_sunfish"
+        }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "new-insight-2",
+      "title": "Extreme size growth",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "shortText": "",
+      "body": "\"Newly hatched sunfish larvae are only 2.5 mm (3⁄32 in) long and weigh less than one gram. They develop into fry that resemble miniature pufferfish, their close relatives. Sunfish fry do not have the large pectoral fins and tail fin of their adult forms, but they have body spines uncharacteristic of adult sunfish, which disappear as they grow. Young sunfish school for protection, but this behavior is abandoned as they grow. The fry that survive can grow up to 60 million times their original weight before reaching adult proportions, arguably the most extreme size growth of any vertebrate animal\" - Wiki",
+      "sourceUrls": [
+        {
+          "name": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ocean_sunfish"
+        }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "new-insight-3",
+      "title": "Gentle giants friend",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "shortText": "",
+      "body": "\"Despite their size, ocean sunfish are docile and pose no threat to human divers. Injuries from sunfish are rare, although a slight danger exists from large sunfish leaping out of the water onto boats. \"\n\n\"Sunfish in aquariums show affection and curiosity towards visitors. A sunfish kept in an aquarium in Kaikoyan became stressed and refused to eat after the aquarium closed for renovations and owners suspected that it was suffering from digestive issues or from parasites. However, the sunfish was unhappy that visitors were no longer coming and after the staff placed cardboard cutouts the sunfish recovered and began displaying “happy” behaviors such as waving its fins.\" - Wiki",
+      "sourceUrls": [
+        {
+          "name": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ocean_sunfish"
+        }
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "translations": {
+    "zh": {
+      "commonName": "翻车鲀",
+      "productLayer": "海洋中的巨像",
+      "actualDepthRangeNote": "FishBase 记录为 30-1515 米，并注明通常见于 30-70 米。OceanEye 的 200 米是策展式暮光阈值开放海洋相遇点，不代表完整物种范围。",
+      "habitat": "热带与温带海域的远洋开放水体，常近表层，也会进行更深的垂直移动。",
+      "stageSummary": "巨大、温和的巨像，在不同文化里有着截然不同的名字。",
+      "summary": "“翻车鲀（Mola mola）看起来像一个疯狂科学家的发明。这种奇特的银灰色鱼身体侧扁，也就是说，它们看起来像是从侧面被压扁了。它们小小的嘴和大眼睛消失在更大的身体里，尾部短小而截平。虽然外表让人觉得翻车鲀并不是为了高速生活而生，但它们在全球海洋中的广泛分布证明，翻车鲀完全能在那些更快、更耀眼的鱼类竞争中站稳脚跟！” - Monterey Bay Aquarium",
+      "lifeStrategy": [],
+      "vitals": {
+        "typicalDepth": "30-1515 米",
+        "waterPressure": "约 3-151.5 atm",
+        "adultLength": "最长约 180 厘米",
+        "adultWeight": "约 545-2205 磅"
+      },
+      "annotations": {
+        "new-insight": {
+          "title": "太阳鱼与月亮鱼",
+          "shortText": "",
+          "body": "“它的英文俗名 ‘太阳鱼’，指的是这种动物会在海面晒太阳的习性。它在加泰罗尼亚语、荷兰语、法语、德语、希腊语、匈牙利语、意大利语、挪威语、葡萄牙语、俄语、西班牙语和乌克兰语中的俗名（peix lluna、maanvis、Poisson lune、Mondfisch、φεγγαρόψαρο、holdhal、Pesce luna、månefisk、peixe lua、рыба-луна、pez luna 和 риба-місяць）意思都是‘月亮鱼’，指向它圆形的身体。在德语中，这种鱼也被称为 Schwimmender Kopf，即‘游泳的头’。在波兰语中，它叫 samogłów，意思是‘只有头’，因为它没有真正的尾巴。瑞典语和丹麦语称它为 klumpfisk，荷兰语为 klompvis，芬兰语为 möhkäkala，意思都接近‘块状鱼’。其学名的中文翻译是翻車魚，意为‘翻倒的车鱼’。翻车鲀的许多名字都指向它扁平的形状。” - Wiki"
+        },
+        "new-insight-2": {
+          "title": "生长率爆棚",
+          "shortText": "",
+          "body": "“刚孵化的翻车鲀幼体只有 2.5 毫米（3/32 英寸）长，体重不到 1 克。它们会发育成类似微型河鲀的幼鱼；河鲀是它们的近亲。翻车鲀幼鱼没有成体的大胸鳍和尾鳍，却有成体翻车鲀没有的身体棘刺，这些棘刺会在成长过程中消失。幼年翻车鲀会成群以获得保护，但长大后会放弃这种行为。能够存活下来的幼鱼，在达到成体比例前，体重可以增长到原来的 6000 万倍，这可以说是所有脊椎动物中最极端的体型增长。” - Wiki"
+        },
+        "new-insight-3": {
+          "title": "温和的巨物",
+          "shortText": "",
+          "body": "“尽管体型巨大，翻车鲀性情温和，对人类潜水者没有威胁。翻车鲀造成伤害很少见，不过大型翻车鲀跃出水面落到船上时，仍存在轻微危险。\n\n水族馆中的翻车鲀会对游客表现出亲近和好奇。日本 Kaikyokan 水族馆的一条翻车鲀，在水族馆因整修关闭后变得焦虑并拒绝进食；饲养者一度怀疑它有消化问题或寄生虫。然而，拒绝进食好像是因为不开心 - 游客不再来了。当工作人员放置人形纸板后，它恢复了进食，并开始表现出‘开心’行为，例如挥动鱼鳍。” - Wiki"
+        }
+      },
+      "conservation": {
+        "title": "动物保护",
+        "summary": "",
+        "body": "“Mola mola 被国际自然保护联盟（IUCN）列为‘易危’。\n\n由于翻车鲀会花大量时间在海面附近漂浮，它们容易受到使用流刺网的渔船影响。刺网通常不会立即杀死翻车鲀。它们会割入皮肤，刮掉保护性黏液，并让空气灌入鳃部。\n\n翻车鲀面临的另一个危险是被丢弃的塑料袋。当这些塑料袋进入海洋后，会漂浮在表层，看起来很像水母——而水母是大型翻车鲀最喜欢的食物。如果塑料袋没有立刻使翻车鲀窒息，也可能堵住鱼的胃，让它慢慢饿死。你可以通过自带可重复使用的购物袋、并确保正确处理使用过的塑料袋，来帮助翻车鲀。” - Monterey Bay Aquarium"
+      }
+    }
+  },
+  "provenance": {
+    "modelType": "ai-assisted-draft",
+    "generationProvider": "Hyper3D Rodin web UI",
+    "generationModel": "Rodin web generation",
+    "prompt": "Public release candidate: AI-assisted static model generation from curated visual references, followed by human review and web normalization. See docs/AI_WORKFLOW.md and docs/PROVENANCE.md.",
+    "humanEdits": [
+      "Normalized model scale, orientation, and web framing for the OceanEye runtime.",
+      "Added or preserved annotation anchors and view metadata for static model inspection.",
+      "Retained public source links in the content record; private production logs are not part of this release candidate."
+    ],
+    "reviewStatus": "model-draft",
+    "reviewers": [],
+    "sourceDossier": "docs/PROVENANCE.md"
+  },
+  "stageSummary": "Looks like the invention of a mad scientist. Their tiny mouths and big eyes vanish into even bigger bodies with small, truncated tails. ",
+  "vitals": {
+    "typicalDepth": "30 m - 1515 m",
+    "waterPressure": "3 - 151.5 atm",
+    "adultWeight": "545 - 2,205 lb",
+    "adultLength": "Up to 180 cm"
+  },
+  "conservation": {
+    "title": "Conservation",
+    "summary": "",
+    "body": "\"The mola mola is listed as “vulnerable” by the International Union for the Conservation of Nature and Natural Resources (IUCN).\n\nBecause molas spend so much time drifting near the ocean surface, they’re vulnerable to fishing boats that use drift gillnets. Gillnets usually don't kill molas immediately. They cut into their skin, scrape off their protective mucus, and flood their gills with air.\n\nAnother hazard to the mola are discarded plastic bags. When these wind up in the ocean, they float at the surface looking a lot like jellies—a large ocean sunfish's favorite meal. If a plastic bag doesn't immediately choke the ocean sunfish, it can slowly starve them by clogging the fish's stomach. You can help ocean sunfish by bringing your own reusable shopping bags to the store— and making sure any plastic bags you use are properly disposed of.\" - Monterey bay aquarium",
+    "sourceUrls": [
+      {
+        "name": "Monterey Bay Aquarium",
+        "url": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/ocean-sunfish"
+      }
+    ]
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "id": "giant-manta-ray",
+  "commonName": "Giant manta ray",
+  "scientificName": "Mobula birostris",
+  "zone": "sunlight",
+  "productLayer": "Blue-water crossing",
+  "displayDepthMeters": 120,
+  "actualDepthRangeMeters": {
+    "min": 0,
+    "max": 1000,
+    "source": "https://www.fishbase.se/summary/2061",
+    "note": "FishBase lists 0-1000 m for Mobula birostris. OceanEye's 120 m display depth remains a curated blue-water encounter, not a claim of usual depth."
+  },
+  "habitat": "Typically found in tropical and subtropical waters but can also be found in temperate waters.",
+  "summary": "\"The giant manta ray is the world’s largest ray with a wingspan of up to 26 feet. They are filter feeders and eat large quantities of zooplankton. Giant manta rays are slow-growing, migratory animals with small, highly fragmented populations that are sparsely distributed across the world.\" - NOAA",
+  "lifeStrategy": [],
+  "conservation": {
+    "title": "Conservation",
+    "summary": "",
+    "body": "\"Overfishing and Bycatch\nThe most significant threat to the giant manta ray is overutilization for commercial purposes. Giant manta rays are both targeted and caught as bycatch in a number of global fisheries throughout their range, and are most susceptible to artisanal/small-scale fisheries and commercial fisheries, particularly purse seines, gill nets, longlines, and trawls.\n\nEfforts to address overutilization of the species through current regulatory measures are inadequate, as targeted fishing and illegal retainment of the species still occurs despite prohibitions in a significant portion of the species’ range. Also, measures to address and minimize bycatch of the species in commercial fisheries are rare.\n\nHarvest for International Trade\nDemand for the gill plates of manta and other mobula rays has risen dramatically in Asian markets. With this expansion of the international gill plate market and increasing demand for manta ray products, estimated harvest of giant manta rays, particularly in many portions of the Indo-Pacific and Eastern Pacific, has led to massive declines in manta ray populations and fishery collapse. \n\nOther potential threats that should be monitored include entanglement, vessel strikes, marine debris/pollution, climate change, recreational fishing interactions, tourism, and the aquarium trade.\" - NOAA",
+    "sourceUrls": [
+      {
+        "name": "NOAA",
+        "url": "https://www.fisheries.noaa.gov/species/giant-manta-ray"
+      }
+    ]
+  },
+  "links": {
+    "wikipedia": "https://en.wikipedia.org/wiki/Giant_oceanic_manta_ray",
+    "googleImages": "https://www.google.com/search?tbm=isch&q=Mobula+birostris+giant+manta+ray",
+    "primarySource": "https://www.fisheries.noaa.gov/species/giant-manta-ray"
+  },
+  "model": {
+    "type": "ai-assisted-draft",
+    "url": "/models/giant-manta-ray.glb",
+    "scale": 0.82,
+    "rotation": [
+      0,
+      0,
+      0
+    ],
+    "defaultCamera": [
+      1.168,
+      2.9683,
+      0.0433
+    ],
+    "viewTarget": [
+      0.9612,
+      -0.2174,
+      0.2632
+    ],
+    "stagePosition": [
+      0.8,
+      -0.25,
+      0
+    ],
+    "entryView": {
+      "camera": [
+        0.9966,
+        3.0827,
+        0.7896
+      ],
+      "target": [
+        0.9497,
+        -0.1164,
+        0.847
+      ],
+      "stagePosition": [
+        0.8,
+        -0.25,
+        0
+      ],
+      "scale": 0.82
+    },
+    "viewPresets": {
+      "feeding-fins": {
+        "camera": [
+          3.0364,
+          1.7649,
+          2.0299
+        ],
+        "target": [
+          1.0243,
+          -0.114,
+          0.3984
+        ],
+        "stagePosition": [
+          0.8,
+          -0.25,
+          0
+        ],
+        "scale": 0.82
+      },
+      "filter-mouth": {
+        "camera": [
+          0.6386,
+          -0.157,
+          3.4513
+        ],
+        "target": [
+          0.8024,
+          -0.3446,
+          0.261
+        ],
+        "stagePosition": [
+          0.8,
+          -0.25,
+          0
+        ],
+        "scale": 0.82
+      },
+      "living-wing": {
+        "camera": [
+          1.0243,
+          -3.314,
+          0.3984
+        ],
+        "target": [
+          1.0243,
+          -0.114,
+          0.3984
+        ],
+        "stagePosition": [
+          0.8,
+          -0.25,
+          0
+        ],
+        "scale": 0.82
+      },
+      "new-insight": {
+        "camera": [
+          2.9054,
+          2.1455,
+          1.1958
+        ],
+        "target": [
+          0.9602,
+          -0.2175,
+          0.2617
+        ],
+        "stagePosition": [
+          0.8,
+          -0.25,
+          0
+        ],
+        "scale": 0.82
+      }
+    },
+    "placeholderKind": "manta",
+    "quality": {
+      "triangleCount": 120000,
+      "textureCount": 1,
+      "fileBytes": 5451720
+    }
+  },
+  "annotations": [
+    {
+      "id": "new-insight",
+      "title": "Largest brain of any fish",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "shortText": "",
+      "body": "\"The oceanic manta has the largest brain of any fish, weighing up to 200 g (7.1 oz) (five to ten times larger than a whale shark brain.) Their brains are surrounded by a network of blood vessels, the rete mirabile, which warms the blood flowing to the brain, and they are one of the few animals (land or sea) that might pass the mirror test, seemingly exhibiting self-awareness.\" - Wiki",
+      "sourceUrls": [
+        {
+          "name": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Giant_oceanic_manta_ray"
+        }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "filter-mouth",
+      "title": "Open-water filter",
+      "anchor": [
+        0,
+        -0.08,
+        0.92
+      ],
+      "shortText": "",
+      "body": "\"Manta rays are recognized by their large diamond-shaped body with elongated wing-like pectoral fins, ventrally-placed gill slits, laterally-placed eyes, and wide, terminal mouths. In front of the mouth, they have two structures called cephalic lobes which extend and help to channel water into the mouth for feeding activities (making them the only vertebrate animals with three paired appendages).\" - NOAA\n\n\"At the front, it has a pair of cephalic fins, which are forward extensions of the pectoral fins. These can be rolled up in a spiral for swimming or can be flared out to channel water into the large, forward-pointing, rectangular mouth when the animal is feeding.\" - Wiki",
+      "sourceUrls": [
+        {
+          "name": "NOAA",
+          "url": "https://www.fisheries.noaa.gov/species/giant-manta-ray"
+        },
+        {
+          "name": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Giant_oceanic_manta_ray"
+        }
+      ],
+      "confidence": "high"
+    }
+  ],
+  "translations": {
+    "zh": {
+      "commonName": "巨型蝠鲼",
+      "productLayer": "遨游在蓝水之中",
+      "actualDepthRangeNote": "FishBase 记录巨型蝠鲼 Mobula birostris 的深度范围为 0-1000 米。OceanEye 的 120 米展示深度仍是策展式蓝水相遇点，不代表通常深度。",
+      "habitat": "热带与亚热带开放水域，也会出现在珊瑚礁附近的清洁站和觅食区域。",
+      "stageSummary": "硕大的滤食者，巨形的身姿在开放海洋中缓慢、优雅的滑行。",
+      "summary": "“巨型蝠鲼是世界上最大的鳐类，翼展可达8米（26 英尺）。它们是滤食动物，会大量摄食浮游动物。巨型蝠鲼生长缓慢、会迁徙，种群规模小且高度破碎，并在全球范围内稀疏分布。” - NOAA",
+      "lifeStrategy": [],
+      "vitals": {
+        "typicalDepth": "0-1000 米",
+        "waterPressure": "约 0-100 atm",
+        "adultLength": "约 4-9 米",
+        "adultWeight": "最高约 6600 磅"
+      },
+      "conservation": {
+        "title": "动物保护",
+        "summary": "",
+        "body": "“过度捕捞与兼捕\n\n巨型蝠鲼面临的最重大威胁，是商业用途导致的过度利用。巨型蝠鲼在其分布范围内的多种全球渔业中，既会被定向捕捞，也会作为兼捕被捕获；它们尤其容易受到手工/小规模渔业和商业渔业影响，特别是围网、刺网、延绳钓和拖网。\n\n通过现有监管措施解决该物种过度利用的努力仍不充分；尽管在其相当一部分分布范围内已有禁令，定向捕捞和非法留置仍然发生。此外，商业渔业中用于处理和减少该物种兼捕的措施也很少。\n\n国际贸易捕获\n\n亚洲市场对蝠鲼和其他 mobula 鳐类鳃板的需求急剧上升。随着国际鳃板市场扩大，以及对蝠鲼产品需求增加，对巨型蝠鲼的估计捕获量，尤其在印度-太平洋和东太平洋许多区域，已经导致蝠鲼种群大幅下降和渔业崩溃。\n\n其他需要监测的潜在威胁包括缠绕、船只撞击、海洋垃圾/污染、气候变化、休闲渔业互动、旅游业和水族贸易。” - NOAA"
+      },
+      "annotations": {
+        "new-insight": {
+          "title": "鱼类中最大的脑",
+          "shortText": "",
+          "body": "“远洋蝠鲼拥有所有鱼类中最大的脑，重量可达 200 克（7.1 盎司），是鲸鲨脑重量的五到十倍。它们的大脑被一套血管网络——奇网 rete mirabile——包围，这套网络会温暖流向大脑的血液。它们也是少数可能通过镜像测试的动物之一（无论陆地或海洋），似乎可以表现出自我意识。” - Wiki"
+        },
+        "filter-mouth": {
+          "title": "蓝水滤食",
+          "shortText": "",
+          "body": "“蝠鲼可以通过大型菱形身体、延长如翼的胸鳍、位于腹面的鳃裂、位于侧面的眼睛，以及宽大的端位口来识别。口的前方有两个称为头叶的结构；它们会伸展开来，帮助在取食时把水导入口中（这使蝠鲼成为唯一拥有三对附肢的脊椎动物）。” - NOAA\n\n“在身体前部，它有一对头鳍，是胸鳍向前延伸形成的结构。游泳时它们可以卷成螺旋状；取食时则可以张开，把水导入向前的大型矩形口中。” - Wiki"
+        }
+      }
+    }
+  },
+  "provenance": {
+    "modelType": "ai-assisted-draft",
+    "generationProvider": "Hyper3D Rodin web UI",
+    "generationModel": "Rodin Gen-2",
+    "prompt": "Public release candidate: AI-assisted static model generation from curated visual references, followed by human review and web normalization. See docs/AI_WORKFLOW.md and docs/PROVENANCE.md.",
+    "humanEdits": [
+      "Normalized model scale, orientation, and web framing for the OceanEye runtime.",
+      "Added or preserved annotation anchors and view metadata for static model inspection.",
+      "Retained public source links in the content record; private production logs are not part of this release candidate."
+    ],
+    "reviewStatus": "model-draft",
+    "reviewers": [],
+    "sourceDossier": "docs/PROVENANCE.md"
+  },
+  "vitals": {
+    "typicalDepth": "0 m - 1000 m",
+    "waterPressure": "0 - 100 atm",
+    "adultWeight": "Up to 6,600 lb",
+    "adultLength": "4 m - 9 m"
+  },
+  "stageSummary": "A giant filter feeder with slow, graceful motion in open blue-water. "
+}

@@ -1,0 +1,25 @@
+name: Content or provenance correction
+description: Report a source, science, license, or provenance issue.
+title: "[Content]: "
+labels: ["content", "provenance"]
+body:
+  - type: textarea
+    id: issue
+    attributes:
+      label: Issue
+      description: What content, model, source, or license issue did you find?
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Supporting source
+      description: Add references, URLs, or citations that support the correction.
+    validations:
+      required: true
+  - type: textarea
+    id: suggested_change
+    attributes:
+      label: Suggested change
+      description: If you have wording or metadata in mind, include it here.
+

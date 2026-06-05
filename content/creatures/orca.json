@@ -1,0 +1,315 @@
+{
+  "id": "orca",
+  "commonName": "Orca",
+  "scientificName": "Orcinus orca",
+  "zone": "twilight",
+  "productLayer": "Ocean’s top predator",
+  "displayDepthMeters": 250,
+  "actualDepthRangeMeters": {
+    "min": 0,
+    "max": 1087,
+    "source": "https://academic.oup.com/icesjms/article/76/1/298/5103434",
+    "note": "Complete documented dive-use range for this Overview field, using the deepest tagged killer whale dive reported from toothfish-depredation behavior. OceanEye's 250 m display depth remains a curated edge-of-light encounter; do not treat 1087 m as a usual depth."
+  },
+  "habitat": "It inhabits a wide range of marine environments, from Arctic to Antarctic regions to tropical seas, but is more commonly documented in temperate or cooler coastal waters.",
+  "summary": "\"Orcas are often referred to as \"killer whales\" because ancient sailors saw them hunt larger whales. It is the largest member of the Delphinidae family, or dolphins.\" - Wiki",
+  "lifeStrategy": [],
+  "conservation": {
+    "title": "Conservation",
+    "summary": "",
+    "body": "\"Bycatch in Fishing Gear\nKiller whales are at risk of becoming entangled in fishing gear. Once captured or entangled, whales may drag and swim with attached gear for long distances or be anchored in place and unable to swim or surface to breathe. Events such as these result in fatigue, compromised feeding ability, or severe injury, which may ultimately lead to death. In 2023, NOAA Fisheries released a report documenting 31 years of killer whale entanglement history in Alaska.\n\nLack of Food\nOverfishing and habitat loss have decreased the amount of prey available to some killer whales. Without enough prey, killer whales might experience decreased reproductive rates and increased mortality rates. This threat is especially important for Southern Resident killer whales because some populations of their preferred prey, Chinook salmon, are also threatened or endangered.\n\nContaminants\nContaminants enter ocean waters and sediments from many sources, such as wastewater treatment plants, sewer outfalls, and pesticide application. Once in the environment, these substances increase in concentration as they move up the food web and accumulate in top predators, such as killer whales. Killer whales have uniquely high levels of contaminants because of their long lifespan, position at the top of the food chain, and large quantities of blubber where they accumulate contaminants over time. These contaminants can harm killer whales’ immune, nutritional, and reproductive systems.\n\nDespite modern pollution controls, chemical contamination through the food web continues to threaten killer whales. These controls have reduced, but not eliminated, many contaminants in the environment. Additionally, some of these contaminants persist in the marine environment and in the whales for decades and continue to threaten marine life.\n\nOil Spills\nThe 1989 Exxon Valdez oil spill in Prince William Sound, Alaska, was strongly correlated with the direct loss of individual killer whales. However, oil spills can also have an indirect impact on killer whales by affecting the abundance of prey species. In addition, the bioaccumulation of certain contaminants in the food web, like those found in oil, such as polychlorinated biphenyls (PCBs),  can be seen in apex predators like killer whales—and particularly among the transient population.\n\nDisturbance from Vessels and Sound\nWhen vessels are present, killer whales hunt less and travel more. Noise interference from vessels, as well as from industrial and military activities, interrupts killer whales’ ability to use sound, which in turn disturbs their feeding, communication, and orientation. Increased vessel noise causes Southern Resident killer whales to call louder, expending more energy in the process.\" - NOAA",
+    "sourceUrls": [
+      {
+        "name": "NOAA",
+        "url": "https://www.fisheries.noaa.gov/species/killer-whale"
+      }
+    ]
+  },
+  "links": {
+    "wikipedia": "https://en.wikipedia.org/wiki/Orca",
+    "googleImages": "https://www.google.com/search?tbm=isch&q=Orcinus+orca+underwater",
+    "primarySource": "https://www.fisheries.noaa.gov/species/killer-whale"
+  },
+  "model": {
+    "type": "ai-assisted-draft",
+    "url": "/models/orca.glb",
+    "scale": 1.05,
+    "rotation": [
+      0,
+      0,
+      0
+    ],
+    "defaultCamera": [
+      3.4304,
+      -1.4068,
+      1.7997
+    ],
+    "viewTarget": [
+      0.6167,
+      -0.4492,
+      0.6138
+    ],
+    "stagePosition": [
+      0.8,
+      -0.28,
+      0
+    ],
+    "entryView": {
+      "camera": [
+        3.0014,
+        -1.2872,
+        2.8608
+      ],
+      "target": [
+        0.3405,
+        -0.3438,
+        1.3542
+      ],
+      "stagePosition": [
+        0.8,
+        -0.28,
+        0
+      ],
+      "scale": 1.05
+    },
+    "viewPresets": {
+      "new-insight": {
+        "camera": [
+          3.759,
+          -1.0626,
+          0.6147
+        ],
+        "target": [
+          0.6186,
+          -0.4474,
+          0.6074
+        ],
+        "stagePosition": [
+          0.8,
+          -0.28,
+          0
+        ],
+        "scale": 1.05
+      },
+      "countershading": {
+        "camera": [
+          3.7373,
+          0.1287,
+          -1.8029
+        ],
+        "target": [
+          0.4094,
+          -0.4229,
+          0.3352
+        ],
+        "stagePosition": [
+          0.8,
+          -0.28,
+          0
+        ],
+        "scale": 1.05
+      },
+      "new-insight-2": {
+        "camera": [
+          4.8314,
+          -0.84,
+          0.4562
+        ],
+        "target": [
+          0.4123,
+          -0.4242,
+          0.0031
+        ],
+        "stagePosition": [
+          0.8,
+          -0.28,
+          0
+        ],
+        "scale": 1.05
+      },
+      "new-insight-3": {
+        "camera": [
+          2.9942,
+          -0.8717,
+          3.6142
+        ],
+        "target": [
+          0.4123,
+          -0.4242,
+          0.0031
+        ],
+        "stagePosition": [
+          0.8,
+          -0.28,
+          0
+        ],
+        "scale": 1.05
+      }
+    },
+    "placeholderKind": "orca",
+    "quality": {
+      "triangleCount": 119999,
+      "textureCount": 1,
+      "fileBytes": 4550160
+    }
+  },
+  "annotations": [
+    {
+      "id": "new-insight",
+      "title": "Social hunting",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "shortText": "",
+      "body": "\"Orcas are apex predators, meaning that they themselves have no natural predators. They are sometimes called \"wolves of the sea\", because they hunt in groups like wolf packs. Orcas hunt varied prey including fish, cephalopods, mammals, seabirds, and sea turtles. Different populations or ecotypes may specialize, and some can have a dramatic impact on prey species. However, whales in tropical areas appear to have more generalized diets due to lower food productivity. Orcas spend most of their time at shallow depths, but occasionally dive several hundred metres depending on their prey. On average, an orca eats 227 kilograms (500 lb) each day. \n\nWhile salmon are usually hunted by an individual whale or a small group, herring are often caught using carousel feeding: the orcas force the herring into a tight ball by releasing bursts of bubbles or flashing their white undersides. They then slap the ball with their tail flukes, stunning or killing up to 15 fish at a time, then eating them one by one.\n\nIn New Zealand, sharks and rays appear to be important prey, including eagle rays, long-tail and short-tail stingrays, common threshers, smooth hammerheads, blue sharks, basking sharks, and shortfin makos. Orcas pursuing sharks may herd them to the surface and strike them with their tail flukes, while bottom-dwelling rays are cornered, pinned to the ground and taken to the surface. In other parts of the world, orcas have preyed on broadnose sevengill sharks, whale sharks, and even great white sharks, whose livers orcas have been observed to target by flipping the sharks onto their backs, inducing a paralysis called tonic immobility. Competition between orcas and white sharks is probable in regions where their diets overlap. The arrival of orcas in an area can cause white sharks to flee and forage elsewhere.\n\nOrcas also prey on larger species such as sperm whales, grey whales, humpback whales and minke whales. On three occasions in 2019, orcas were recorded to have killed blue whales off the south coast of Western Australia, among them was an individual measuring 18–22-meter (59–72 ft). Large whales require much effort and coordination to kill and orcas often target calves. A hunt begins with a chase followed by a violent attack on the exhausted prey. Large whales often show signs of orca attack via tooth rake marks.[86] Pods of female sperm whales sometimes protect themselves by forming a protective circle around their calves with their flukes facing outwards, using them to repel the attackers. There is also evidence that humpback whales will defend against or mob orcas who are attacking either humpback calves or juveniles as well as members of other species.\" - Wiki",
+      "sourceUrls": [
+        {
+          "name": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Orca"
+        }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "countershading",
+      "title": "Black & white body",
+      "anchor": [
+        -0.24,
+        0.26,
+        -0.28
+      ],
+      "anchorSpace": "named-node",
+      "anchorNodeName": "OE_anchor_countershading",
+      "shortText": "",
+      "body": "\"And while it shares a lot of the same characteristics of dolphins, the Orca has some unique features that are all its own, like its camouflage coloring. The Orca is counter shaded: black on the top and mostly white on the bottom. Looking down from above, the black on the dorsal side mixes with the dark ocean. Looking up from below, the white on the ventral side blends into the sunlit water. Other animals may not recognize a Killer whale until it’s too late.\" - NOAA",
+      "sourceUrls": [
+        {
+          "name": "NOAA",
+          "url": "https://oceantoday.noaa.gov/killerwhaleanatomy/"
+        }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "new-insight-2",
+      "title": "Vocalizations",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "shortText": "",
+      "body": "\"Like all cetaceans, orcas depend heavily on underwater sound for orientation, feeding, and communication. They produce three categories of sounds: clicks, whistles, and pulsed calls. Clicks are believed to be used primarily for navigation and discriminating prey and other objects in the surrounding environment, but are also commonly heard during social interactions.\n\nAll members of a resident pod use similar calls, known collectively as a dialect. Dialects are composed of specific numbers and types of discrete, repetitive calls. They are complex and stable over time. Call patterns and structure are distinctive within matrilines. Newborns produce calls similar to their mothers, but have a more limited repertoire.[126] Individuals likely learn their dialect through contact with pod members. Family-specific calls have been observed more frequently in the days following a calf's birth, which may help the calf learn them. Dialects are probably an important means of maintaining group identity and cohesiveness. Similarity in dialects likely reflects the degree of relatedness between pods, with variation growing over time. When pods meet, dominant call types decrease and subset call types increase. The use of both call types is called biphonation. The increased subset call types may be the distinguishing factor between pods and inter-pod relations. \" - Wiki",
+      "sourceUrls": [
+        {
+          "name": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Orca"
+        }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "new-insight-3",
+      "title": "Intelligence",
+      "anchor": [
+        0,
+        0,
+        0
+      ],
+      "shortText": "",
+      "body": "\"Orcas have the second-heaviest brains among marine mammals (after sperm whales, which have the largest brain of any animal). Orcas have more gray matter and more cortical neurons than any mammal, including humans. They can be trained in captivity and are often described as intelligent, although defining and measuring \"intelligence\" is difficult in a species whose environment and behavioural strategies are very different from those of humans. Orcas imitate others, and seem to deliberately teach skills to their kin. Off the Crozet Islands, mothers push their calves onto the beach, waiting to pull the youngster back if needed. In March 2023, a female orca was spotted with a newborn pilot whale in Snæfellsnes.\n\nAn orca plays with a ball of ice, soon after a researcher threw a snowball at the whale.\nPeople who have interacted closely with orcas offer numerous anecdotes demonstrating the whales' curiosity, playfulness, and ability to solve problems. Alaskan orcas have not only learned how to steal fish from longlines, but have also overcome a variety of techniques designed to stop them, such as the use of unbaited lines as decoys. Once, fishermen placed their boats several miles apart, taking turns retrieving small amounts of their catch, in the hope that the whales would not have enough time to move between boats to steal the catch as it was being retrieved. The tactic worked initially, but the orcas adapted quickly and split into groups.\n\nIn other anecdotes, researchers describe incidents in which wild orcas playfully tease humans by repeatedly moving objects the humans are trying to reach, or suddenly start to toss around a chunk of ice after a human throws a snowball.\n\nIn 2025, one of the Salish Sea orcas was observed tearing off strands of bull kelp and rolling them around its body. This was the first observation of a killer whale using tools. Scientists called this behavior \"allokelping.\"\n\nThe orca's use of dialects and the passing of other learned behaviours from generation to generation have been described as a form of animal culture.\n\nAccording to one author:\n\n\"The complex and stable vocal and behavioural cultures of sympatric groups of killer whales (Orcinus orca) appear to have no parallel outside humans and represent an independent evolution of cultural faculties.\" \" - Wiki",
+      "sourceUrls": [
+        {
+          "name": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Orca"
+        }
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "translations": {
+    "zh": {
+      "commonName": "虎鲸",
+      "productLayer": "海洋顶级捕食者",
+      "actualDepthRangeNote": "这里采用完整可证实潜深口径：南极齿鱼延绳钓取食行为研究记录到虎鲸最深标记潜水 1087 米。OceanEye 的 250 米展示深度仍是策展式光线边缘相遇点；不要把 1087 米写成通常深度。",
+      "habitat": "全球沿岸与离岸海域，不同种群有各自的猎物、迁移和栖息模式。",
+      "stageSummary": "安静而巨大的海豚科捕食者，靠智慧和协作站在海洋食物链顶端。",
+      "summary": "“虎鲸常被称为 ‘killer whales’，因为古代水手曾看到它们猎杀更大的鲸。它确是 Delphinidae 科，也就是海豚科中最大的成员。” - Wiki",
+      "lifeStrategy": [],
+      "vitals": {
+        "typicalDepth": "0-1087 米",
+        "waterPressure": "约 0-108.7 atm",
+        "adultLength": "约 5-10 米",
+        "adultWeight": "约 3-10 吨"
+      },
+      "conservation": {
+        "title": "动物保护",
+        "summary": "",
+        "body": "“渔具兼捕\n\n虎鲸有被渔具缠绕的风险。一旦被捕获或缠住，鲸可能会拖着附着的渔具长距离游动，或被固定在原地，无法游泳或浮上海面呼吸。这类事件会导致疲劳、取食能力受损或严重受伤，最终可能死亡。2023 年，NOAA Fisheries 发布了一份报告，记录了阿拉斯加 31 年虎鲸缠绕历史。\n\n食物不足\n\n过度捕捞和栖息地丧失减少了一些虎鲸可获得的猎物数量。如果猎物不足，虎鲸可能出现繁殖率下降和死亡率上升。对南方居留型虎鲸来说，这一威胁尤其重要，因为它们偏好的猎物之一，奇努克鲑的一些种群也受到威胁或濒危。\n\n污染物\n\n污染物会从废水处理厂、下水口、农药使用等许多来源进入海水和沉积物。一旦进入环境，这些物质会沿食物网向上移动并不断富集，最终积累在虎鲸这样的顶级捕食者体内。虎鲸体内污染物水平特别高，因为它们寿命长、处于食物链顶端，并有大量脂肪，这些污染物会随时间积累。污染物会损害虎鲸的免疫、营养和繁殖系统。\n\n船只与声音干扰\n\n当船只存在时，虎鲸捕猎减少、移动增加。船只噪声以及工业和军事活动产生的噪声，会干扰虎鲸使用声音的能力，从而影响它们的取食、交流和定向。船只噪声增加会使南方居留型虎鲸叫得更大声，并因此消耗更多能量。” - NOAA"
+      },
+      "annotations": {
+        "new-insight": {
+          "title": "社会性捕猎",
+          "shortText": "",
+          "body": "“虎鲸是顶级捕食者，意思是它们本身没有天然捕食者。它们有时被称为‘海中之狼’，因为它们像狼群一样成群捕猎。虎鲸捕食多种猎物，包括鱼类、头足类、哺乳动物、海鸟和海龟。不同种群或生态型可能会专门化，有些会对猎物物种产生显著影响。热带地区的鲸似乎因为食物生产力较低而饮食更泛化。虎鲸大部分时间在浅水深度活动，但也会根据猎物情况偶尔下潜数百米。平均而言，一只虎鲸每天会吃掉 227 千克（500 磅）食物。\n\n鲑鱼通常由单只鲸或小群体捕猎；而鲱鱼常通过 carousel feeding 捕获：虎鲸会释放气泡或闪动白色腹面，把鲱鱼逼成紧密鱼团。随后它们用尾叶拍击鱼团，一次可震晕或杀死多达 15 条鱼，再逐条进食。\n\n虎鲸也会捕食更大型的物种，例如抹香鲸、灰鲸、座头鲸和小须鲸。大型鲸很难杀死，需要大量努力和协调，虎鲸也常以幼鲸为目标。” - Wiki"
+        },
+        "countershading": {
+          "title": "黑白身体",
+          "shortText": "",
+          "body": "“虽然虎鲸与海豚有许多相同特征，它也有一些独有特征，例如伪装性的体色。虎鲸具有反荫蔽：上方为黑色，下方多为白色。从上向下看时，背侧的黑色会与黑暗海洋混在一起；从下向上看时，腹侧的白色会融入被阳光照亮的水中。其他动物可能要到太晚时才能认出它来。” - NOAA"
+        },
+        "new-insight-2": {
+          "title": "声音与方言",
+          "shortText": "",
+          "body": "“和所有鲸豚类一样，虎鲸高度依赖水下声音来定向、取食和交流。它们会产生三类声音：点击声、哨声和脉冲叫声。点击声被认为主要用于导航，以及辨别周围环境中的猎物和其他物体，但在社交互动中也常被听到。\n\n同一居留群的所有成员会使用相似叫声，统称为方言。方言由特定数量和类型的离散、重复叫声组成。它们复杂，并且随时间保持稳定。叫声模式和结构在母系群内具有独特性。新生个体会发出与母亲相似的叫声，但声音 repertoire 更有限。个体很可能通过与群体成员接触来学习自己的方言。” - Wiki"
+        },
+        "new-insight-3": {
+          "title": "智慧与文化",
+          "shortText": "",
+          "body": "“虎鲸拥有海洋哺乳动物中第二重的大脑（仅次于抹香鲸；抹香鲸拥有所有动物中最大的脑）。虎鲸的灰质和皮层神经元数量超过任何哺乳动物，包括人类。它们可以在圈养环境中被训练，也常被描述为聪明，尽管在一种环境和行为策略与人类非常不同的物种身上定义和测量‘智能’并不容易。虎鲸会模仿其他个体，似乎也会有意把技能教给亲属。\n\n虎鲸使用方言，并把其他习得行为一代代传下去，这被描述为一种动物文化。” - Wiki"
+        }
+      }
+    }
+  },
+  "provenance": {
+    "modelType": "ai-assisted-draft",
+    "generationProvider": "Hyper3D Rodin web UI",
+    "generationModel": "Rodin Gen-2",
+    "prompt": "Public release candidate: AI-assisted static model generation from curated visual references, followed by human review and web normalization. See docs/AI_WORKFLOW.md and docs/PROVENANCE.md.",
+    "humanEdits": [
+      "Normalized model scale, orientation, and web framing for the OceanEye runtime.",
+      "Added or preserved annotation anchors and view metadata for static model inspection.",
+      "Retained public source links in the content record; private production logs are not part of this release candidate."
+    ],
+    "reviewStatus": "model-draft",
+    "reviewers": [],
+    "sourceDossier": "docs/PROVENANCE.md"
+  },
+  "stageSummary": "Orca are commonly known as the Killer whale. But the Orca isn’t actually a whale: it’s in the dolphin family.\n",
+  "overviewLinks": [
+    {
+      "name": "Google Images",
+      "url": "https://www.google.com/search?tbm=isch&q=Orcinus+orca+underwater"
+    },
+    {
+      "name": "NOAA",
+      "url": "https://www.fisheries.noaa.gov/species/killer-whale"
+    },
+    {
+      "name": "ICES Journal",
+      "url": "https://academic.oup.com/icesjms/article/76/1/298/5103434"
+    },
+    {
+      "name": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Orca"
+    }
+  ],
+  "vitals": {
+    "typicalDepth": "0 m - 1087 m",
+    "waterPressure": "0 - 108.7 atm",
+    "adultLength": "5 m - 10 m",
+    "adultWeight": "3 - 10 tons"
+  }
+}
