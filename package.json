@@ -10,7 +10,7 @@
   "bugs": {
     "url": "https://github.com/woody-design/oceaneye/issues"
   },
-  "homepage": "https://github.com/woody-design/oceaneye#readme",
+  "homepage": "https://oceaneye.woodydesign.io/en/",
   "type": "module",
   "scripts": {
     "dev": "vite",

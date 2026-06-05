@@ -14,7 +14,6 @@ type DepthNavigatorProps = {
   onSelectZone: (zoneId: ZoneId) => void
   onSelectEditorial: () => void
   locale: Locale
-  onLocaleChange: (locale: Locale) => void
 }
 
 export function DepthNavigator({
@@ -26,7 +25,6 @@ export function DepthNavigator({
   onSelectZone,
   onSelectEditorial,
   locale,
-  onLocaleChange,
 }: DepthNavigatorProps) {
   const copy = uiCopy[locale]
   const editorial = getEditorialContent(locale)
@@ -92,24 +90,6 @@ export function DepthNavigator({
         })}
       </div>
       <div className="navigator-footer">
-        <div className="locale-toggle" aria-label={copy.languageLabel}>
-          <button
-            type="button"
-            className={locale === 'en' ? 'active' : ''}
-            onClick={() => onLocaleChange('en')}
-            aria-pressed={locale === 'en'}
-          >
-            EN
-          </button>
-          <button
-            type="button"
-            className={locale === 'zh' ? 'active' : ''}
-            onClick={() => onLocaleChange('zh')}
-            aria-pressed={locale === 'zh'}
-          >
-            中
-          </button>
-        </div>
         <button
           type="button"
           className={isEditorialActive ? 'editorial-nav-link active' : 'editorial-nav-link'}

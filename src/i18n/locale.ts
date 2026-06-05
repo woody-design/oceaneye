@@ -2,7 +2,7 @@ import type { Locale } from '../types/creature'
 
 export const DEFAULT_LOCALE: Locale = 'en'
 export const PRODUCT_LOCALES: Locale[] = ['en', 'zh']
-export const LOCALE_STORAGE_KEY = 'oceaneye.productLocale'
+export const SITE_ORIGIN = 'https://oceaneye.woodydesign.io'
 
 export const uiCopy = {
   zh: {
@@ -35,7 +35,6 @@ export const uiCopy = {
     dragToRotate: '拖动旋转',
     panView: '右键或双指平移',
     chooseInsight: '选择右侧卡片观察',
-    languageLabel: '语言',
     stageAriaSuffix: '3D 展示区',
     stageInteractionHints: [
       { action: '左键拖动', separator: ':', result: '旋转' },
@@ -82,7 +81,6 @@ export const uiCopy = {
     dragToRotate: 'Drag to rotate',
     panView: 'Right-drag or two-finger pan',
     chooseInsight: 'Choose a note to inspect',
-    languageLabel: 'Language',
     stageAriaSuffix: '3D stage',
     stageInteractionHints: [
       { action: 'Drag', separator: 'to', result: 'Rotate' },
@@ -105,25 +103,70 @@ export function isLocale(value: string | null): value is Locale {
   return PRODUCT_LOCALES.includes(value as Locale)
 }
 
-export function getStoredLocale(): Locale {
-  if (typeof window === 'undefined') return DEFAULT_LOCALE
-
-  try {
-    const storedLocale = window.localStorage.getItem(LOCALE_STORAGE_KEY)
-    return isLocale(storedLocale) ? storedLocale : DEFAULT_LOCALE
-  } catch {
-    return DEFAULT_LOCALE
-  }
+export function getLocaleFromPathname(pathname: string): Locale | null {
+  const firstSegment = pathname.split('/').filter(Boolean)[0] ?? null
+  return isLocale(firstSegment) ? firstSegment : null
 }
 
-export function storeLocale(locale: Locale): void {
-  if (typeof window === 'undefined') return
+export function getCurrentLocale(): Locale | null {
+  if (typeof window === 'undefined') return DEFAULT_LOCALE
+  return getLocaleFromPathname(window.location.pathname)
+}
 
-  try {
-    window.localStorage.setItem(LOCALE_STORAGE_KEY, locale)
-  } catch {
-    // Locale persistence is a convenience; the app should still work without it.
+export function getLocalizedUrl(locale: Locale): string {
+  return `${SITE_ORIGIN}/${locale}/`
+}
+
+export function getDefaultLocaleRedirectPath(): string {
+  return `/${DEFAULT_LOCALE}/`
+}
+
+export function syncLocaleHead(locale: Locale): void {
+  if (typeof document === 'undefined') return
+
+  document.documentElement.lang = locale === 'zh' ? 'zh-CN' : 'en'
+  upsertLink('canonical', getLocalizedUrl(locale))
+  upsertAlternate('en', getLocalizedUrl('en'))
+  upsertAlternate('zh', getLocalizedUrl('zh'))
+  upsertAlternate('x-default', getLocalizedUrl(DEFAULT_LOCALE))
+  upsertMetaProperty('og:url', getLocalizedUrl(locale))
+}
+
+function upsertLink(rel: string, href: string): void {
+  let element = document.head.querySelector<HTMLLinkElement>(`link[rel="${rel}"]:not([hreflang])`)
+
+  if (!element) {
+    element = document.createElement('link')
+    element.rel = rel
+    document.head.appendChild(element)
   }
+
+  element.href = href
+}
+
+function upsertAlternate(hreflang: string, href: string): void {
+  let element = document.head.querySelector<HTMLLinkElement>(`link[rel="alternate"][hreflang="${hreflang}"]`)
+
+  if (!element) {
+    element = document.createElement('link')
+    element.rel = 'alternate'
+    element.hreflang = hreflang
+    document.head.appendChild(element)
+  }
+
+  element.href = href
+}
+
+function upsertMetaProperty(property: string, content: string): void {
+  let element = document.head.querySelector<HTMLMetaElement>(`meta[property="${property}"]`)
+
+  if (!element) {
+    element = document.createElement('meta')
+    element.setAttribute('property', property)
+    document.head.appendChild(element)
+  }
+
+  element.content = content
 }
 
 export function formatDepth(depthMeters: number, locale: Locale): string {

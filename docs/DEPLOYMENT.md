@@ -25,6 +25,16 @@ Suggested Cloudflare Pages settings:
 - Build command: `npm run build`
 - Build output directory: `dist`
 - Node version: `22.12.0` or newer
+- Production custom domain: `oceaneye.woodydesign.io`
+
+The app uses URL-based locales:
+
+- `/en/` serves English.
+- `/zh/` serves Chinese.
+- `/` redirects to `/en/`.
+
+Cloudflare Pages reads `public/_redirects` during the Vite build and copies it
+to `dist/_redirects`.
 
 Suggested GitHub Pages flow:
 
@@ -38,8 +48,9 @@ Suggested GitHub Pages flow:
 - `npm run dev` serves the app locally.
 - `npm run build` succeeds.
 - The app loads each public model path under `/models/*.glb`.
+- `/`, `/en/`, and `/zh/` resolve correctly.
 - No private memory, raw research, Content Studio, sandbox, local absolute path,
   model-production trace, or draft model path is present.
-- Source-copy review has been completed for the intended release level.
-- If deploying to a permanent domain, add the final canonical URL, `og:url`,
-  and a domain-specific `sitemap.xml`.
+- Public-facing source wording/copy has been checked for the intended release
+  level.
+- `robots.txt` points to the public sitemap for the production domain.

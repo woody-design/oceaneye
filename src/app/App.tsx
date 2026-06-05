@@ -14,14 +14,15 @@ import { EditorialRail } from '../editorial/EditorialRail'
 import { EditorialStage } from '../editorial/EditorialStage'
 import { getCreatureInsightCards, SUMMARY_INSIGHT_ID } from '../creatures/creatureInsights'
 import { findInitialCreature, loadCreatures } from '../content/loadCreatures'
-import type { Locale, ZoneId } from '../types/creature'
-import { getStoredLocale, storeLocale, uiCopy } from '../i18n/locale'
+import type { ZoneId } from '../types/creature'
+import { DEFAULT_LOCALE, getCurrentLocale, getDefaultLocaleRedirectPath, syncLocaleHead, uiCopy } from '../i18n/locale'
 import { DEPTH_BACKGROUND_BASE_ZOOM, DepthBackground2D, hasDepthBackground2D } from '../environment/DepthBackground2D'
 import './App.css'
 
 export function App() {
   const creatures = useMemo(() => loadCreatures(), [])
-  const [locale, setLocale] = useState<Locale>(getStoredLocale)
+  const locale = getCurrentLocale()
+  const resolvedLocale = locale ?? DEFAULT_LOCALE
   const initialCreature = useMemo(() => findInitialCreature(creatures), [creatures])
   const [selectedCreatureId, setSelectedCreatureId] = useState(initialCreature.id)
   const [activeZoneOverviewId, setActiveZoneOverviewId] = useState<ZoneId | null>(null)
@@ -30,17 +31,22 @@ export function App() {
   const [entryReplayToken, setEntryReplayToken] = useState(0)
   const [isRightRailOpen, setIsRightRailOpen] = useState(false)
   const selectedCreature = creatures.find((creature) => creature.id === selectedCreatureId) ?? initialCreature
-  const insightCards = useMemo(() => getCreatureInsightCards(selectedCreature, locale), [selectedCreature, locale])
+  const insightCards = useMemo(() => getCreatureInsightCards(selectedCreature, resolvedLocale), [selectedCreature, resolvedLocale])
   const [activeInsightId, setActiveInsightId] = useState(SUMMARY_INSIGHT_ID)
   const activeInsight = insightCards.find((card) => card.id === activeInsightId) ?? insightCards[0]
   const activeZoneOverview = activeZoneOverviewId
     ? depthZones.find((zone) => zone.id === activeZoneOverviewId) ?? null
     : null
   const activeZoneId = isEditorialActive ? 'sunlight' : activeZoneOverview?.id ?? selectedCreature.zone
-  const activeZoneStory = !isEditorialActive && activeZoneOverview ? getZoneStory(activeZoneOverview.id, locale) : null
+  const activeZoneStory = !isEditorialActive && activeZoneOverview ? getZoneStory(activeZoneOverview.id, resolvedLocale) : null
   const theme = getDepthTheme(activeZoneId)
-  const copy = uiCopy[locale]
+  const copy = uiCopy[resolvedLocale]
   const rightRailId = 'oceaneye-right-rail'
+
+  useEffect(() => {
+    if (locale) return
+    window.location.replace(getDefaultLocaleRedirectPath())
+  }, [locale])
 
   useEffect(() => {
     setActiveInsightId(SUMMARY_INSIGHT_ID)
@@ -49,8 +55,8 @@ export function App() {
   }, [selectedCreature.id])
 
   useEffect(() => {
-    document.documentElement.lang = locale === 'zh' ? 'zh-CN' : 'en'
-    storeLocale(locale)
+    if (!locale) return
+    syncLocaleHead(locale)
   }, [locale])
 
   useEffect(() => {
@@ -152,16 +158,15 @@ export function App() {
         onSelectCreature={handleSelectCreature}
         onSelectZone={handleSelectZone}
         onSelectEditorial={handleSelectEditorial}
-        locale={locale}
-        onLocaleChange={setLocale}
+        locale={resolvedLocale}
       />
       {isEditorialActive ? (
-        <EditorialStage locale={locale} />
+        <EditorialStage locale={resolvedLocale} />
       ) : activeZoneOverview && activeZoneStory ? (
         <ZoneOverviewStage
           zone={activeZoneOverview}
           story={activeZoneStory}
-          locale={locale}
+          locale={resolvedLocale}
         />
       ) : (
         <CreatureStage
@@ -170,7 +175,7 @@ export function App() {
           activeViewPresetId={activeInsight?.viewPresetId}
           entryReplayToken={entryReplayToken}
           theme={theme}
-          locale={locale}
+          locale={resolvedLocale}
           onDepthBackgroundZoomChange={hasDepthBackground2D(selectedCreature.zone) ? setDepthBackgroundZoom : undefined}
           onResetView={() => {
             setActiveInsightId(SUMMARY_INSIGHT_ID)
@@ -179,19 +184,19 @@ export function App() {
         />
       )}
       {isEditorialActive ? (
-        <EditorialRail id={rightRailId} locale={locale} />
+        <EditorialRail id={rightRailId} locale={resolvedLocale} />
       ) : activeZoneStory ? (
         <ZoneSourceRail
           id={rightRailId}
           story={activeZoneStory}
-          locale={locale}
+          locale={resolvedLocale}
         />
       ) : (
         <InsightRail
           id={rightRailId}
           cards={insightCards}
           activeCardId={activeInsight?.id ?? SUMMARY_INSIGHT_ID}
-          locale={locale}
+          locale={resolvedLocale}
           onSelectCard={setActiveInsightId}
         />
       )}

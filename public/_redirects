@@ -1,0 +1,7 @@
+/ /en/ 302
+/en /en/ 301
+/zh /zh/ 301
+/en/ /index.html 200
+/zh/ /index.html 200
+/en/* /index.html 200
+/zh/* /index.html 200

@@ -56,8 +56,12 @@ src/              Runtime app source code
 ## Languages
 
 Public documentation is English-only for v1. The runtime app keeps the existing
-language switch, with English as the default and Chinese available in the
-product experience.
+English and Chinese product experience through locale-specific URLs:
+
+- English: `https://oceaneye.woodydesign.io/en/`
+- Chinese: `https://oceaneye.woodydesign.io/zh/`
+
+The site root redirects to `/en/`.
 
 ## Licenses
 
