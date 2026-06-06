@@ -1,3 +1,13 @@
+/*
+ * Standalone 2D canvas depth-background renderer.
+ *
+ * This file is a documented subsystem boundary: it intentionally uses
+ * canvas-local naming conventions (w/h/ctx/p/g) and a singleton shared
+ * requestAnimationFrame scheduler across all instances, throttled to roughly
+ * 30 fps with document visibility gating. Its visual parameters are hand
+ * tuned, so any change requires visual verification across all five depth
+ * zones.
+ */
 import { useEffect, useRef, useState } from 'react'
 import type { CSSProperties } from 'react'
 import './DepthCanvasBackground.css'
