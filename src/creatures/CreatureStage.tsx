@@ -4,7 +4,7 @@ import { Orbit, Pause, Undo2 } from 'lucide-react'
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import type { ComponentRef, KeyboardEvent, PointerEvent } from 'react'
 import * as THREE from 'three'
-import type { Creature, CreatureViewPreset, Locale } from '../types/creature'
+import type { Creature, Locale } from '../types/creature'
 import { getCreatureMusicTrack } from '../depth/depthMusic'
 import type { DepthTheme } from '../depth/depthTheme'
 import { getCreatureText } from '../i18n/creatureText'
@@ -14,8 +14,16 @@ import { hasDepthBackground2D } from '../environment/DepthBackground2D'
 import { CreatureModel } from './CreatureModel'
 import { StageMusicLink } from './StageMusicLink'
 import { SUMMARY_INSIGHT_ID } from './creatureInsights'
-import { getAuthoredStageScale, getCreatureEntryModelView, getCreatureModelView } from './modelView'
+import { getCreatureEntryModelView, getCreatureModelView } from './modelView'
 import type { CreatureModelView } from './modelView'
+import {
+  AUTO_ROTATE_VIEW_EPSILON,
+  BACKGROUND_BASE_ZOOM,
+  computeBackgroundZoom,
+  easeOutExponential,
+  isAutoRotateCompatiblePose,
+} from './modelViewMath'
+import { useModelViewCapture } from './useModelViewCapture'
 import './CreatureStage.css'
 
 type CreatureStageProps = {
@@ -29,29 +37,7 @@ type CreatureStageProps = {
   onResetView?: () => void
 }
 
-type ModelViewCapture = {
-  creatureId: string
-  activeInsightId?: string
-  viewPresetId: string
-  source: CreatureModelView['source']
-  jsonPath: string
-  writeTarget: string
-  entryWriteTarget?: string
-  preset: CreatureViewPreset
-  runtime: {
-    stageScale: number
-  }
-}
-
 const DEFAULT_AUTO_ROTATE_CREATURE_IDS = new Set(['yellow-boxfish', 'longspine-seahorse'])
-
-declare global {
-  interface Window {
-    __OE?: {
-      captureModelView?: () => ModelViewCapture | undefined
-    }
-  }
-}
 
 export function CreatureStage({
   creature,
@@ -242,18 +228,74 @@ type ModelViewRigProps = {
 
 type OrbitControlsHandle = ComponentRef<typeof OrbitControls>
 
-const BACKGROUND_BASE_ZOOM = 1.25
-const BACKGROUND_MIN_ZOOM = 1.22
-const BACKGROUND_MAX_ZOOM = 1.31
-const BACKGROUND_ZOOM_DEAD_ZONE = 0.04
 const BACKGROUND_ZOOM_EPSILON = 0.002
 const STANDARD_TRANSITION_DAMPING = 3.25
 const STANDARD_TRANSITION_EPSILON = 0.003
 const CREATURE_SWITCH_SETTLE_DURATION_SECONDS = 3.5
 const AUTO_ROTATE_RETURN_DURATION_SECONDS = 0.82
 const AUTO_ROTATE_SECONDS_PER_REVOLUTION = 34
-const AUTO_ROTATE_VIEW_EPSILON = 0.035
-const TRANSITION_EASE_SHAPE = 5
+
+type TransitionPurpose = 'view' | 'entry-default' | 'auto-rotate-return'
+
+type RigPose = {
+  cameraPosition: THREE.Vector3
+  controlsTarget: THREE.Vector3
+  stagePosition: THREE.Vector3
+  stageScale: THREE.Vector3
+}
+
+type FixedTransitionState = {
+  phase: 'fixedTransition'
+  purpose: TransitionPurpose
+  elapsedSeconds: number
+  durationSeconds: number
+  start: RigPose
+  target: RigPose
+  autoRotateOnComplete: boolean
+}
+
+type DampedTransitionState = {
+  phase: 'dampedTransition'
+  purpose: TransitionPurpose
+  target: RigPose
+}
+
+type RigTransitionState = FixedTransitionState | DampedTransitionState
+
+type RigState =
+  | { phase: 'idle' }
+  | FixedTransitionState
+  | DampedTransitionState
+  | { phase: 'autoRotating' }
+  | { phase: 'userInteracting' }
+
+function createRigPose(
+  cameraPosition: THREE.Vector3,
+  controlsTarget: THREE.Vector3,
+  stagePosition: THREE.Vector3,
+  stageScale: THREE.Vector3,
+): RigPose {
+  return {
+    cameraPosition: cameraPosition.clone(),
+    controlsTarget: controlsTarget.clone(),
+    stagePosition: stagePosition.clone(),
+    stageScale: stageScale.clone(),
+  }
+}
+
+function cloneRigPose(pose: RigPose): RigPose {
+  return createRigPose(pose.cameraPosition, pose.controlsTarget, pose.stagePosition, pose.stageScale)
+}
+
+function shouldResumeAutoRotateAfterTransition(state: RigTransitionState): boolean {
+  const startsAutoRotate = state.purpose === 'entry-default' || state.purpose === 'auto-rotate-return'
+  return state.phase === 'fixedTransition' && startsAutoRotate && state.autoRotateOnComplete
+}
+
+function shouldPauseAutoRotateFromState(state: RigState): boolean {
+  return state.phase === 'autoRotating'
+    || (state.phase === 'fixedTransition' && state.autoRotateOnComplete)
+}
 
 function ModelViewRig({
   creature,
@@ -271,22 +313,7 @@ function ModelViewRig({
   const stageGroupRef = useRef<THREE.Group>(null)
   const controlsRef = useRef<OrbitControlsHandle>(null)
   const { camera } = useThree()
-  const transitionActiveRef = useRef(false)
-  const transitionModeRef = useRef<'damped' | 'fixed'>('damped')
-  const transitionDurationRef = useRef(CREATURE_SWITCH_SETTLE_DURATION_SECONDS)
-  const transitionElapsedRef = useRef(0)
-  const transitionStartPositionRef = useRef(new THREE.Vector3())
-  const transitionStartControlsRef = useRef(new THREE.Vector3())
-  const transitionStartStagePositionRef = useRef(new THREE.Vector3())
-  const transitionStartStageScaleRef = useRef(new THREE.Vector3())
-  const transitionTargetPositionRef = useRef(new THREE.Vector3())
-  const transitionTargetControlsRef = useRef(new THREE.Vector3())
-  const transitionTargetStagePositionRef = useRef(new THREE.Vector3())
-  const transitionTargetStageScaleRef = useRef(new THREE.Vector3())
-  const transitionPurposeRef = useRef<'view' | 'entry-default' | 'auto-rotate-return'>('view')
-  const userInteractionActiveRef = useRef(false)
-  const autoRotateActiveRef = useRef(isAutoRotateActive)
-  const autoRotateReadyRef = useRef(false)
+  const rigStateRef = useRef<RigState>({ phase: 'idle' })
   const autoRotateOffsetRef = useRef(new THREE.Vector3())
   const autoRotateSphericalRef = useRef(new THREE.Spherical())
   const backgroundZoomNeutralDistanceRef = useRef(0)
@@ -294,12 +321,20 @@ function ModelViewRig({
   const previousCreatureIdRef = useRef(creature.id)
   const creatureSwitchSettlingRef = useRef(false)
   const handledEntryReplayTokenRef = useRef(entryReplayToken)
-  const resetEffectReadyRef = useRef(false)
+  const handledResetTokenRef = useRef(resetToken)
+  const didRunInitialEntryRef = useRef(false)
   const initialStagePositionRef = useRef(modelView.stagePosition)
   const initialStageScaleRef = useRef(modelView.stageScale)
   const initialControlsTargetRef = useRef(modelView.controlsTarget)
-  const lastCapturePayloadRef = useRef('')
-  const captureMirrorElapsedRef = useRef(0)
+  useModelViewCapture({
+    controlsRef,
+    stageGroupRef,
+    camera,
+    creatureId: creature.id,
+    activeInsightId,
+    activeViewPresetId,
+    modelViewSource: modelView.source,
+  })
   const [cameraX, cameraY, cameraZ] = modelView.cameraPosition
   const [targetX, targetY, targetZ] = modelView.controlsTarget
   const [stageX, stageY, stageZ] = modelView.stagePosition
@@ -348,280 +383,241 @@ function ModelViewRig({
     () => new THREE.Vector3(autoRotateView.stageScale, autoRotateView.stageScale, autoRotateView.stageScale),
     [autoRotateView.stageScale],
   )
+  const targetPose = useMemo(
+    () => createRigPose(targetPosition, targetControls, targetStagePosition, targetStageScale),
+    [targetControls, targetPosition, targetStagePosition, targetStageScale],
+  )
+  const entryPose = useMemo(
+    () => createRigPose(entryPosition, entryControls, entryStagePosition, entryStageScale),
+    [entryControls, entryPosition, entryStagePosition, entryStageScale],
+  )
+  const autoRotatePose = useMemo(
+    () => createRigPose(autoRotatePosition, autoRotateControls, autoRotateStagePosition, autoRotateStageScale),
+    [autoRotateControls, autoRotatePosition, autoRotateStagePosition, autoRotateStageScale],
+  )
 
-  function setTransitionTargets(
-    cameraPosition: THREE.Vector3,
-    controlsTarget: THREE.Vector3,
-    stagePosition: THREE.Vector3,
-    stageScale: THREE.Vector3,
-  ) {
-    transitionTargetPositionRef.current.copy(cameraPosition)
-    transitionTargetControlsRef.current.copy(controlsTarget)
-    transitionTargetStagePositionRef.current.copy(stagePosition)
-    transitionTargetStageScaleRef.current.copy(stageScale)
-  }
-
-  function beginFixedTransition(
-    durationSeconds: number,
-    cameraPosition = targetPosition,
-    controlsTarget = targetControls,
-    stagePosition = targetStagePosition,
-    stageScale = targetStageScale,
-    purpose: 'view' | 'entry-default' | 'auto-rotate-return' = 'view',
-  ) {
+  const applyPose = useCallback((pose: RigPose) => {
     const controls = controlsRef.current
     const stageGroup = stageGroupRef.current
 
-    setTransitionTargets(cameraPosition, controlsTarget, stagePosition, stageScale)
-    transitionPurposeRef.current = purpose
-    transitionModeRef.current = 'fixed'
-    transitionDurationRef.current = durationSeconds
-    transitionElapsedRef.current = 0
-    transitionStartPositionRef.current.copy(camera.position)
-    transitionStartControlsRef.current.copy(controls?.target ?? targetControls)
-    transitionStartStagePositionRef.current.copy(stageGroup?.position ?? targetStagePosition)
-    transitionStartStageScaleRef.current.copy(stageGroup?.scale ?? targetStageScale)
-    transitionActiveRef.current = true
-  }
-
-  function beginDampedTransition(
-    cameraPosition = targetPosition,
-    controlsTarget = targetControls,
-    stagePosition = targetStagePosition,
-    stageScale = targetStageScale,
-    purpose: 'view' | 'entry-default' | 'auto-rotate-return' = 'view',
-  ) {
-    setTransitionTargets(cameraPosition, controlsTarget, stagePosition, stageScale)
-    transitionPurposeRef.current = purpose
-    transitionModeRef.current = 'damped'
-    transitionActiveRef.current = true
-  }
-
-  function beginEntryToDefaultTransition() {
-    const controls = controlsRef.current
-    const stageGroup = stageGroupRef.current
-
-    camera.position.copy(entryPosition)
-    controls?.target.copy(entryControls)
-    stageGroup?.position.copy(entryStagePosition)
-    stageGroup?.scale.copy(entryStageScale)
+    camera.position.copy(pose.cameraPosition)
+    controls?.target.copy(pose.controlsTarget)
+    stageGroup?.position.copy(pose.stagePosition)
+    stageGroup?.scale.copy(pose.stageScale)
     controls?.update()
+  }, [camera.position])
 
-    userInteractionActiveRef.current = false
-    creatureSwitchSettlingRef.current = true
-    backgroundZoomNeutralDistanceRef.current = targetPosition.distanceTo(targetControls)
+  const readCurrentPose = useCallback((fallback: RigPose) => {
+    const controls = controlsRef.current
+    const stageGroup = stageGroupRef.current
+
+    return createRigPose(
+      camera.position,
+      controls?.target ?? fallback.controlsTarget,
+      stageGroup?.position ?? fallback.stagePosition,
+      stageGroup?.scale ?? fallback.stageScale,
+    )
+  }, [camera.position])
+
+  const beginFixedTransition = useCallback((
+    durationSeconds: number,
+    target: RigPose,
+    purpose: TransitionPurpose,
+    autoRotateOnComplete: boolean,
+  ) => {
+    rigStateRef.current = {
+      phase: 'fixedTransition',
+      purpose,
+      elapsedSeconds: 0,
+      durationSeconds,
+      start: readCurrentPose(target),
+      target: cloneRigPose(target),
+      autoRotateOnComplete,
+    }
+  }, [readCurrentPose])
+
+  const beginDampedTransition = useCallback((target: RigPose, purpose: TransitionPurpose = 'view') => {
+    rigStateRef.current = {
+      phase: 'dampedTransition',
+      purpose,
+      target: cloneRigPose(target),
+    }
+  }, [])
+
+  const snapToEntryThenSettle = useCallback((skipNextViewDampedTransition: boolean) => {
+    applyPose(entryPose)
+
+    if (skipNextViewDampedTransition) {
+      creatureSwitchSettlingRef.current = true
+    }
+
+    backgroundZoomNeutralDistanceRef.current = targetPose.cameraPosition.distanceTo(targetPose.controlsTarget)
     lastBackgroundZoomRef.current = BACKGROUND_BASE_ZOOM
-    autoRotateReadyRef.current = false
     beginFixedTransition(
       CREATURE_SWITCH_SETTLE_DURATION_SECONDS,
-      targetPosition,
-      targetControls,
-      targetStagePosition,
-      targetStageScale,
+      targetPose,
       'entry-default',
+      isAutoRotateActive,
     )
-  }
+  }, [applyPose, beginFixedTransition, entryPose, isAutoRotateActive, targetPose])
 
   useLayoutEffect(() => {
-    beginEntryToDefaultTransition()
-  }, [])
+    if (didRunInitialEntryRef.current) return
+    didRunInitialEntryRef.current = true
+    snapToEntryThenSettle(true)
+  }, [snapToEntryThenSettle])
 
   useLayoutEffect(() => {
     if (previousCreatureIdRef.current === creature.id) return
 
     previousCreatureIdRef.current = creature.id
-    beginEntryToDefaultTransition()
-  }, [
-    camera,
-    creature.id,
-    entryControls,
-    entryPosition,
-    entryStagePosition,
-    entryStageScale,
-    targetControls,
-    targetPosition,
-    targetStagePosition,
-    targetStageScale,
-  ])
+    snapToEntryThenSettle(true)
+  }, [creature.id, snapToEntryThenSettle])
 
   useLayoutEffect(() => {
     if (entryReplayToken === handledEntryReplayTokenRef.current) return
     handledEntryReplayTokenRef.current = entryReplayToken
 
-    const controls = controlsRef.current
-    const stageGroup = stageGroupRef.current
-
-    camera.position.copy(entryPosition)
-    controls?.target.copy(entryControls)
-    stageGroup?.position.copy(entryStagePosition)
-    stageGroup?.scale.copy(entryStageScale)
-    controls?.update()
-
-    userInteractionActiveRef.current = false
-    backgroundZoomNeutralDistanceRef.current = targetPosition.distanceTo(targetControls)
-    lastBackgroundZoomRef.current = BACKGROUND_BASE_ZOOM
-    autoRotateReadyRef.current = false
-    beginFixedTransition(
-      CREATURE_SWITCH_SETTLE_DURATION_SECONDS,
-      targetPosition,
-      targetControls,
-      targetStagePosition,
-      targetStageScale,
-      'entry-default',
-    )
-  }, [
-    camera,
-    entryControls,
-    entryPosition,
-    entryReplayToken,
-    entryStagePosition,
-    entryStageScale,
-    targetControls,
-    targetPosition,
-    targetStagePosition,
-    targetStageScale,
-  ])
+    snapToEntryThenSettle(false)
+  }, [entryReplayToken, snapToEntryThenSettle])
 
   useEffect(() => {
     if (creatureSwitchSettlingRef.current) {
       creatureSwitchSettlingRef.current = false
     } else {
-      beginDampedTransition()
+      beginDampedTransition(targetPose)
     }
-    backgroundZoomNeutralDistanceRef.current = targetPosition.distanceTo(targetControls)
+    backgroundZoomNeutralDistanceRef.current = targetPose.cameraPosition.distanceTo(targetPose.controlsTarget)
     lastBackgroundZoomRef.current = BACKGROUND_BASE_ZOOM
-  }, [modelView.id, targetPosition, targetControls, targetStagePosition, targetStageScale])
+  }, [beginDampedTransition, modelView.id, targetPose])
 
   useEffect(() => {
-    if (!resetEffectReadyRef.current) {
-      resetEffectReadyRef.current = true
+    if (handledResetTokenRef.current === resetToken) return
+
+    handledResetTokenRef.current = resetToken
+    beginDampedTransition(targetPose)
+    lastBackgroundZoomRef.current = BACKGROUND_BASE_ZOOM
+  }, [beginDampedTransition, resetToken, targetPose])
+
+  const completeTransition = useCallback((completedState: RigTransitionState) => {
+    rigStateRef.current = shouldResumeAutoRotateAfterTransition(completedState)
+      ? { phase: 'autoRotating' }
+      : { phase: 'idle' }
+  }, [])
+
+  const updateAutoRotate = useCallback((delta: number) => {
+    const controls = controlsRef.current
+
+    if (!controls) return
+
+    autoRotateOffsetRef.current.copy(camera.position).sub(controls.target)
+    autoRotateSphericalRef.current.setFromVector3(autoRotateOffsetRef.current)
+    autoRotateSphericalRef.current.theta += delta * ((Math.PI * 2) / AUTO_ROTATE_SECONDS_PER_REVOLUTION)
+    camera.position.copy(controls.target).add(autoRotateOffsetRef.current.setFromSpherical(autoRotateSphericalRef.current))
+    controls.update()
+  }, [camera.position])
+
+  const isAutoRotateCompatibleView = useCallback((): boolean => {
+    const controls = controlsRef.current
+    const stageGroup = stageGroupRef.current
+
+    if (!controls || !stageGroup) return false
+
+    return isAutoRotateCompatiblePose(
+      {
+        cameraPosition: camera.position,
+        controlsTarget: controls.target,
+        stagePosition: stageGroup.position,
+        stageScale: stageGroup.scale,
+      },
+      autoRotatePose,
+      AUTO_ROTATE_VIEW_EPSILON,
+    )
+  }, [autoRotatePose, camera.position])
+
+  const beginAutoRotate = useCallback(() => {
+    if (isAutoRotateCompatibleView()) {
+      rigStateRef.current = { phase: 'autoRotating' }
       return
     }
 
-    beginDampedTransition()
-    lastBackgroundZoomRef.current = BACKGROUND_BASE_ZOOM
-  }, [resetToken])
+    beginFixedTransition(
+      AUTO_ROTATE_RETURN_DURATION_SECONDS,
+      autoRotatePose,
+      'auto-rotate-return',
+      true,
+    )
+  }, [autoRotatePose, beginFixedTransition, isAutoRotateCompatibleView])
 
   useEffect(() => {
-    autoRotateActiveRef.current = isAutoRotateActive
+    const currentState = rigStateRef.current
 
     if (!isAutoRotateActive) {
-      autoRotateReadyRef.current = false
-      if (transitionPurposeRef.current === 'auto-rotate-return') {
-        transitionActiveRef.current = false
-        transitionPurposeRef.current = 'view'
+      if (currentState.phase === 'autoRotating') {
+        rigStateRef.current = { phase: 'idle' }
+        return
+      }
+
+      if (currentState.phase !== 'fixedTransition') return
+
+      if (currentState.purpose === 'auto-rotate-return') {
+        rigStateRef.current = { phase: 'idle' }
+        return
+      }
+
+      if (currentState.autoRotateOnComplete) {
+        rigStateRef.current = {
+          ...currentState,
+          autoRotateOnComplete: false,
+        }
       }
       return
     }
 
-    userInteractionActiveRef.current = false
-    autoRotateReadyRef.current = false
-    backgroundZoomNeutralDistanceRef.current = autoRotatePosition.distanceTo(autoRotateControls)
+    backgroundZoomNeutralDistanceRef.current = autoRotatePose.cameraPosition.distanceTo(autoRotatePose.controlsTarget)
     lastBackgroundZoomRef.current = BACKGROUND_BASE_ZOOM
 
-    if (transitionActiveRef.current && transitionPurposeRef.current === 'entry-default') return
+    if (currentState.phase === 'fixedTransition' && currentState.purpose === 'entry-default') {
+      rigStateRef.current = {
+        ...currentState,
+        autoRotateOnComplete: true,
+      }
+      return
+    }
 
     beginAutoRotate()
-  }, [
-    autoRotateControls,
-    autoRotatePosition,
-    autoRotateStagePosition,
-    autoRotateStageScale,
-    isAutoRotateActive,
-  ])
-
-  const captureModelView = useCallback((): ModelViewCapture | undefined => {
-    const controls = controlsRef.current
-    const stageGroup = stageGroupRef.current
-
-    if (!controls || !stageGroup) return undefined
-
-    const runtimeStageScale = stageGroup.scale.x
-    const viewPresetId = activeViewPresetId ?? 'default'
-    const preset: CreatureViewPreset = {
-      camera: vectorToRoundedVec3(camera.position),
-      target: vectorToRoundedVec3(controls.target),
-      stagePosition: vectorToRoundedVec3(stageGroup.position),
-      scale: roundNumber(getAuthoredStageScale(runtimeStageScale)),
-    }
-
-    return {
-      creatureId: creature.id,
-      activeInsightId,
-      viewPresetId,
-      source: modelView.source,
-      jsonPath: `content/creatures/${creature.id}.json`,
-      writeTarget: activeViewPresetId ? `model.viewPresets.${activeViewPresetId}` : 'model.defaultCamera/viewTarget',
-      entryWriteTarget: activeViewPresetId ? undefined : 'model.entryView',
-      preset,
-      runtime: {
-        stageScale: roundNumber(runtimeStageScale),
-      },
-    }
-  }, [activeInsightId, activeViewPresetId, camera.position, creature.id, modelView.source])
-
-  useEffect(() => {
-    if (!import.meta.env.DEV) return undefined
-
-    const previousNamespace = window.__OE ?? {}
-    const capture = () => captureModelView()
-    window.__OE = {
-      ...previousNamespace,
-      captureModelView: capture,
-    }
-    document.documentElement.dataset.oeCapture = 'ready'
-    document.documentElement.dataset.oeCapturePayload = JSON.stringify(capture() ?? null)
-
-    return () => {
-      if (window.__OE?.captureModelView !== capture) return
-      delete window.__OE.captureModelView
-      delete document.documentElement.dataset.oeCapture
-      delete document.documentElement.dataset.oeCapturePayload
-      if (Object.keys(window.__OE).length === 0) {
-        delete window.__OE
-      }
-    }
-  }, [captureModelView])
+  }, [autoRotatePose, beginAutoRotate, isAutoRotateActive])
 
   useFrame((_, delta) => {
-    if (import.meta.env.DEV) {
-      captureMirrorElapsedRef.current += delta
-      if (captureMirrorElapsedRef.current >= 0.12) {
-        captureMirrorElapsedRef.current = 0
-        const payload = JSON.stringify(captureModelView() ?? null)
-        if (payload !== lastCapturePayloadRef.current) {
-          lastCapturePayloadRef.current = payload
-          document.documentElement.dataset.oeCapturePayload = payload
-        }
-      }
-    }
-
     const stageGroup = stageGroupRef.current
     const controls = controlsRef.current
+    const state = rigStateRef.current
 
-    if (!transitionActiveRef.current) {
+    if (state.phase === 'autoRotating') {
       updateAutoRotate(delta)
       return
     }
 
-    const transitionTargetPosition = transitionTargetPositionRef.current
-    const transitionTargetControls = transitionTargetControlsRef.current
-    const transitionTargetStagePosition = transitionTargetStagePositionRef.current
-    const transitionTargetStageScale = transitionTargetStageScaleRef.current
+    if (state.phase !== 'fixedTransition' && state.phase !== 'dampedTransition') return
 
-    if (transitionModeRef.current === 'fixed') {
-      transitionElapsedRef.current += delta
+    const transitionTargetPosition = state.target.cameraPosition
+    const transitionTargetControls = state.target.controlsTarget
+    const transitionTargetStagePosition = state.target.stagePosition
+    const transitionTargetStageScale = state.target.stageScale
+
+    if (state.phase === 'fixedTransition') {
+      state.elapsedSeconds += delta
       const progress = THREE.MathUtils.clamp(
-        transitionElapsedRef.current / transitionDurationRef.current,
+        state.elapsedSeconds / state.durationSeconds,
         0,
         1,
       )
       const easedProgress = easeOutExponential(progress)
 
-      camera.position.copy(transitionStartPositionRef.current).lerp(transitionTargetPosition, easedProgress)
-      controls?.target.copy(transitionStartControlsRef.current).lerp(transitionTargetControls, easedProgress)
-      stageGroup?.position.copy(transitionStartStagePositionRef.current).lerp(transitionTargetStagePosition, easedProgress)
-      stageGroup?.scale.copy(transitionStartStageScaleRef.current).lerp(transitionTargetStageScale, easedProgress)
+      camera.position.copy(state.start.cameraPosition).lerp(transitionTargetPosition, easedProgress)
+      controls?.target.copy(state.start.controlsTarget).lerp(transitionTargetControls, easedProgress)
+      stageGroup?.position.copy(state.start.stagePosition).lerp(transitionTargetStagePosition, easedProgress)
+      stageGroup?.scale.copy(state.start.stageScale).lerp(transitionTargetStageScale, easedProgress)
       controls?.update()
 
       if (progress < 1) return
@@ -630,8 +626,7 @@ function ModelViewRig({
       stageGroup?.position.copy(transitionTargetStagePosition)
       stageGroup?.scale.copy(transitionTargetStageScale)
       controls?.update()
-      transitionActiveRef.current = false
-      completeTransition()
+      completeTransition(state)
       return
     }
 
@@ -655,106 +650,27 @@ function ModelViewRig({
       stageGroup?.position.copy(transitionTargetStagePosition)
       stageGroup?.scale.copy(transitionTargetStageScale)
       controls?.update()
-      transitionActiveRef.current = false
-      completeTransition()
+      completeTransition(state)
     }
   })
 
-  function beginAutoRotate() {
-    if (isAutoRotateCompatibleView()) {
-      autoRotateReadyRef.current = true
-      return
-    }
-
-    beginFixedTransition(
-      AUTO_ROTATE_RETURN_DURATION_SECONDS,
-      autoRotatePosition,
-      autoRotateControls,
-      autoRotateStagePosition,
-      autoRotateStageScale,
-      'auto-rotate-return',
-    )
-  }
-
-  function completeTransition() {
-    const canStartAutoRotate = transitionPurposeRef.current === 'entry-default'
-      || transitionPurposeRef.current === 'auto-rotate-return'
-
-    if (canStartAutoRotate && autoRotateActiveRef.current) {
-      autoRotateReadyRef.current = true
-    }
-
-    transitionPurposeRef.current = 'view'
-  }
-
-  function updateAutoRotate(delta: number) {
-    const controls = controlsRef.current
-
-    if (!autoRotateActiveRef.current || !autoRotateReadyRef.current || !controls) return
-
-    autoRotateOffsetRef.current.copy(camera.position).sub(controls.target)
-    autoRotateSphericalRef.current.setFromVector3(autoRotateOffsetRef.current)
-    autoRotateSphericalRef.current.theta += delta * ((Math.PI * 2) / AUTO_ROTATE_SECONDS_PER_REVOLUTION)
-    camera.position.copy(controls.target).add(autoRotateOffsetRef.current.setFromSpherical(autoRotateSphericalRef.current))
-    controls.update()
-  }
-
-  function isAutoRotateCompatibleView(): boolean {
-    const controls = controlsRef.current
-    const stageGroup = stageGroupRef.current
-
-    if (!controls || !stageGroup) return false
-
-    const currentOffset = autoRotateOffsetRef.current.copy(camera.position).sub(controls.target)
-    const currentSpherical = new THREE.Spherical().setFromVector3(currentOffset)
-    const targetSpherical = new THREE.Spherical().setFromVector3(
-      autoRotatePosition.clone().sub(autoRotateControls),
-    )
-
-    return controls.target.distanceTo(autoRotateControls) < AUTO_ROTATE_VIEW_EPSILON
-      && stageGroup.position.distanceTo(autoRotateStagePosition) < AUTO_ROTATE_VIEW_EPSILON
-      && Math.abs(stageGroup.scale.x - autoRotateStageScale.x) < AUTO_ROTATE_VIEW_EPSILON
-      && Math.abs(currentSpherical.radius - targetSpherical.radius) < AUTO_ROTATE_VIEW_EPSILON
-      && Math.abs(currentSpherical.phi - targetSpherical.phi) < AUTO_ROTATE_VIEW_EPSILON
-  }
-
-  function interruptTransition() {
-    transitionActiveRef.current = false
-  }
-
-  function interruptAutoRotate() {
-    if (!autoRotateActiveRef.current && !autoRotateReadyRef.current) return
-
-    autoRotateActiveRef.current = false
-    autoRotateReadyRef.current = false
-    onAutoRotatePause()
-  }
-
   function handleControlsStart() {
-    userInteractionActiveRef.current = true
-    interruptTransition()
-    interruptAutoRotate()
+    const previousState = rigStateRef.current
+    rigStateRef.current = { phase: 'userInteracting' }
+
+    if (shouldPauseAutoRotateFromState(previousState)) {
+      onAutoRotatePause()
+    }
   }
 
   function handleControlsChange() {
     const controls = controlsRef.current
-    if (!controls || !userInteractionActiveRef.current || !onDepthBackgroundZoomChange) return
+    if (!controls || rigStateRef.current.phase !== 'userInteracting' || !onDepthBackgroundZoomChange) return
 
-    const neutralDistance = backgroundZoomNeutralDistanceRef.current || targetPosition.distanceTo(targetControls)
+    const neutralDistance = backgroundZoomNeutralDistanceRef.current
+      || targetPose.cameraPosition.distanceTo(targetPose.controlsTarget)
     const currentDistance = camera.position.distanceTo(controls.target)
-    const normalized = THREE.MathUtils.clamp(
-      (neutralDistance - currentDistance) / Math.max(1.4, neutralDistance * 0.35),
-      -1,
-      1,
-    )
-    const magnitude = Math.abs(normalized)
-    const eased = magnitude <= BACKGROUND_ZOOM_DEAD_ZONE
-      ? 0
-      : Math.sign(normalized) * ((magnitude - BACKGROUND_ZOOM_DEAD_ZONE) / (1 - BACKGROUND_ZOOM_DEAD_ZONE))
-    const nextZoom = eased >= 0
-      ? BACKGROUND_BASE_ZOOM + eased * (BACKGROUND_MAX_ZOOM - BACKGROUND_BASE_ZOOM)
-      : BACKGROUND_BASE_ZOOM + eased * (BACKGROUND_BASE_ZOOM - BACKGROUND_MIN_ZOOM)
-    const roundedZoom = Number(nextZoom.toFixed(4))
+    const roundedZoom = computeBackgroundZoom(neutralDistance, currentDistance)
 
     if (Math.abs(roundedZoom - lastBackgroundZoomRef.current) < BACKGROUND_ZOOM_EPSILON) return
     lastBackgroundZoomRef.current = roundedZoom
@@ -762,7 +678,9 @@ function ModelViewRig({
   }
 
   function handleControlsEnd() {
-    userInteractionActiveRef.current = false
+    if (rigStateRef.current.phase === 'userInteracting') {
+      rigStateRef.current = { phase: 'idle' }
+    }
   }
 
   return (
@@ -792,17 +710,4 @@ function ModelViewRig({
       />
     </>
   )
-}
-
-function vectorToRoundedVec3(vector: THREE.Vector3): [number, number, number] {
-  return [roundNumber(vector.x), roundNumber(vector.y), roundNumber(vector.z)]
-}
-
-function roundNumber(value: number): number {
-  return Number(value.toFixed(4))
-}
-
-function easeOutExponential(progress: number): number {
-  if (progress >= 1) return 1
-  return (1 - Math.exp(-TRANSITION_EASE_SHAPE * progress)) / (1 - Math.exp(-TRANSITION_EASE_SHAPE))
 }

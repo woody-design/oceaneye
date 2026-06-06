@@ -44,12 +44,6 @@ export default tseslint.config(
     },
   },
   {
-    files: ['src/creatures/CreatureStage.tsx'],
-    rules: {
-      'react-hooks/exhaustive-deps': 'off',
-    },
-  },
-  {
     files: ['eslint.config.js', 'vite.config.ts', 'vitest.config.ts', 'src/**/*.test.ts', 'src/test/**/*.ts'],
     languageOptions: {
       globals: {
