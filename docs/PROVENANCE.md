@@ -31,6 +31,13 @@ The `release-candidate` status means the asset is included for transparent
 public preview and local verification, but it should not be represented as a
 final science-reviewed model.
 
+The public files in `/models/*.glb` are web-delivery derivatives of the source
+generations. They use Draco geometry compression; most textures are KTX2/Basis
+GPU-compressed for browser delivery, while selected models may keep source
+textures when KTX2 artifacts are more noticeable than the byte savings justify.
+Geometry is intended to be near-lossless, and texture choices should be checked
+visually against the local source assets before final release decisions.
+
 ## License Boundary
 
 OceanEye-authored public content and public model files are released under CC BY

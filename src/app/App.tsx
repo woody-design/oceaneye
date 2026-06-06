@@ -10,6 +10,7 @@ import { ZoneOverviewStage } from '../depth/ZoneOverviewStage'
 import { ZoneSourceRail } from '../depth/ZoneSourceRail'
 import { CreatureStage } from '../creatures/CreatureStage'
 import { InsightRail } from '../creatures/InsightRail'
+import { DRACO_DECODER_PATH, extendPreloadedGltf } from '../creatures/gltfDecoders'
 import { EditorialRail } from '../editorial/EditorialRail'
 import { EditorialStage } from '../editorial/EditorialStage'
 import { getCreatureInsightCards, SUMMARY_INSIGHT_ID } from '../creatures/creatureInsights'
@@ -81,7 +82,7 @@ export function App() {
 
   useEffect(() => {
     const initialModelUrl = initialCreature.model.url
-    if (initialModelUrl) useGLTF.preload(initialModelUrl)
+    if (initialModelUrl) useGLTF.preload(initialModelUrl, DRACO_DECODER_PATH, true, extendPreloadedGltf)
 
     const remainingModelUrls = creatures
       .map((creature) => creature.model.url)
@@ -92,7 +93,7 @@ export function App() {
     let cancelled = false
     const preloadRemainingModels = () => {
       if (cancelled) return
-      remainingModelUrls.forEach((url) => useGLTF.preload(url))
+      remainingModelUrls.forEach((url) => useGLTF.preload(url, DRACO_DECODER_PATH, true, extendPreloadedGltf))
     }
     const idleWindow = window as Window & {
       requestIdleCallback?: (callback: () => void, options?: { timeout?: number }) => number

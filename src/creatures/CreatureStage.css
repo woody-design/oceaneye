@@ -68,6 +68,7 @@
   align-items: center;
   justify-self: end;
   gap: var(--oe-space-2);
+  min-width: 0;
   min-height: var(--oe-space-8);
   pointer-events: auto;
 }
@@ -175,6 +176,8 @@
   display: inline-flex;
   align-items: center;
   gap: var(--oe-space-2);
+  min-width: 0;
+  max-width: 100%;
   min-height: var(--oe-space-8);
   padding: var(--oe-space-2) var(--oe-space-4);
   color: var(--oe-text-primary);
@@ -189,7 +192,15 @@
   box-shadow: var(--oe-shadow-control);
   backdrop-filter: var(--oe-blur-control);
   cursor: pointer;
+  white-space: nowrap;
   transition: var(--oe-transition-control);
+}
+
+.stage-control-button span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .stage-control-button:hover {

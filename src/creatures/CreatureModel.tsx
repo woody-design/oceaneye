@@ -2,6 +2,7 @@ import { Component, Suspense } from 'react'
 import type { ErrorInfo, ReactNode } from 'react'
 import { Center, useGLTF } from '@react-three/drei'
 import type { Creature } from '../types/creature'
+import { DRACO_DECODER_PATH, useGltfDecoderExtension } from './gltfDecoders'
 
 type CreatureModelProps = {
   creature: Creature
@@ -51,7 +52,8 @@ class ModelErrorBoundary extends Component<ModelErrorBoundaryProps, ModelErrorBo
 }
 
 function ReviewedGlbModel({ url, rotation }: { url: string; rotation?: [number, number, number] }) {
-  const gltf = useGLTF(url)
+  const extendLoader = useGltfDecoderExtension()
+  const gltf = useGLTF(url, DRACO_DECODER_PATH, true, extendLoader)
 
   return (
     <group rotation={rotation}>
