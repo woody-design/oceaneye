@@ -37,8 +37,6 @@ type CreatureStageProps = {
   onResetView?: () => void
 }
 
-const DEFAULT_AUTO_ROTATE_CREATURE_IDS = new Set(['yellow-boxfish', 'longspine-seahorse'])
-
 export function CreatureStage({
   creature,
   activeInsightId,
@@ -51,9 +49,8 @@ export function CreatureStage({
 }: CreatureStageProps) {
   const creatureText = getCreatureText(creature, locale)
   const copy = uiCopy[locale]
-  const shouldAutoRotateByDefault = DEFAULT_AUTO_ROTATE_CREATURE_IDS.has(creature.id)
   const [resetToken, setResetToken] = useState(0)
-  const [isAutoRotateActive, setIsAutoRotateActive] = useState(shouldAutoRotateByDefault)
+  const [isAutoRotateActive, setIsAutoRotateActive] = useState(false)
   const [modelLoadFailed, setModelLoadFailed] = useState(false)
   const previousAutoRotateCreatureIdRef = useRef(creature.id)
   const previousEntryReplayTokenRef = useRef(entryReplayToken)
@@ -117,17 +114,14 @@ export function CreatureStage({
 
     if (didSwitchCreature) {
       previousAutoRotateCreatureIdRef.current = creature.id
-      setIsAutoRotateActive(shouldAutoRotateByDefault && isDefaultView)
-      return
-    }
-
-    if (!isDefaultView) {
       setIsAutoRotateActive(false)
       return
     }
 
-    if (didReplayEntry) setIsAutoRotateActive(shouldAutoRotateByDefault)
-  }, [activeInsightId, activeViewPresetId, creature.id, entryReplayToken, shouldAutoRotateByDefault])
+    if (!isDefaultView || didReplayEntry) {
+      setIsAutoRotateActive(false)
+    }
+  }, [activeInsightId, activeViewPresetId, creature.id, entryReplayToken])
 
   const AutoRotateIcon = isAutoRotateActive ? Orbit : Pause
 

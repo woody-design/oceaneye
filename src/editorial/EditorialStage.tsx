@@ -1,4 +1,5 @@
 import type { Locale } from '../types/creature'
+import type { EditorialInlineContent } from './editorialContent'
 import { getEditorialContent } from './editorialContent'
 import '../creatures/CreatureStage.css'
 import './Editorial.css'
@@ -32,7 +33,9 @@ export function EditorialStage({ locale }: EditorialStageProps) {
             {section.items && (
               <ul>
                 {section.items.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={getInlineContentKey(item)}>
+                    <EditorialInlineContentView content={item} />
+                  </li>
                 ))}
               </ul>
             )}
@@ -70,6 +73,31 @@ export function EditorialStage({ locale }: EditorialStageProps) {
       </div>
     </section>
   )
+}
+
+function EditorialInlineContentView({ content }: { content: EditorialInlineContent }) {
+  if (typeof content === 'string') return content
+
+  return (
+    <>
+      {content.map((part, index) => {
+        if (!part.href) {
+          return <span key={`${part.text}:${index}`}>{part.text}</span>
+        }
+
+        return (
+          <a key={`${part.text}:${index}`} href={part.href} target="_blank" rel="noreferrer">
+            {part.text}
+          </a>
+        )
+      })}
+    </>
+  )
+}
+
+function getInlineContentKey(content: EditorialInlineContent) {
+  if (typeof content === 'string') return content
+  return content.map((part) => part.text).join('')
 }
 
 function EditorialTitleLink({

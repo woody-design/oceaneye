@@ -8,11 +8,15 @@ export type EditorialLink = {
 
 export type EditorialCredit = {
   ariaLabel: string
-  parts: Array<{
+  parts: EditorialInlinePart[]
+}
+
+export type EditorialInlinePart = {
     text: string
     href?: string
-  }>
 }
+
+export type EditorialInlineContent = string | EditorialInlinePart[]
 
 export type EditorialContent = {
   navLabel: string
@@ -24,7 +28,7 @@ export type EditorialContent = {
   sections: Array<{
     title: string
     body?: string[]
-    items?: string[]
+    items?: EditorialInlineContent[]
     links?: EditorialLink[]
   }>
   personalLinks: {
@@ -48,16 +52,20 @@ export const editorialContent: Record<Locale, EditorialContent> = {
       href: 'https://github.com/woody-design',
     },
     credit: {
-      ariaLabel: 'Designed by Woody & OC, GG, HR in NYC',
+      ariaLabel: 'Designed by Woody & OC, CD, GG, HR, AC in NYC',
       parts: [
         { text: 'Designed by ' },
         { text: 'Woody', href: 'https://woodydesign.io/' },
         { text: ' & ' },
         { text: 'OC', href: 'https://openai.com/index/introducing-gpt-5-5/' },
         { text: ', ' },
+        { text: 'CD', href: 'https://www.anthropic.com/news/claude-design-anthropic-labs' },
+        { text: ', ' },
         { text: 'GG', href: 'https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview' },
         { text: ', ' },
         { text: 'HR', href: 'https://hyper3d.ai/workspace/rodin' },
+        { text: ', ' },
+        { text: 'AC', href: 'https://www.anthropic.com/news/claude-opus-4-8' },
         { text: ' in NYC' },
       ],
     },
@@ -76,7 +84,10 @@ export const editorialContent: Record<Locale, EditorialContent> = {
         items: [
           'Product idea & name was inspired by Billie Eilish’s “Ocean Eyes,” while I was watching the movie — Hit Me Hard and Soft: The Tour.',
           'Blue Planet, BBC; natural-history illustration and scientific visual references.',
-          '3DCellForge, as a technical/process reference for AI-assisted 3D model exploration, import, and review.',
+          [
+            { text: '3DCellForge', href: 'https://github.com/huangserva/3DCellForge' },
+            { text: ', as a technical/process reference for AI-assisted 3D model exploration, import, and review.' },
+          ],
         ],
       },
       {
@@ -128,16 +139,20 @@ export const editorialContent: Record<Locale, EditorialContent> = {
       href: 'https://github.com/woody-design',
     },
     credit: {
-      ariaLabel: 'Designed by Woody & OC, GG, HR in NYC',
+      ariaLabel: 'Designed by Woody & OC, CD, GG, HR, AC in NYC',
       parts: [
         { text: 'Designed by ' },
         { text: 'Woody', href: 'https://woodydesign.io/' },
         { text: ' & ' },
         { text: 'OC', href: 'https://openai.com/index/introducing-gpt-5-5/' },
         { text: ', ' },
+        { text: 'CD', href: 'https://www.anthropic.com/news/claude-design-anthropic-labs' },
+        { text: ', ' },
         { text: 'GG', href: 'https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview' },
         { text: ', ' },
         { text: 'HR', href: 'https://hyper3d.ai/workspace/rodin' },
+        { text: ', ' },
+        { text: 'AC', href: 'https://www.anthropic.com/news/claude-opus-4-8' },
         { text: ' in NYC' },
       ],
     },
@@ -156,7 +171,10 @@ export const editorialContent: Record<Locale, EditorialContent> = {
         items: [
           '产品概念启发自 Billie Eilish 的 “Ocean Eyes” 歌曲；在我看电影 Hit Me Hard and Soft: The Tour 的时候的灵感。',
           '蓝色星球系列, BBC；自然史插画和科学视觉参考。',
-          '3DCellForge，作为 AI 辅助 3D 模型探索、导入和 review 的技术 / 流程参考。',
+          [
+            { text: '3DCellForge', href: 'https://github.com/huangserva/3DCellForge' },
+            { text: '，作为 AI 辅助 3D 模型探索、导入和 review 的技术 / 流程参考。' },
+          ],
         ],
       },
       {
