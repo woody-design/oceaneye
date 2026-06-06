@@ -11,10 +11,9 @@
  * Compression policy:
  * - Source topology is preserved. No decimation or simplification is applied.
  * - Geometry uses Draco with high quantization precision.
- * - Textures default to UASTC KTX2 with no resize and no RDO, prioritizing
- *   clean gradients and surface detail while keeping the full model set small.
- *   Per-model overrides can use `mode: 'source'` to keep the original embedded
- *   texture when KTX2 artifacts cost more visually than the small byte savings.
+ * - Textures default to UASTC KTX2 with no resize, mild RDO, and Zstandard,
+ *   balancing clean gradients and surface detail against the full model set size.
+ *   Per-model overrides can tune or bypass texture compression when needed.
  */
 
 import { execFile } from 'node:child_process';
@@ -45,6 +44,8 @@ const DEFAULTS = {
   texture: {
     mode: 'uastc',
     level: 2,
+    rdo: true,
+    rdoLambda: 0.75,
     zstd: 18,
     quality: 220,
     compression: 4,
@@ -64,12 +65,9 @@ const DEFAULTS = {
 };
 
 const MODEL_OVERRIDES = {
-  'yellow-boxfish.glb': {
-    texture: { mode: 'source' },
-  },
   // Example:
-  // 'dumbo-octopus.glb': {
-  //   texture: { mode: 'uastc', level: 3, rdo: false, zstd: 18 },
+  // 'yellow-boxfish.glb': {
+  //   texture: { mode: 'source' },
   // },
 };
 
