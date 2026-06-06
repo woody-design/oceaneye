@@ -2,7 +2,6 @@ import { useEffect, useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import type { DepthTheme } from '../depth/depthTheme'
-import type { ZoneId } from '../types/creature'
 
 type OceanEnvironmentProps = {
   theme: DepthTheme
@@ -36,67 +35,17 @@ type StageIonParticle = {
   driftZ: number
 }
 
-const STAGE_ION_CONFIGS: Partial<Record<ZoneId, StageIonConfig>> = {
-  sunlight: {
-    count: 17,
-    color: '#f2ffff',
-    opacity: 0.2,
-    radiusMin: 0.85,
-    radiusMax: 2.65,
-    depthMin: 0.9,
-    depthMax: -2.9,
-    sizeMin: 0.0055,
-    sizeMax: 0.0095,
-    drift: 0.12,
-  },
-  twilight: {
-    count: 17,
-    color: '#f2ffff',
-    opacity: 0.2,
-    radiusMin: 0.85,
-    radiusMax: 2.65,
-    depthMin: 0.9,
-    depthMax: -2.9,
-    sizeMin: 0.0055,
-    sizeMax: 0.0095,
-    drift: 0.12,
-  },
-  midnight: {
-    count: 17,
-    color: '#f2ffff',
-    opacity: 0.2,
-    radiusMin: 0.85,
-    radiusMax: 2.65,
-    depthMin: 0.9,
-    depthMax: -2.9,
-    sizeMin: 0.0055,
-    sizeMax: 0.0095,
-    drift: 0.12,
-  },
-  abyssal: {
-    count: 17,
-    color: '#f2ffff',
-    opacity: 0.2,
-    radiusMin: 0.85,
-    radiusMax: 2.65,
-    depthMin: 0.9,
-    depthMax: -2.9,
-    sizeMin: 0.0055,
-    sizeMax: 0.0095,
-    drift: 0.12,
-  },
-  hadal: {
-    count: 17,
-    color: '#f2ffff',
-    opacity: 0.2,
-    radiusMin: 0.85,
-    radiusMax: 2.65,
-    depthMin: 0.9,
-    depthMax: -2.9,
-    sizeMin: 0.0055,
-    sizeMax: 0.0095,
-    drift: 0.12,
-  },
+const STAGE_ION_CONFIG: StageIonConfig = {
+  count: 17,
+  color: '#f2ffff',
+  opacity: 0.2,
+  radiusMin: 0.85,
+  radiusMax: 2.65,
+  depthMin: 0.9,
+  depthMax: -2.9,
+  sizeMin: 0.0055,
+  sizeMax: 0.0095,
+  drift: 0.12,
 }
 
 export function OceanEnvironment({
@@ -113,20 +62,18 @@ export function OceanEnvironment({
       <directionalLight position={[2.8, 5.5, 3.2]} intensity={theme.keyLight} color="#f7fffb" />
       <pointLight position={[-2.4, 0.8, 2.6]} intensity={theme.bioluminescenceDensity > 0 ? 0.35 : 0.12} color={theme.accent} />
       {showParticles ? <ParticleField theme={theme} /> : null}
-      {showStageIons ? <StageIonField theme={theme} /> : null}
+      {showStageIons ? <StageIonField /> : null}
     </>
   )
 }
 
-function StageIonField({ theme }: OceanEnvironmentProps) {
-  const config = STAGE_ION_CONFIGS[theme.id]
+function StageIonField() {
+  const config = STAGE_ION_CONFIG
   const groupRef = useRef<THREE.Group>(null)
   const meshRef = useRef<THREE.InstancedMesh>(null)
   const instanceObjectRef = useRef(new THREE.Object3D())
   const prefersReducedMotionRef = useRef(false)
   const particles = useMemo(() => {
-    if (!config) return []
-
     return Array.from({ length: config.count }, (_, index) => {
       const t = index * 19.9137 + 7.4
       const radiusMix = 0.5 + Math.sin(t * 0.71) * 0.5
@@ -182,7 +129,7 @@ function StageIonField({ theme }: OceanEnvironmentProps) {
 
   useFrame(({ clock }) => {
     const mesh = meshRef.current
-    if (!groupRef.current || !mesh || !config || prefersReducedMotionRef.current) return
+    if (!groupRef.current || !mesh || prefersReducedMotionRef.current) return
 
     const elapsedTime = clock.elapsedTime
     const object = instanceObjectRef.current
@@ -202,7 +149,7 @@ function StageIonField({ theme }: OceanEnvironmentProps) {
     groupRef.current.rotation.y = Math.sin(elapsedTime * 0.045) * config.drift * 0.32
   })
 
-  if (!config || particles.length === 0) return null
+  if (particles.length === 0) return null
 
   return (
     <group ref={groupRef}>

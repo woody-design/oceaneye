@@ -1,15 +1,15 @@
 import type { ZoneId } from '../types/creature'
 import { DepthCanvasUnderlay } from './DepthCanvasBackground'
-import type { DepthCanvasCandidate, DepthCanvasId } from './DepthCanvasBackground'
+import type { DepthCanvasId, DepthCanvasVariant } from './DepthCanvasBackground'
 
 export const DEPTH_BACKGROUND_BASE_ZOOM = 1.25
 
-const DEPTH_BACKGROUND_VARIANTS: Partial<Record<ZoneId, { depth: DepthCanvasId; candidate: DepthCanvasCandidate }>> = {
-  sunlight: { depth: 'reef_cool', candidate: 'A' },
-  twilight: { depth: 'twilight', candidate: 'A' },
-  midnight: { depth: 'midnight', candidate: 'C' },
-  abyssal: { depth: 'abyssal', candidate: 'B' },
-  hadal: { depth: 'hadal', candidate: 'B' },
+const DEPTH_BACKGROUND_VARIANTS: Partial<Record<ZoneId, { depth: DepthCanvasId; variant: DepthCanvasVariant }>> = {
+  sunlight: { depth: 'reef_cool', variant: 'A' },
+  twilight: { depth: 'twilight', variant: 'A' },
+  midnight: { depth: 'midnight', variant: 'C' },
+  abyssal: { depth: 'abyssal', variant: 'B' },
+  hadal: { depth: 'hadal', variant: 'B' },
 }
 
 type DepthBackground2DProps = {
@@ -25,5 +25,5 @@ export function DepthBackground2D({ zone, zoom = DEPTH_BACKGROUND_BASE_ZOOM }: D
   const variant = DEPTH_BACKGROUND_VARIANTS[zone]
   if (!variant) return null
 
-  return <DepthCanvasUnderlay depth={variant.depth} candidate={variant.candidate} zoom={zoom} />
+  return <DepthCanvasUnderlay depth={variant.depth} variant={variant.variant} zoom={zoom} />
 }

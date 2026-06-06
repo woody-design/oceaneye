@@ -56,14 +56,6 @@ function firstNonEmptyString(...values: Array<string | undefined>): string {
   return values.find((value) => value?.trim()) ?? ''
 }
 
-export function getAnnotationText(
-  creature: Creature,
-  annotationId: string,
-  locale: Locale,
-): LocalizedAnnotation | undefined {
-  return getCreatureText(creature, locale).annotations.find((annotation) => annotation.id === annotationId)
-}
-
 function localizeVitals(creature: Creature, locale: Locale): Creature['vitals'] {
   if (!creature.vitals) return undefined
   if (locale !== 'zh') return creature.vitals

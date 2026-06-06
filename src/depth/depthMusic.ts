@@ -4,21 +4,17 @@ export type DepthMusicTrack = {
   title: string
   artist: string
   url?: string
-  isPlaceholder?: boolean
 }
 
 type MusicTrackId =
   | 'sunlight-wonderful-world'
   | 'longspine-bluette'
   | 'twilight-sleep-pt-1'
-  | 'twilight-placeholder'
   | 'orca-departure'
   | 'manta-of-agnes'
   | 'manta-vladimirs-blues'
   | 'oarfish-lamenting-song'
-  | 'midnight-placeholder'
   | 'midnight-dust'
-  | 'abyssal-placeholder'
   | 'hadal-to-the-stars'
   | 'hadal-brahms-lullaby'
 
@@ -37,11 +33,6 @@ const musicTracks: Record<MusicTrackId, DepthMusicTrack> = {
     title: 'Dream 1',
     artist: 'Max Richter',
     url: 'https://open.spotify.com/track/3FVy3aVs0TFzLv6FEiLqC2',
-  },
-  'twilight-placeholder': {
-    title: 'Twilight companion track',
-    artist: 'To be selected',
-    isPlaceholder: true,
   },
   'orca-departure': {
     title: 'The Departure',
@@ -63,20 +54,10 @@ const musicTracks: Record<MusicTrackId, DepthMusicTrack> = {
     artist: 'Max Richter',
     url: 'https://open.spotify.com/track/0uGx3Wf2nqE68lgv2OJq4u',
   },
-  'midnight-placeholder': {
-    title: 'Midnight companion track',
-    artist: 'To be selected',
-    isPlaceholder: true,
-  },
   'midnight-dust': {
     title: 'Dust',
     artist: 'Hans Zimmer',
     url: 'https://open.spotify.com/track/6NNW7XLQ5BecXtPumwkPd5',
-  },
-  'abyssal-placeholder': {
-    title: 'Abyssal companion track',
-    artist: 'To be selected',
-    isPlaceholder: true,
   },
   'hadal-to-the-stars': {
     title: 'To the Stars',
@@ -99,17 +80,13 @@ const depthMusicTrackIds: Record<ZoneId, MusicTrackId> = {
 }
 
 const creatureMusicTrackIds: Record<string, MusicTrackId> = {
-  'barreleye-fish': 'twilight-placeholder',
-  'clownfish-anemone': 'sunlight-wonderful-world',
   'dumbo-octopus': 'twilight-sleep-pt-1',
   'giant-manta-ray': 'manta-vladimirs-blues',
   'giant-oarfish': 'oarfish-lamenting-song',
-  'green-sea-turtle': 'sunlight-wonderful-world',
   'hadal-snailfish': 'hadal-brahms-lullaby',
   'longspine-seahorse': 'longspine-bluette',
   'ocean-sunfish': 'manta-of-agnes',
   orca: 'orca-departure',
-  'sea-pig': 'midnight-dust',
   'tripod-fish': 'midnight-dust',
   'yellow-boxfish': 'sunlight-wonderful-world',
 }

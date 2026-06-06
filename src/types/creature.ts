@@ -119,7 +119,6 @@ export type Creature = {
     stagePosition?: [number, number, number]
     entryView?: CreatureViewPreset | null
     viewPresets?: Record<string, CreatureViewPreset>
-    placeholderKind: 'reef-pair' | 'turtle' | 'manta' | 'orca' | 'yellow-boxfish' | 'longspine-seahorse' | 'barreleye' | 'dumbo-octopus' | 'giant-oarfish' | 'ocean-sunfish' | 'tripod-fish' | 'sea-pig' | 'hadal-snailfish'
     quality: {
       triangleCount: number | null
       textureCount: number | null

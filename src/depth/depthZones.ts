@@ -66,7 +66,3 @@ export const depthZones: DepthZone[] = [
 export function getDepthZoneLabel(zone: DepthZone, locale: 'zh' | 'en'): string {
   return locale === 'zh' ? zone.translations?.zh?.label ?? zone.label : zone.label
 }
-
-export function getDepthZoneDescription(zone: DepthZone, locale: 'zh' | 'en'): string {
-  return locale === 'zh' ? zone.translations?.zh?.description ?? zone.description : zone.description
-}

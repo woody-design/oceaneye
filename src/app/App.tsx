@@ -19,14 +19,18 @@ import { DEFAULT_LOCALE, getCurrentLocale, getDefaultLocaleRedirectPath, syncLoc
 import { DEPTH_BACKGROUND_BASE_ZOOM, DepthBackground2D, hasDepthBackground2D } from '../environment/DepthBackground2D'
 import './App.css'
 
+type ViewMode =
+  | { kind: 'creature' }
+  | { kind: 'zone'; zoneId: ZoneId }
+  | { kind: 'editorial' }
+
 export function App() {
   const creatures = useMemo(() => loadCreatures(), [])
   const locale = getCurrentLocale()
   const resolvedLocale = locale ?? DEFAULT_LOCALE
   const initialCreature = useMemo(() => findInitialCreature(creatures), [creatures])
   const [selectedCreatureId, setSelectedCreatureId] = useState(initialCreature.id)
-  const [activeZoneOverviewId, setActiveZoneOverviewId] = useState<ZoneId | null>(null)
-  const [isEditorialActive, setIsEditorialActive] = useState(false)
+  const [viewMode, setViewMode] = useState<ViewMode>({ kind: 'creature' })
   const [depthBackgroundZoom, setDepthBackgroundZoom] = useState(DEPTH_BACKGROUND_BASE_ZOOM)
   const [entryReplayToken, setEntryReplayToken] = useState(0)
   const [isRightRailOpen, setIsRightRailOpen] = useState(false)
@@ -34,11 +38,13 @@ export function App() {
   const insightCards = useMemo(() => getCreatureInsightCards(selectedCreature, resolvedLocale), [selectedCreature, resolvedLocale])
   const [activeInsightId, setActiveInsightId] = useState(SUMMARY_INSIGHT_ID)
   const activeInsight = insightCards.find((card) => card.id === activeInsightId) ?? insightCards[0]
+  const activeZoneOverviewId = viewMode.kind === 'zone' ? viewMode.zoneId : null
+  const isEditorialActive = viewMode.kind === 'editorial'
   const activeZoneOverview = activeZoneOverviewId
     ? depthZones.find((zone) => zone.id === activeZoneOverviewId) ?? null
     : null
   const activeZoneId = isEditorialActive ? 'sunlight' : activeZoneOverview?.id ?? selectedCreature.zone
-  const activeZoneStory = !isEditorialActive && activeZoneOverview ? getZoneStory(activeZoneOverview.id, resolvedLocale) : null
+  const activeZoneStory = activeZoneOverview ? getZoneStory(activeZoneOverview.id, resolvedLocale) : null
   const theme = getDepthTheme(activeZoneId)
   const copy = uiCopy[resolvedLocale]
   const rightRailId = 'oceaneye-right-rail'
@@ -50,7 +56,7 @@ export function App() {
 
   useEffect(() => {
     setActiveInsightId(SUMMARY_INSIGHT_ID)
-    setActiveZoneOverviewId(null)
+    setViewMode({ kind: 'creature' })
     setDepthBackgroundZoom(DEPTH_BACKGROUND_BASE_ZOOM)
   }, [selectedCreature.id])
 
@@ -74,10 +80,41 @@ export function App() {
   }, [activeZoneOverviewId])
 
   useEffect(() => {
-    creatures.forEach((creature) => {
-      if (creature.model.url) useGLTF.preload(creature.model.url)
-    })
-  }, [creatures])
+    const initialModelUrl = initialCreature.model.url
+    if (initialModelUrl) useGLTF.preload(initialModelUrl)
+
+    const remainingModelUrls = creatures
+      .map((creature) => creature.model.url)
+      .filter((url): url is string => Boolean(url && url !== initialModelUrl))
+
+    if (remainingModelUrls.length === 0) return undefined
+
+    let cancelled = false
+    const preloadRemainingModels = () => {
+      if (cancelled) return
+      remainingModelUrls.forEach((url) => useGLTF.preload(url))
+    }
+    const idleWindow = window as Window & {
+      requestIdleCallback?: (callback: () => void, options?: { timeout?: number }) => number
+      cancelIdleCallback?: (handle: number) => void
+    }
+
+    if (idleWindow.requestIdleCallback) {
+      const idleHandle = idleWindow.requestIdleCallback(preloadRemainingModels, { timeout: 2500 })
+
+      return () => {
+        cancelled = true
+        idleWindow.cancelIdleCallback?.(idleHandle)
+      }
+    }
+
+    const timeoutHandle = window.setTimeout(preloadRemainingModels, 1200)
+
+    return () => {
+      cancelled = true
+      window.clearTimeout(timeoutHandle)
+    }
+  }, [creatures, initialCreature.model.url])
 
   useEffect(() => {
     if (!isRightRailOpen) return undefined
@@ -99,7 +136,7 @@ export function App() {
   } as CSSProperties
 
   function handleSelectCreature(creatureId: string) {
-    const isCurrentCreature = creatureId === selectedCreature.id && !activeZoneOverviewId && !isEditorialActive
+    const isCurrentCreature = creatureId === selectedCreature.id && viewMode.kind === 'creature'
 
     if (isCurrentCreature && activeInsightId === SUMMARY_INSIGHT_ID) {
       setEntryReplayToken((token) => token + 1)
@@ -109,23 +146,20 @@ export function App() {
 
     setSelectedCreatureId(creatureId)
     setActiveInsightId(SUMMARY_INSIGHT_ID)
-    setActiveZoneOverviewId(null)
-    setIsEditorialActive(false)
+    setViewMode({ kind: 'creature' })
     setDepthBackgroundZoom(DEPTH_BACKGROUND_BASE_ZOOM)
   }
 
   function handleSelectZone(zoneId: ZoneId) {
     setActiveInsightId(SUMMARY_INSIGHT_ID)
-    setIsEditorialActive(false)
     setDepthBackgroundZoom(DEPTH_BACKGROUND_BASE_ZOOM)
-    setActiveZoneOverviewId(zoneId)
+    setViewMode({ kind: 'zone', zoneId })
   }
 
   function handleSelectEditorial() {
     setActiveInsightId(SUMMARY_INSIGHT_ID)
-    setActiveZoneOverviewId(null)
-    setIsEditorialActive(true)
     setDepthBackgroundZoom(DEPTH_BACKGROUND_BASE_ZOOM)
+    setViewMode({ kind: 'editorial' })
   }
 
   return (

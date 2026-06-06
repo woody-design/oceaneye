@@ -5,7 +5,7 @@ import './DepthCanvasBackground.css'
 type DepthCanvasRgb = [number, number, number]
 type DepthCanvasGradientStop = [number, DepthCanvasRgb]
 export type DepthCanvasId = 'reef_cool' | 'twilight' | 'midnight' | 'abyssal' | 'hadal'
-export type DepthCanvasCandidate = 'A' | 'B' | 'C'
+export type DepthCanvasVariant = 'A' | 'B' | 'C'
 
 type DepthCanvasSunRays = {
   sun: {
@@ -45,8 +45,6 @@ type DepthCanvasParams = {
   range: string
   notes: string
   gradient: DepthCanvasGradientStop[]
-  shafts: null
-  caustics: number
   particles: {
     density: number
     sizeMin: number
@@ -105,7 +103,6 @@ type DepthCanvasBiolum = {
 
 type DepthCanvasState = {
   particles: DepthCanvasParticle[]
-  shafts: never[]
   biolum: DepthCanvasBiolum[]
   biolumCooldown: number
   pointer: {
@@ -132,8 +129,6 @@ const DEPTH_CANVAS_BASE: Record<DepthCanvasId, DepthCanvasParams> = {
       [0.48, [10, 76, 176]],
       [1.00, [8, 58, 150]],
     ],
-    shafts: null,
-    caustics: 0,
     particles: {
       density: 0.00022, sizeMin: 0.4, sizeMax: 1.2,
       speed: 0.08, lift: 0.06, drift: 0.40,
@@ -178,8 +173,6 @@ const DEPTH_CANVAS_BASE: Record<DepthCanvasId, DepthCanvasParams> = {
       [0.42, [10, 58, 108]],
       [1.00, [3, 24, 64]],
     ],
-    shafts: null,
-    caustics: 0,
     particles: {
       density: 0.00060, sizeMin: 0.5, sizeMax: 1.8,
       speed: 0.13, lift: 0.03, drift: 0.30,
@@ -199,8 +192,6 @@ const DEPTH_CANVAS_BASE: Record<DepthCanvasId, DepthCanvasParams> = {
       [0.50, [4, 12, 26]],
       [1.00, [2, 8, 18]],
     ],
-    shafts: null,
-    caustics: 0,
     particles: {
       density: 0.00020, sizeMin: 0.4, sizeMax: 1.3,
       speed: 0.07, lift: 0.00, drift: 0.5,
@@ -220,8 +211,6 @@ const DEPTH_CANVAS_BASE: Record<DepthCanvasId, DepthCanvasParams> = {
       [0.60, [10, 12, 20]],
       [1.00, [32, 24, 18]],
     ],
-    shafts: null,
-    caustics: 0,
     particles: {
       density: 0.00085, sizeMin: 0.6, sizeMax: 2.4,
       speed: 0.05, lift: 0.00, drift: 0.15,
@@ -242,8 +231,6 @@ const DEPTH_CANVAS_BASE: Record<DepthCanvasId, DepthCanvasParams> = {
       [0.50, [1, 4, 10]],
       [1.00, [3, 3, 8]],
     ],
-    shafts: null,
-    caustics: 0,
     particles: {
       density: 0.00010, sizeMin: 0.3, sizeMax: 0.9,
       speed: 0.02, lift: 0.00, drift: 0.05,
@@ -269,8 +256,7 @@ function schedTick(now: number) {
       try {
         fn(dt, now / 1000)
       } catch {
-        // Keep parity with the depth canvas scheduler: one bad board should
-        // not stop the shared animation loop.
+        // One failed canvas should not stop the shared animation loop.
       }
     })
   }
@@ -291,26 +277,22 @@ function unsubscribe(fn: DepthCanvasTick) {
   subscribers.delete(fn)
 }
 
-function applyCandidate(p: DepthCanvasParams, c: DepthCanvasCandidate): DepthCanvasParams {
+function applyVariant(p: DepthCanvasParams, variant: DepthCanvasVariant): DepthCanvasParams {
   const out = JSON.parse(JSON.stringify(p)) as DepthCanvasParams
-  if (c === 'A') return out
-  if (c === 'B') {
+  if (variant === 'A') return out
+  if (variant === 'B') {
     out.particles.density *= 1.75
     out.particles.drift *= 1.4
     if (out.biolum) {
       out.biolum.rate *= 1.45
       out.biolum.glow *= 1.1
     }
-    if (out.shafts) {
-      // Abyssal has no shafts, but this branch is kept to match DepthCanvas Design's
-      // candidate-B modifier shape.
-    }
     out.haze.topA *= 0.92
     out.haze.botA *= 0.92
     out.flow = 1
     return out
   }
-  if (c === 'C') {
+  if (variant === 'C') {
     out.gradient = out.gradient.map(([t, rgb], index) => {
       if (index === out.gradient.length - 1) return [t, rgb]
       const factor = index === 0 ? 0.78 : 0.62
@@ -329,8 +311,6 @@ function applyCandidate(p: DepthCanvasParams, c: DepthCanvasCandidate): DepthCan
   return out
 }
 
-function lerp(a: number, b: number, t: number) { return a + (b - a) * t }
-function lerpRGB(a: DepthCanvasRgb, b: DepthCanvasRgb, t: number): DepthCanvasRgb { return [lerp(a[0], b[0], t), lerp(a[1], b[1], t), lerp(a[2], b[2], t)] }
 function rgba(r: number, g: number, b: number, a: number) { return `rgba(${r | 0},${g | 0},${b | 0},${a})` }
 function rgbStr(arr: DepthCanvasRgb, a?: number) { return rgba(arr[0], arr[1], arr[2], a == null ? 1 : a) }
 
@@ -348,14 +328,6 @@ function paintHaze(ctx: CanvasRenderingContext2D, p: DepthCanvasParams, w: numbe
   g.addColorStop(1, rgbStr(p.haze.color, p.haze.botA))
   ctx.fillStyle = g
   ctx.fillRect(0, 0, w, h)
-}
-
-function paintShafts() {
-  return
-}
-
-function paintCaustics() {
-  return
 }
 
 function rayIntensity(sunRays: DepthCanvasSunRays, theta: number, time: number) {
@@ -561,10 +533,9 @@ function makeRayField(p: DepthCanvasParams): Pick<DepthCanvasState, 'rayJitter' 
 function initState(p: DepthCanvasParams, w: number, h: number): DepthCanvasState {
   const count = Math.max(8, Math.round(p.particles.density * w * h))
   const particles = new Array(count).fill(0).map(() => makeParticle(p, w, h, false))
-  const shafts: never[] = []
   const rays = makeRayField(p)
   return {
-    particles, shafts,
+    particles,
     biolum: [],
     biolumCooldown: 1 / Math.max(0.001, (p.biolum?.rate || 0.001)),
     pointer: { x: w / 2, y: h / 2, wake: 0 },
@@ -629,9 +600,9 @@ function stepState(state: DepthCanvasState, p: DepthCanvasParams, w: number, h: 
   }
 }
 
-function DepthAbyssalBOceanEnv({
+function DepthCanvasScene({
   depth,
-  candidate,
+  variant,
   width = 720,
   height = 460,
   showSubjectZone = true,
@@ -639,7 +610,7 @@ function DepthAbyssalBOceanEnv({
   style,
 }: {
   depth: DepthCanvasId
-  candidate: DepthCanvasCandidate
+  variant: DepthCanvasVariant
   width?: number
   height?: number
   showSubjectZone?: boolean
@@ -661,7 +632,7 @@ function DepthAbyssalBOceanEnv({
     if (!ctx) return
     ctx.scale(dpr, dpr)
 
-    const params = applyCandidate(DEPTH_CANVAS_BASE[depth], candidate)
+    const params = applyVariant(DEPTH_CANVAS_BASE[depth], variant)
     stateRef.current = initState(params, renderW, renderH)
     if (!showSubjectZone) params.subject = null
 
@@ -670,8 +641,6 @@ function DepthAbyssalBOceanEnv({
       if (!visible || !stateRef.current) return
       stepState(stateRef.current, params, renderW, renderH, dt)
       paintGradient(ctx, params, renderW, renderH)
-      paintShafts()
-      paintCaustics()
       paintHaze(ctx, params, renderW, renderH)
       paintSunRays(ctx, stateRef.current, params, renderW, renderH, t)
       paintSubjectZone(ctx, params, renderW, renderH)
@@ -706,7 +675,7 @@ function DepthAbyssalBOceanEnv({
       io.disconnect()
       canvas.removeEventListener('pointermove', onMove)
     }
-  }, [candidate, depth, width, height, showSubjectZone])
+  }, [variant, depth, width, height, showSubjectZone])
 
   return (
     <canvas
@@ -725,11 +694,11 @@ function DepthAbyssalBOceanEnv({
 
 export function DepthCanvasUnderlay({
   depth,
-  candidate,
+  variant,
   zoom = 1,
 }: {
   depth: DepthCanvasId
-  candidate: DepthCanvasCandidate
+  variant: DepthCanvasVariant
   zoom?: number
 }) {
   const [viewport, setViewport] = useState(() => ({
@@ -747,9 +716,9 @@ export function DepthCanvasUnderlay({
 
   return (
     <div className="depth-canvas-underlay-frame" aria-hidden="true">
-      <DepthAbyssalBOceanEnv
+      <DepthCanvasScene
         depth={depth}
-        candidate={candidate}
+        variant={variant}
         width={viewport.width}
         height={viewport.height}
         className="depth-canvas-underlay"
@@ -757,8 +726,4 @@ export function DepthCanvasUnderlay({
       />
     </div>
   )
-}
-
-export function DepthAbyssalBUnderlay({ zoom = 1 }: { zoom?: number }) {
-  return <DepthCanvasUnderlay depth="abyssal" candidate="B" zoom={zoom} />
 }

@@ -10,9 +10,7 @@ type StageMusicLinkProps = {
 
 export function StageMusicLink({ track, locale }: StageMusicLinkProps) {
   const copy = uiCopy[locale]
-  const label = track.isPlaceholder
-    ? `${copy.spotifyPlaceholder}: ${track.title}`
-    : `${copy.openSpotify}: ${track.title} · ${track.artist}`
+  const label = `${copy.openSpotify}: ${track.title} · ${track.artist}`
   const content = (
     <>
       <span className="stage-music-symbol" aria-hidden="true">

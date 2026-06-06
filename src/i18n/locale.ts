@@ -46,7 +46,6 @@ export const uiCopy = {
     pauseAutoRotate: '暂停自动旋转',
     resumeAutoRotate: '继续自动旋转',
     resetView: '重置视角',
-    spotifyPlaceholder: 'Spotify 曲目待定',
     openSpotify: '在 Spotify 打开',
     openRightPanel: '打开右侧面板',
     closeRightPanel: '关闭右侧面板',
@@ -92,7 +91,6 @@ export const uiCopy = {
     pauseAutoRotate: 'Pause Auto Rotate',
     resumeAutoRotate: 'Resume Auto Rotate',
     resetView: 'Reset',
-    spotifyPlaceholder: 'Spotify track placeholder',
     openSpotify: 'Open Spotify',
     openRightPanel: 'Open right panel',
     closeRightPanel: 'Close right panel',
@@ -175,29 +173,4 @@ export function formatDepth(depthMeters: number, locale: Locale): string {
   return locale === 'zh'
     ? value.replace('m', '米')
     : value
-}
-
-export function formatDepthRange(
-  depthRange: { min: number | null; max: number | null },
-  locale: Locale,
-): string {
-  const copy = uiCopy[locale]
-
-  if (depthRange.min === null && depthRange.max === null) {
-    return copy.depthRangeUnderReview
-  }
-
-  if (depthRange.min === null) {
-    return locale === 'zh'
-      ? `浅于 ${formatDepth(depthRange.max ?? 0, locale)}`
-      : `shallower than ${formatDepth(depthRange.max ?? 0, locale)}`
-  }
-
-  if (depthRange.max === null) {
-    return locale === 'zh'
-      ? `${formatDepth(depthRange.min, locale)} 或更深`
-      : `${formatDepth(depthRange.min, locale)} or deeper`
-  }
-
-  return `${formatDepth(depthRange.min, locale)} - ${formatDepth(depthRange.max, locale)}`
 }
