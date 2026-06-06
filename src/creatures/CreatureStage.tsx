@@ -54,6 +54,7 @@ export function CreatureStage({
   const shouldAutoRotateByDefault = DEFAULT_AUTO_ROTATE_CREATURE_IDS.has(creature.id)
   const [resetToken, setResetToken] = useState(0)
   const [isAutoRotateActive, setIsAutoRotateActive] = useState(shouldAutoRotateByDefault)
+  const [modelLoadFailed, setModelLoadFailed] = useState(false)
   const previousAutoRotateCreatureIdRef = useRef(creature.id)
   const previousEntryReplayTokenRef = useRef(entryReplayToken)
   const autoRotateView = useMemo(() => getCreatureModelView(creature), [creature])
@@ -64,6 +65,11 @@ export function CreatureStage({
   const initialCameraRef = useRef({ position: entryModelView.cameraPosition, fov: 42 })
   const uses2DDepthBackground = hasDepthBackground2D(theme.id)
   const musicTrack = getCreatureMusicTrack(creature)
+  const modelFallbackUrl = creature.links.googleImages ?? creature.links.wikipedia
+
+  const handleModelLoadError = useCallback(() => {
+    setModelLoadFailed(true)
+  }, [])
 
   function resetView() {
     setIsAutoRotateActive(false)
@@ -87,7 +93,7 @@ export function CreatureStage({
 
   function handleStagePointerDown(event: PointerEvent<HTMLElement>) {
     const target = event.target
-    if (target instanceof Element && target.closest('.stage-control-button, .stage-music-link')) return
+    if (target instanceof Element && target.closest('.stage-control-button, .stage-music-link, .stage-model-error-link')) return
     pauseAutoRotate()
     event.currentTarget.focus({ preventScroll: true })
   }
@@ -97,6 +103,10 @@ export function CreatureStage({
     event.preventDefault()
     resetView()
   }
+
+  useEffect(() => {
+    setModelLoadFailed(false)
+  }, [creature.id])
 
   useEffect(() => {
     const isDefaultView = !activeViewPresetId && (!activeInsightId || activeInsightId === SUMMARY_INSIGHT_ID)
@@ -135,6 +145,24 @@ export function CreatureStage({
         <h1>{creatureText.commonName}</h1>
         <p>{creatureText.stageSummary}</p>
       </div>
+      {modelLoadFailed && (
+        <div className="stage-model-error" role="status" aria-live="polite">
+          <span>{copy.modelUnavailable}</span>
+          {modelFallbackUrl && (
+            <>
+              <span aria-hidden="true">·</span>
+              <a
+                className="stage-model-error-link"
+                href={modelFallbackUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {copy.seeReferenceImages}
+              </a>
+            </>
+          )}
+        </div>
+      )}
       <div className="stage-bottom-bar">
         <div className="stage-legend" aria-hidden="true">
           {copy.stageInteractionHints.map((hint) => (
@@ -206,6 +234,7 @@ export function CreatureStage({
           resetToken={resetToken}
           onAutoRotatePause={pauseAutoRotate}
           onDepthBackgroundZoomChange={uses2DDepthBackground ? onDepthBackgroundZoomChange : undefined}
+          onModelLoadError={handleModelLoadError}
         />
       </Canvas>
     </section>
@@ -224,6 +253,7 @@ type ModelViewRigProps = {
   resetToken: number
   onAutoRotatePause: () => void
   onDepthBackgroundZoomChange?: (zoom: number) => void
+  onModelLoadError?: () => void
 }
 
 type OrbitControlsHandle = ComponentRef<typeof OrbitControls>
@@ -309,6 +339,7 @@ function ModelViewRig({
   resetToken,
   onAutoRotatePause,
   onDepthBackgroundZoomChange,
+  onModelLoadError,
 }: ModelViewRigProps) {
   const stageGroupRef = useRef<THREE.Group>(null)
   const controlsRef = useRef<OrbitControlsHandle>(null)
@@ -690,7 +721,7 @@ function ModelViewRig({
         position={initialStagePositionRef.current}
         scale={initialStageScaleRef.current}
       >
-        <CreatureModel creature={creature} />
+        <CreatureModel creature={creature} onError={onModelLoadError} />
       </group>
       <OrbitControls
         ref={controlsRef}

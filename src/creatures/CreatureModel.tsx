@@ -6,10 +6,12 @@ import { DRACO_DECODER_PATH, useGltfDecoderExtension } from './gltfDecoders'
 
 type CreatureModelProps = {
   creature: Creature
+  onError?: () => void
 }
 
 type ModelErrorBoundaryProps = {
   children: ReactNode
+  onError?: () => void
   url: string
 }
 
@@ -17,13 +19,16 @@ type ModelErrorBoundaryState = {
   hasError: boolean
 }
 
-export function CreatureModel({ creature }: CreatureModelProps) {
+export function CreatureModel({ creature, onError }: CreatureModelProps) {
   if (!creature.model.url) return null
 
   return (
     <Suspense fallback={null}>
-      <ModelErrorBoundary key={creature.model.url} url={creature.model.url}>
-        <ReviewedGlbModel url={creature.model.url} rotation={creature.model.rotation} />
+      <ModelErrorBoundary key={`${creature.id}:${creature.model.url}`} url={creature.model.url} onError={onError}>
+        <ReviewedGlbModel
+          url={creature.model.url}
+          rotation={creature.model.rotation}
+        />
       </ModelErrorBoundary>
     </Suspense>
   )
@@ -37,6 +42,7 @@ class ModelErrorBoundary extends Component<ModelErrorBoundaryProps, ModelErrorBo
   }
 
   componentDidCatch(error: unknown, errorInfo: ErrorInfo) {
+    this.props.onError?.()
     console.error('Failed to render creature model.', {
       url: this.props.url,
       error,
@@ -51,7 +57,13 @@ class ModelErrorBoundary extends Component<ModelErrorBoundaryProps, ModelErrorBo
   }
 }
 
-function ReviewedGlbModel({ url, rotation }: { url: string; rotation?: [number, number, number] }) {
+function ReviewedGlbModel({
+  url,
+  rotation,
+}: {
+  url: string
+  rotation?: [number, number, number]
+}) {
   const extendLoader = useGltfDecoderExtension()
   const gltf = useGLTF(url, DRACO_DECODER_PATH, true, extendLoader)
 
