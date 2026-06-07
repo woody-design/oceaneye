@@ -49,7 +49,7 @@ export const editorialContent: Record<Locale, EditorialContent> = {
     subtitle: 'An open-source, interactive 3D atlas of ocean life.',
     githubLink: {
       label: 'GitHub',
-      href: 'https://github.com/woody-design',
+      href: 'https://github.com/woody-design/oceaneye',
     },
     credit: {
       ariaLabel: 'Designed by Woody & OC, CD, GG, HR, AC in NYC',
@@ -136,7 +136,7 @@ export const editorialContent: Record<Locale, EditorialContent> = {
     subtitle: '开源3D海洋生物图鉴',
     githubLink: {
       label: 'GitHub',
-      href: 'https://github.com/woody-design',
+      href: 'https://github.com/woody-design/oceaneye',
     },
     credit: {
       ariaLabel: 'Designed by Woody & OC, CD, GG, HR, AC in NYC',
