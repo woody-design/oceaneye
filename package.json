@@ -1,7 +1,7 @@
 {
   "name": "oceaneye",
-  "version": "0.0.19",
-  "description": "An open, curated, interactive 3D ocean life atlas.",
+  "version": "0.0.20",
+  "description": "An open-source, interactive 3D atlas of ocean life.",
   "license": "MIT",
   "repository": {
     "type": "git",

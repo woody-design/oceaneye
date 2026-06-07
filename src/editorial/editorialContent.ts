@@ -46,7 +46,7 @@ export const editorialContent: Record<Locale, EditorialContent> = {
     navLabel: 'About OceanEye',
     railLabel: 'Editorial links',
     title: 'OceanEye',
-    subtitle: 'An open-source, interactive 3D ocean life wiki.',
+    subtitle: 'An open-source, interactive 3D atlas of ocean life.',
     githubLink: {
       label: 'GitHub',
       href: 'https://github.com/woody-design',
@@ -133,7 +133,7 @@ export const editorialContent: Record<Locale, EditorialContent> = {
     navLabel: '关于 OceanEye',
     railLabel: '相关链接',
     title: 'OceanEye',
-    subtitle: '开源3D海洋生物wiki',
+    subtitle: '开源3D海洋生物图鉴',
     githubLink: {
       label: 'GitHub',
       href: 'https://github.com/woody-design',
