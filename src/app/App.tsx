@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import type { CSSProperties } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { PanelRightClose, PanelRightOpen } from 'lucide-react'
@@ -18,6 +18,8 @@ import { findInitialCreature, loadCreatures } from '../content/loadCreatures'
 import type { ZoneId } from '../types/creature'
 import { DEFAULT_LOCALE, getCurrentLocale, getDefaultLocaleRedirectPath, syncLocaleHead, uiCopy } from '../i18n/locale'
 import { DEPTH_BACKGROUND_BASE_ZOOM, DepthBackground2D, hasDepthBackground2D } from '../environment/DepthBackground2D'
+import { shouldEagerPreloadAll } from './preloadPolicy'
+import type { NetworkConnectionLike } from './preloadPolicy'
 import './App.css'
 
 type ViewMode =
@@ -84,6 +86,9 @@ export function App() {
     const initialModelUrl = initialCreature.model.url
     if (initialModelUrl) useGLTF.preload(initialModelUrl, DRACO_DECODER_PATH, true, extendPreloadedGltf)
 
+    const connection = (navigator as Navigator & { connection?: NetworkConnectionLike }).connection
+    if (!shouldEagerPreloadAll(connection)) return undefined
+
     const remainingModelUrls = creatures
       .map((creature) => creature.model.url)
       .filter((url): url is string => Boolean(url && url !== initialModelUrl))
@@ -116,6 +121,11 @@ export function App() {
       window.clearTimeout(timeoutHandle)
     }
   }, [creatures, initialCreature.model.url])
+
+  const prefetchCreatureModel = useCallback((creatureId: string) => {
+    const modelUrl = creatures.find((creature) => creature.id === creatureId)?.model.url
+    if (modelUrl) useGLTF.preload(modelUrl, DRACO_DECODER_PATH, true, extendPreloadedGltf)
+  }, [creatures])
 
   useEffect(() => {
     if (!isRightRailOpen) return undefined
@@ -191,6 +201,7 @@ export function App() {
         activeZoneOverviewId={activeZoneOverviewId}
         isEditorialActive={isEditorialActive}
         onSelectCreature={handleSelectCreature}
+        onPrefetchCreature={prefetchCreatureModel}
         onSelectZone={handleSelectZone}
         onSelectEditorial={handleSelectEditorial}
         locale={resolvedLocale}

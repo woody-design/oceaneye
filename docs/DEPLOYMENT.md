@@ -35,6 +35,14 @@ The app uses URL-based locales:
 
 Cloudflare Pages reads `public/_redirects` during the Vite build and copies it
 to `dist/_redirects`.
+It also reads `public/_headers`, which gives `/models/*`, `/draco/*`, and
+`/basis/*` long-lived immutable cache headers.
+
+Model filenames are not content-hashed. Because `/models/*` is served with
+`Cache-Control: public, max-age=31536000, immutable`, replacing a model at the
+same path can leave returning visitors with a stale cached copy. When a model is
+updated, bust the cache by renaming the file or appending a version query, then
+update the matching `url` in `content/creatures/*.json`.
 
 Suggested GitHub Pages flow:
 

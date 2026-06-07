@@ -11,6 +11,7 @@ type DepthNavigatorProps = {
   activeZoneOverviewId: ZoneId | null
   isEditorialActive: boolean
   onSelectCreature: (creatureId: string) => void
+  onPrefetchCreature: (creatureId: string) => void
   onSelectZone: (zoneId: ZoneId) => void
   onSelectEditorial: () => void
   locale: Locale
@@ -22,6 +23,7 @@ export function DepthNavigator({
   activeZoneOverviewId,
   isEditorialActive,
   onSelectCreature,
+  onPrefetchCreature,
   onSelectZone,
   onSelectEditorial,
   locale,
@@ -78,6 +80,9 @@ export function DepthNavigator({
                             : 'creature-button'
                         }
                         onClick={() => onSelectCreature(creature.id)}
+                        onFocus={() => onPrefetchCreature(creature.id)}
+                        onPointerEnter={() => onPrefetchCreature(creature.id)}
+                        onTouchStart={() => onPrefetchCreature(creature.id)}
                       >
                         <span className="creature-name">{creatureText.commonName}</span>
                       </button>
