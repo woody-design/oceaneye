@@ -6,6 +6,7 @@ import { depthZones, getDepthZoneLabel } from './depthZones'
 import './DepthNavigator.css'
 
 type DepthNavigatorProps = {
+  id?: string
   creatures: Creature[]
   selectedCreatureId: string
   activeZoneOverviewId: ZoneId | null
@@ -18,6 +19,7 @@ type DepthNavigatorProps = {
 }
 
 export function DepthNavigator({
+  id,
   creatures,
   selectedCreatureId,
   activeZoneOverviewId,
@@ -33,7 +35,7 @@ export function DepthNavigator({
   const selectedCreature = creatures.find((creature) => creature.id === selectedCreatureId) ?? creatures[0]
 
   return (
-    <aside className="depth-navigator" aria-label={copy.depthNavigator}>
+    <aside id={id} className="depth-navigator" aria-label={copy.depthNavigator}>
       <div className="depth-track" aria-hidden="true" />
       <div className="zone-list">
         {depthZones.map((zone) => {

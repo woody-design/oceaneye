@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import type { CSSProperties } from 'react'
 import { useGLTF } from '@react-three/drei'
-import { PanelRightClose, PanelRightOpen } from 'lucide-react'
+import { Menu, PanelRightClose, PanelRightOpen, X } from 'lucide-react'
 import { DepthNavigator } from '../depth/DepthNavigator'
 import { depthZones } from '../depth/depthZones'
 import { getDepthTheme } from '../depth/depthTheme'
@@ -36,6 +36,7 @@ export function App() {
   const [viewMode, setViewMode] = useState<ViewMode>({ kind: 'creature' })
   const [depthBackgroundZoom, setDepthBackgroundZoom] = useState(DEPTH_BACKGROUND_BASE_ZOOM)
   const [entryReplayToken, setEntryReplayToken] = useState(0)
+  const [isNavOpen, setIsNavOpen] = useState(false)
   const [isRightRailOpen, setIsRightRailOpen] = useState(false)
   const selectedCreature = creatures.find((creature) => creature.id === selectedCreatureId) ?? initialCreature
   const insightCards = useMemo(() => getCreatureInsightCards(selectedCreature, resolvedLocale), [selectedCreature, resolvedLocale])
@@ -50,6 +51,7 @@ export function App() {
   const activeZoneStory = activeZoneOverview ? getZoneStory(activeZoneOverview.id, resolvedLocale) : null
   const theme = getDepthTheme(activeZoneId)
   const copy = uiCopy[resolvedLocale]
+  const leftNavId = 'oceaneye-left-nav'
   const rightRailId = 'oceaneye-right-rail'
 
   useEffect(() => {
@@ -128,17 +130,18 @@ export function App() {
   }, [creatures])
 
   useEffect(() => {
-    if (!isRightRailOpen) return undefined
+    if (!isNavOpen && !isRightRailOpen) return undefined
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === 'Escape') {
+        setIsNavOpen(false)
         setIsRightRailOpen(false)
       }
     }
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [isRightRailOpen])
+  }, [isNavOpen, isRightRailOpen])
 
   const style = {
     '--water-color': theme.waterColor,
@@ -146,7 +149,25 @@ export function App() {
     '--accent': theme.accent,
   } as CSSProperties
 
+  function handleToggleNav() {
+    const nextIsOpen = !isNavOpen
+    setIsNavOpen(nextIsOpen)
+    if (nextIsOpen) setIsRightRailOpen(false)
+  }
+
+  function handleToggleRightRail() {
+    const nextIsOpen = !isRightRailOpen
+    setIsRightRailOpen(nextIsOpen)
+    if (nextIsOpen) setIsNavOpen(false)
+  }
+
+  function handleCloseDrawers() {
+    setIsNavOpen(false)
+    setIsRightRailOpen(false)
+  }
+
   function handleSelectCreature(creatureId: string) {
+    setIsNavOpen(false)
     const isCurrentCreature = creatureId === selectedCreature.id && viewMode.kind === 'creature'
 
     if (isCurrentCreature && activeInsightId === SUMMARY_INSIGHT_ID) {
@@ -162,12 +183,14 @@ export function App() {
   }
 
   function handleSelectZone(zoneId: ZoneId) {
+    setIsNavOpen(false)
     setActiveInsightId(SUMMARY_INSIGHT_ID)
     setDepthBackgroundZoom(DEPTH_BACKGROUND_BASE_ZOOM)
     setViewMode({ kind: 'zone', zoneId })
   }
 
   function handleSelectEditorial() {
+    setIsNavOpen(false)
     setActiveInsightId(SUMMARY_INSIGHT_ID)
     setDepthBackgroundZoom(DEPTH_BACKGROUND_BASE_ZOOM)
     setViewMode({ kind: 'editorial' })
@@ -175,15 +198,30 @@ export function App() {
 
   return (
     <main
-      className={`app-shell zone-${activeZoneId}${activeZoneOverview ? ' zone-overview-active' : ''}${isRightRailOpen ? ' right-rail-open' : ''}`}
+      className={`app-shell zone-${activeZoneId}${activeZoneOverview ? ' zone-overview-active' : ''}${isNavOpen ? ' nav-open' : ''}${isRightRailOpen ? ' right-rail-open' : ''}`}
       style={style}
     >
       <DepthBackground2D zone={activeZoneId} zoom={depthBackgroundZoom} />
       <div className="ocean-backdrop" aria-hidden="true" />
       <button
         type="button"
+        className="left-nav-toggle"
+        onClick={handleToggleNav}
+        aria-controls={leftNavId}
+        aria-expanded={isNavOpen}
+        aria-label={isNavOpen ? copy.closeNavigator : copy.openNavigator}
+        title={isNavOpen ? copy.closeNavigator : copy.openNavigator}
+      >
+        {isNavOpen ? (
+          <X size={18} strokeWidth={2.2} aria-hidden="true" />
+        ) : (
+          <Menu size={18} strokeWidth={2.2} aria-hidden="true" />
+        )}
+      </button>
+      <button
+        type="button"
         className="right-rail-toggle"
-        onClick={() => setIsRightRailOpen((isOpen) => !isOpen)}
+        onClick={handleToggleRightRail}
         aria-controls={rightRailId}
         aria-expanded={isRightRailOpen}
         aria-label={isRightRailOpen ? copy.closeRightPanel : copy.openRightPanel}
@@ -195,7 +233,11 @@ export function App() {
           <PanelRightOpen size={18} strokeWidth={2.2} aria-hidden="true" />
         )}
       </button>
+      {(isNavOpen || isRightRailOpen) && (
+        <div className="drawer-scrim" aria-hidden="true" onClick={handleCloseDrawers} />
+      )}
       <DepthNavigator
+        id={leftNavId}
         creatures={creatures}
         selectedCreatureId={selectedCreature.id}
         activeZoneOverviewId={activeZoneOverviewId}
