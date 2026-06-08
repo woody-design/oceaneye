@@ -4,7 +4,7 @@ An open-source, interactive 3D atlas of ocean life.
 
 **Live: [https://oceaneye.woodydesign.io](https://oceaneye.woodydesign.io)**
 
-[Open the demo video](docs/media/oceaneye-demo.mp4)
+https://github.com/user-attachments/assets/b050d9f7-2cf1-422a-8813-038e5d91293e
 
 <br>
 
