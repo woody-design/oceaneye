@@ -4,9 +4,9 @@ An open-source, interactive 3D atlas of ocean life.
 
 **Live: [https://oceaneye.woodydesign.io](https://oceaneye.woodydesign.io)**
 
-<video src="docs/media/oceaneye-demo.mp4" controls muted playsinline width="100%"></video>
-
 [Open the demo video](docs/media/oceaneye-demo.mp4)
+
+<br>
 
 ## Why I Built This
 
@@ -21,6 +21,8 @@ Every decision here tries to respect science and reality as much as I could mana
 If it sparks even a little curiosity in you about these animals, the ocean, and our blue planet, then this project has done what it was meant to do.
 
 The name comes from Billie Eilish's "Ocean Eyes." The core idea sparked while I was watching her concert film, *Hit Me Hard and Soft: The Tour*.
+
+<br>
 
 ## How It's Made
 
@@ -38,6 +40,8 @@ Each model came through a pipeline:
 
 Background shader prototyped in Claude design. Production code and operational tasks in OpenAI Codex. Code review in Claude Code.
 
+<br>
+
 ## Design Choices
 
 - The interface stays quiet so the animal remains the center of attention. Every design decision serves one goal: to evoke and share a little of the wonder of nature through curated content.
@@ -47,11 +51,15 @@ Background shader prototyped in Claude design. Production code and operational t
 - Curated content. One person wrote and source-checked all of it: careful, but limited. Corrections are welcome.
 - Sources on every card, so claims can be traced back.
 
+<br>
+
 ## What I Learned
 
 - AI 3D generation now still struggles with transparent bodies. The barreleye and Enypniastes models both failed. Rodin still cannot handle transparent structures well, or maybe that is just my skill level.
 - Eyes go wrong easily. I regenerated the dumbo octopus several times and the eyes still are not quite right. The tripod fish's eye came out too large and cartoonish.
 - Fact-checking the marine biology alone is a huge amount of work. Sources disagree, depth ranges especially. I spent about a week cross-checking, and even then many sources do not fully agree.
+
+<br>
 
 ## Run It Locally
 
@@ -66,6 +74,8 @@ npm run lint
 npm run test
 ```
 
+<br>
+
 ## Contributing
 
 This is a solo project and still an MVP, so the most useful help right now is:
@@ -75,6 +85,8 @@ This is a solo project and still an MVP, so the most useful help right now is:
 - Models / new creatures: heavier lift; open an issue first and let's talk.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for details. I maintain this in my spare time, so responses may be slow.
+
+<br>
 
 ## Credits, Inspiration, License
 
