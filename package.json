@@ -11,6 +11,9 @@
     "url": "https://github.com/woody-design/oceaneye/issues"
   },
   "homepage": "https://oceaneye.woodydesign.io/en/",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -52,7 +55,7 @@
     "jsdom": "^29.1.1",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.60.1",
-    "vite": "^8.0.10",
+    "vite": "^8.1.5",
     "vitest": "^4.1.8",
     "zod": "^4.4.3"
   }
