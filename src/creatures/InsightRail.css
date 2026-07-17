@@ -78,6 +78,10 @@
   overscroll-behavior: contain;
 }
 
+.insight-card-body[hidden] {
+  display: none;
+}
+
 .insight-card-body p {
   margin: 0;
   color: var(--oe-text-secondary);
