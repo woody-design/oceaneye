@@ -14,11 +14,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "npm run validate:content && tsc -b && vite build",
     "compress:models": "node scripts/compress-models.mjs",
     "lint": "eslint . --max-warnings=0",
     "typecheck": "tsc -b",
     "test": "vitest run",
+    "validate:content": "vitest run src/content/contentIntegrity.test.ts",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -52,6 +53,7 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.60.1",
     "vite": "^8.0.10",
-    "vitest": "^4.1.8"
+    "vitest": "^4.1.8",
+    "zod": "^4.4.3"
   }
 }
