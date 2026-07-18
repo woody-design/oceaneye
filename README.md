@@ -72,6 +72,8 @@ npm run build      # type-check + production build
 npm run preview    # serve the production build
 npm run lint
 npm run test
+npx playwright install chromium  # first-time browser test setup
+npm run test:e2e   # production build + Chromium smoke tests
 ```
 
 <br>

@@ -21,7 +21,9 @@ is a solo MVP, so the most useful contributions are focused and source-aware.
 ## Pull Requests
 
 1. Keep changes focused.
-2. Run `npm run build` before opening a PR.
+2. Run `npm run test` and `npm run build` before opening a PR.
+   For interaction, accessibility, or routing changes, also run
+   `npx playwright install chromium` once and then `npm run test:e2e`.
 3. Document source or model provenance changes.
 4. Preserve the separation between `displayDepthMeters` and `actualDepthRangeMeters`.
 

@@ -11,7 +11,7 @@ export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
-    files: ['src/**/*.{ts,tsx}', 'vite.config.ts', 'vitest.config.ts'],
+    files: ['src/**/*.{ts,tsx}', 'tests/**/*.ts', 'vite.config.ts', 'vitest.config.ts', 'playwright.config.ts'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -44,7 +44,15 @@ export default tseslint.config(
     },
   },
   {
-    files: ['eslint.config.js', 'vite.config.ts', 'vitest.config.ts', 'src/**/*.test.ts', 'src/test/**/*.ts'],
+    files: [
+      'eslint.config.js',
+      'vite.config.ts',
+      'vitest.config.ts',
+      'playwright.config.ts',
+      'src/**/*.test.{ts,tsx}',
+      'src/test/**/*.ts',
+      'tests/**/*.ts',
+    ],
     languageOptions: {
       globals: {
         ...globals.node,
