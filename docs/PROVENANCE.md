@@ -26,6 +26,7 @@ quotes, images, names, trademarks, or institutional material.
 | Dumbo octopus | Grimpoteuthis | `/models/dumbo-octopus.glb` | Hyper3D Rodin web UI, Rodin Gen-2 | release-candidate |
 | Tripod fish | Bathypterois grallator | `/models/tripod-fish.glb` | Hyper3D Rodin web UI, Rodin Gen-2 | release-candidate |
 | Hadal snailfish | Pseudoliparis swirei | `/models/hadal-snailfish.glb` | Hyper3D Rodin web UI, model setting not recorded | release-candidate |
+| Vampire squid | Vampyroteuthis infernalis | `/models/vampire-squid.glb` | Hyper3D Rodin web UI, Rodin web generation | release-candidate |
 
 The `release-candidate` status means the asset is included for transparent
 public preview and local verification, but it should not be represented as a

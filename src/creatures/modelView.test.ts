@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
   getAuthoredStageScale,
+  getCreatureEntryModelView,
   getCreatureModelView,
   getRuntimeStageScale,
 } from './modelView'
@@ -72,5 +73,32 @@ describe('model view helpers', () => {
     expect(view.cameraPosition[0]).toBeCloseTo(9.408)
     expect(view.cameraPosition[1]).toBeCloseTo(16.384)
     expect(view.cameraPosition[2]).toBeCloseTo(26.704)
+  })
+
+  it('uses responsive model and preset scales on mobile', () => {
+    const creature = createCreature({
+      model: {
+        scale: 2,
+        mobileScale: 1.5,
+        defaultCamera: [0, 1, 8],
+        entryView: {
+          scale: 3,
+        },
+        viewPresets: {
+          inherited: {
+            scale: 4,
+          },
+          explicit: {
+            scale: 4,
+            mobileScale: 2.5,
+          },
+        },
+      },
+    })
+
+    expect(getCreatureModelView(creature, undefined, true).stageScale).toBeCloseTo(2.85)
+    expect(getCreatureEntryModelView(creature, true).stageScale).toBeCloseTo(4.275)
+    expect(getCreatureModelView(creature, 'inherited', true).stageScale).toBeCloseTo(5.7)
+    expect(getCreatureModelView(creature, 'explicit', true).stageScale).toBeCloseTo(4.75)
   })
 })

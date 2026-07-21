@@ -52,13 +52,19 @@ export function CreatureStage({
   const [resetToken, setResetToken] = useState(0)
   const [isAutoRotateActive, setIsAutoRotateActive] = useState(false)
   const [modelLoadFailed, setModelLoadFailed] = useState(false)
+  const [usesMobileScale, setUsesMobileScale] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(max-width: 760px)').matches,
+  )
   const previousAutoRotateCreatureIdRef = useRef(creature.id)
   const previousEntryReplayTokenRef = useRef(entryReplayToken)
-  const autoRotateView = useMemo(() => getCreatureModelView(creature), [creature])
+  const autoRotateView = useMemo(
+    () => getCreatureModelView(creature, undefined, usesMobileScale),
+    [creature, usesMobileScale],
+  )
   const autoRotateLabel = copy.autoRotate
   const resetLabel = copy.resetView
-  const modelView = getCreatureModelView(creature, activeViewPresetId)
-  const entryModelView = getCreatureEntryModelView(creature)
+  const modelView = getCreatureModelView(creature, activeViewPresetId, usesMobileScale)
+  const entryModelView = getCreatureEntryModelView(creature, usesMobileScale)
   const initialCameraRef = useRef({ position: entryModelView.cameraPosition, fov: 42 })
   const uses2DDepthBackground = hasDepthBackground2D(theme.id)
   const musicTrack = getCreatureMusicTrack(creature)
@@ -104,6 +110,15 @@ export function CreatureStage({
   useEffect(() => {
     setModelLoadFailed(false)
   }, [creature.id])
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 760px)')
+    const syncMobileScale = (event: MediaQueryListEvent) => setUsesMobileScale(event.matches)
+
+    setUsesMobileScale(mediaQuery.matches)
+    mediaQuery.addEventListener('change', syncMobileScale)
+    return () => mediaQuery.removeEventListener('change', syncMobileScale)
+  }, [])
 
   useEffect(() => {
     const isDefaultView = !activeViewPresetId && (!activeInsightId || activeInsightId === SUMMARY_INSIGHT_ID)

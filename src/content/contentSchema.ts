@@ -43,6 +43,7 @@ const viewPresetSchema = z.object({
   target: vec3.optional(),
   stagePosition: vec3.optional(),
   scale: finiteNumber.positive().optional(),
+  mobileScale: finiteNumber.positive().optional(),
 }).strict()
 
 export const zoneIdSchema = z.enum(['sunlight', 'twilight', 'midnight', 'abyssal', 'hadal'])
@@ -93,6 +94,7 @@ export const creatureContentSchema = z.object({
     ]),
     url: z.string().regex(/^\/models\/[a-z0-9]+(?:-[a-z0-9]+)*\.glb$/).optional(),
     scale: finiteNumber.positive(),
+    mobileScale: finiteNumber.positive().optional(),
     rotation: vec3.optional(),
     defaultCamera: vec3,
     viewTarget: vec3.optional(),

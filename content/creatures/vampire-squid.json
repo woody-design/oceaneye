@@ -1,0 +1,380 @@
+{
+  "id": "vampire-squid",
+  "commonName": "Vampire squid",
+  "scientificName": "Vampyroteuthis infernalis",
+  "zone": "twilight",
+  "productLayer": "The quiet collector",
+  "displayDepthMeters": 850,
+  "actualDepthRangeMeters": {
+    "min": 600,
+    "max": 900,
+    "source": "https://www.mbari.org/animal/vampire-squid/",
+    "note": "MBARI gives 600-900 m for vampire squid in Monterey Bay. OceanEye places this curated encounter at 850 m, near the lower edge of the twilight zone; the range is not presented as a complete global limit."
+  },
+  "habitat": "Low-oxygen midwater where the last traces of daylight fade and marine snow drifts down from above.",
+  "stageSummary": "A webbed, fin-driven cephalopod that survives the deep twilight by collecting falling debris instead of chasing prey.",
+  "summary": "Its name suggests a hunter, but the vampire squid is a patient detritivore. It drifts through oxygen-poor midwater, gathers marine snow with two retractile filaments, and carries the collected particles toward its mouth with mucus, suckers, and soft cirri. Its webbed arms, enormous reflective eyes, and controlled blue light are adaptations to darkness—not signs of aggression.",
+  "lifeStrategy": [
+    "marine-snow feeding",
+    "low-energy drifting",
+    "oxygen-minimum-zone survival",
+    "controlled bioluminescence"
+  ],
+  "vitals": {
+    "typicalDepth": "600-900 m",
+    "waterPressure": "about 60-90 atm",
+    "adultLength": "up to about 30 cm"
+  },
+  "overviewLinks": [
+    {
+      "name": "MBARI animal guide",
+      "url": "https://www.mbari.org/animal/vampire-squid/"
+    },
+    {
+      "name": "Monterey Bay Aquarium",
+      "url": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/vampire-squid"
+    },
+    {
+      "name": "WoRMS taxonomy",
+      "url": "https://www.marinespecies.org/aphia.php?id=141887&p=taxdetails"
+    }
+  ],
+  "links": {
+    "wikipedia": "https://en.wikipedia.org/wiki/Vampire_squid",
+    "googleImages": "https://www.google.com/search?tbm=isch&q=Vampyroteuthis+infernalis",
+    "primarySource": "https://www.mbari.org/animal/vampire-squid/"
+  },
+  "model": {
+    "type": "ai-assisted-release-candidate",
+    "url": "/models/vampire-squid.glb",
+    "scale": 1.1,
+    "mobileScale": 0.9,
+    "rotation": [
+      0,
+      0,
+      0
+    ],
+    "defaultCamera": [
+      5.4253,
+      4.1826,
+      -4.2565
+    ],
+    "viewTarget": [
+      0.3427,
+      -0.4702,
+      -0.0074
+    ],
+    "stagePosition": [
+      0.8,
+      -0.2,
+      0
+    ],
+    "entryView": {
+      "camera": [
+        3.1649,
+        4.9702,
+        -6.4247
+      ],
+      "target": [
+        -0.1577,
+        -1.7826,
+        -3.442
+      ],
+      "stagePosition": [
+        0.8,
+        -0.2,
+        0
+      ],
+      "scale": 1.1
+    },
+    "viewPresets": {
+      "feeding-filament": {
+        "camera": [
+          4.25,
+          1.45,
+          5.45
+        ],
+        "target": [
+          0.8,
+          -0.25,
+          0.25
+        ],
+        "stagePosition": [
+          0.8,
+          -0.2,
+          0
+        ],
+        "scale": 1.16
+      },
+      "webbed-cloak": {
+        "camera": [
+          0.9,
+          -0.55,
+          5.7
+        ],
+        "target": [
+          0.8,
+          -0.25,
+          0.3
+        ],
+        "stagePosition": [
+          0.8,
+          -0.2,
+          0
+        ],
+        "scale": 1.04
+      },
+      "cirri-and-suckers": {
+        "camera": [
+          3.25,
+          -1.75,
+          4.85
+        ],
+        "target": [
+          0.8,
+          -0.35,
+          0.45
+        ],
+        "stagePosition": [
+          0.8,
+          -0.2,
+          0
+        ],
+        "scale": 1.1
+      },
+      "photophores": {
+        "camera": [
+          4.45,
+          2.15,
+          -4.2
+        ],
+        "target": [
+          0.8,
+          -0.05,
+          -0.25
+        ],
+        "stagePosition": [
+          0.8,
+          -0.2,
+          0
+        ],
+        "scale": 1.06
+      },
+      "large-eyes": {
+        "camera": [
+          5.15,
+          0.4,
+          1.55
+        ],
+        "target": [
+          0.8,
+          -0.05,
+          0.05
+        ],
+        "stagePosition": [
+          0.8,
+          -0.2,
+          0
+        ],
+        "scale": 0.98
+      }
+    },
+    "quality": {
+      "triangleCount": 180000,
+      "textureCount": 1,
+      "fileBytes": 1818956
+    }
+  },
+  "annotations": [
+    {
+      "id": "feeding-filament",
+      "title": "A meal made of marine snow",
+      "anchor": [
+        0.26,
+        -0.54,
+        1.92
+      ],
+      "anchorSpace": "named-node",
+      "anchorNodeName": "OE_anchor_feeding-filament",
+      "viewPresetId": "feeding-filament",
+      "shortText": "Retractile filaments collect drifting debris; the arms move the gathered material to the mouth.",
+      "body": "Vampire squid extend one of two thin feeding filaments into the water. Sticky mucus catches fragments of animals, fecal pellets, and other marine snow; the filament is then drawn through the webbed arms so the collected material can be carried into the oral center shown here.",
+      "sourceUrls": [
+        {
+          "name": "MBARI",
+          "url": "https://www.mbari.org/animal/vampire-squid/"
+        },
+        {
+          "name": "Hoving & Robison 2012",
+          "url": "https://doi.org/10.1098/rspb.2012.1357"
+        }
+      ],
+      "confidence": "high",
+      "enabled": true
+    },
+    {
+      "id": "webbed-cloak",
+      "title": "A cloak, not a weapon",
+      "anchor": [
+        -0.58,
+        0.44,
+        1.03
+      ],
+      "anchorSpace": "named-node",
+      "anchorNodeName": "OE_anchor_webbed-cloak",
+      "viewPresetId": "webbed-cloak",
+      "shortText": "Eight arms are joined by a continuous web that can turn inside out around the body.",
+      "body": "When disturbed, a vampire squid can invert its webbed arms over the mantle in the so-called pineapple posture. The display makes the animal look larger and exposes rows of cirri while keeping the vulnerable head and body behind the web.",
+      "sourceUrls": [
+        {
+          "name": "Monterey Bay Aquarium",
+          "url": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/vampire-squid"
+        },
+        {
+          "name": "MBARI",
+          "url": "https://www.mbari.org/animal/vampire-squid/"
+        }
+      ],
+      "confidence": "high",
+      "enabled": true
+    },
+    {
+      "id": "cirri-and-suckers",
+      "title": "Soft tools for feeding",
+      "anchor": [
+        0.46,
+        -0.39,
+        1.02
+      ],
+      "anchorSpace": "named-node",
+      "anchorNodeName": "OE_anchor_cirri-and-suckers",
+      "viewPresetId": "cirri-and-suckers",
+      "shortText": "Cirri, suckers, and mucus help move collected particles toward the mouth.",
+      "body": "The paired cirri along the arms are soft sensory and handling structures, not teeth or claws. Together with mucus-producing suckers, they help package and transfer the material collected by the feeding filament.",
+      "sourceUrls": [
+        {
+          "name": "MBARI",
+          "url": "https://www.mbari.org/animal/vampire-squid/"
+        },
+        {
+          "name": "Hoving & Robison 2012",
+          "url": "https://doi.org/10.1098/rspb.2012.1357"
+        }
+      ],
+      "confidence": "high",
+      "enabled": true
+    },
+    {
+      "id": "photophores",
+      "title": "Light instead of ink",
+      "anchor": [
+        0.48,
+        0.26,
+        -1.42
+      ],
+      "anchorSpace": "named-node",
+      "anchorNodeName": "OE_anchor_photophores",
+      "viewPresetId": "photophores",
+      "shortText": "Small light organs replace the ink cloud used by many shallow-water cephalopods.",
+      "body": "Vampire squid have no ink sac. They can pulse blue light from organs near the arm tips and release luminous mucus, creating a moving distraction in the dark while the animal slips away.",
+      "sourceUrls": [
+        {
+          "name": "MBARI",
+          "url": "https://www.mbari.org/animal/vampire-squid/"
+        },
+        {
+          "name": "Robison et al. 2003",
+          "url": "https://doi.org/10.2307/1543231"
+        }
+      ],
+      "confidence": "high",
+      "enabled": true
+    },
+    {
+      "id": "large-eyes",
+      "title": "Eyes for the last light",
+      "anchor": [
+        0.69,
+        0.11,
+        0.02
+      ],
+      "anchorSpace": "named-node",
+      "anchorNodeName": "OE_anchor_large-eyes",
+      "viewPresetId": "large-eyes",
+      "shortText": "Very large clear eyes gather faint light in the deep twilight.",
+      "body": "The eyes can appear blue under remotely operated vehicle lights, but that color is reflected illumination rather than eye bioluminescence. In normal darkness they read as deep, clear, and highly light-sensitive.",
+      "sourceUrls": [
+        {
+          "name": "Monterey Bay Aquarium",
+          "url": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/vampire-squid"
+        }
+      ],
+      "confidence": "high",
+      "enabled": true
+    }
+  ],
+  "translations": {
+    "zh": {
+      "commonName": "吸血鬼乌贼",
+      "productLayer": "安静的收集者",
+      "actualDepthRangeNote": "MBARI 给出蒙特雷湾吸血鬼乌贼常见的 600-900 米深度。OceanEye 将这次相遇安排在 850 米、暮光层下缘附近；这里不把该范围表述为完整的全球分布极限。",
+      "habitat": "阳光最后痕迹逐渐消失、海洋雪从上方缓慢落下的低氧中层水域。",
+      "stageSummary": "一种以鳍游动、八腕相连的头足类；它不追逐猎物，而靠收集落下的碎屑度过深暮光。",
+      "summary": "它的名字听起来像猎手，实际却是耐心的碎屑食者。吸血鬼乌贼漂浮在低氧中层水域，用两根可伸缩长丝收集海洋雪，再借助黏液、吸盘和柔软触毛把颗粒送向口部。相连的腕网、巨大的反光眼和可控蓝光，都是适应黑暗的方式，而不是攻击性的标志。",
+      "lifeStrategy": [
+        "海洋雪取食",
+        "低能耗漂游",
+        "低氧带生存",
+        "可控生物发光"
+      ],
+      "vitals": {
+        "typicalDepth": "600-900 米",
+        "waterPressure": "约 60-90 atm",
+        "adultLength": "最长约 30 厘米"
+      },
+      "annotations": {
+        "feeding-filament": {
+          "title": "以海洋雪为食",
+          "shortText": "可伸缩取食丝收集漂落碎屑，再由腕把食物送向口部。",
+          "body": "吸血鬼乌贼会把两根细长取食丝中的一根伸入水中。黏性黏液捕捉动物碎片、粪粒和其他海洋雪；随后长丝从相连的腕间收回，收集到的物质再被送向这里所展示的口部中心。"
+        },
+        "webbed-cloak": {
+          "title": "斗篷，而不是武器",
+          "shortText": "八条腕由连续腕网相连，并能向外翻转包住身体。",
+          "body": "受到惊扰时，吸血鬼乌贼可以把相连的腕网翻到外套膜上，形成所谓的“菠萝姿态”。这个展示让它显得更大，并露出成排触毛，同时把脆弱的头部和身体藏在腕网后。"
+        },
+        "cirri-and-suckers": {
+          "title": "柔软的取食工具",
+          "shortText": "触毛、吸盘和黏液共同把收集到的颗粒送向口部。",
+          "body": "腕上成对排列的触毛是柔软的感觉与操控结构，不是牙齿或爪。它们与能产生黏液的吸盘一起，把取食丝收集到的物质包裹并转移。"
+        },
+        "photophores": {
+          "title": "用光代替墨汁",
+          "shortText": "小型发光器取代了许多浅水头足类使用的墨云。",
+          "body": "吸血鬼乌贼没有墨囊。它能让腕尖附近的发光器脉冲式发出蓝光，也能释放发光黏液；这些移动的光在黑暗中转移捕食者注意，让它悄然离开。"
+        },
+        "large-eyes": {
+          "title": "捕捉最后微光的眼睛",
+          "shortText": "非常巨大的透明眼睛，在深暮光中收集微弱光线。",
+          "body": "在遥控潜水器灯光下，这双眼睛可能呈蓝色；但那是照明的反射，并不是眼睛自身发光。在自然黑暗里，它们更像深色、清澈而高度感光的结构。"
+        }
+      }
+    }
+  },
+  "provenance": {
+    "modelType": "ai-assisted-release-candidate",
+    "generationProvider": "Hyper3D Rodin web UI",
+    "generationModel": "Rodin web generation; exact UI model version is not embedded in the downloaded GLB",
+    "prompt": "Public release candidate: AI-assisted static model generation from curated visual references, followed by human review and web normalization. See docs/AI_WORKFLOW.md and docs/PROVENANCE.md.",
+    "humanEdits": [
+      "Compared the new PBR and shaded Rodin exports and selected the shaded geometry and material route at the neutral multi-view gate.",
+      "Reduced the raw 500,000-triangle mesh to a visually checked 180,000-triangle web candidate, resized the baked texture from 2048 px to 1024 px, and added five named annotation anchors.",
+      "Authored and visually approved entry, default, and annotation views for the OceanEye stage."
+    ],
+    "reviewStatus": "release-candidate",
+    "reviewers": [
+      "Woody"
+    ],
+    "sourceDossier": "docs/PROVENANCE.md"
+  }
+}

@@ -37,6 +37,11 @@ test('navigates between creatures, zones, and the editorial view', async ({ page
   await expect(page.getByRole('heading', { name: 'Giant oarfish', exact: true })).toBeVisible()
   expect((await oarfishModel).ok()).toBe(true)
 
+  const vampireSquidModel = page.waitForResponse((response) => response.url().endsWith('/models/vampire-squid.glb'))
+  await page.getByRole('button', { name: 'Vampire squid', exact: true }).click()
+  await expect(page.getByRole('heading', { name: 'Vampire squid', exact: true })).toBeVisible()
+  expect((await vampireSquidModel).ok()).toBe(true)
+
   const twilightButton = page.getByRole('button', { name: 'Twilight Zone 200 m - 1,000 m', exact: true })
   await twilightButton.click()
   await expect(twilightButton).toHaveAttribute('aria-pressed', 'true')

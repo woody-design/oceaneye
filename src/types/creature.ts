@@ -113,6 +113,7 @@ export type Creature = {
     type: ModelType
     url?: string
     scale: number
+    mobileScale?: number
     rotation?: [number, number, number]
     defaultCamera: [number, number, number]
     viewTarget?: [number, number, number]
@@ -146,6 +147,7 @@ export type CreatureViewPreset = {
   target?: [number, number, number]
   stagePosition?: [number, number, number]
   scale?: number
+  mobileScale?: number
 }
 
 export type DepthZone = {

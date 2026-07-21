@@ -1,4 +1,4 @@
-import type { Creature } from '../types/creature'
+import type { Creature, CreatureViewPreset } from '../types/creature'
 
 type Vec3 = [number, number, number]
 
@@ -14,7 +14,11 @@ export type CreatureModelView = {
 export const DEFAULT_STAGE_POSITION: Vec3 = [0.8, -0.25, 0]
 export const STAGE_SCALE_MULTIPLIER = 1.9
 
-export function getCreatureModelView(creature: Creature, viewPresetId?: string): CreatureModelView {
+export function getCreatureModelView(
+  creature: Creature,
+  viewPresetId?: string,
+  useMobileScale = false,
+): CreatureModelView {
   const preset = viewPresetId ? creature.model.viewPresets?.[viewPresetId] : undefined
   const annotation = viewPresetId
     ? creature.annotations.find((item) => item.id === viewPresetId || item.viewPresetId === viewPresetId)
@@ -30,11 +34,11 @@ export function getCreatureModelView(creature: Creature, viewPresetId?: string):
     cameraPosition: preset?.camera ?? fallbackView?.cameraPosition ?? creature.model.defaultCamera,
     controlsTarget: preset?.target ?? fallbackView?.controlsTarget ?? defaultControlsTarget,
     stagePosition: preset?.stagePosition ?? defaultStagePosition,
-    stageScale: getRuntimeStageScale(preset?.scale ?? creature.model.scale),
+    stageScale: getRuntimeStageScale(getResponsiveAuthoredScale(creature, preset, useMobileScale)),
   }
 }
 
-export function getCreatureEntryModelView(creature: Creature): CreatureModelView {
+export function getCreatureEntryModelView(creature: Creature, useMobileScale = false): CreatureModelView {
   const entryView = creature.model.entryView
   const defaultStagePosition = getCreatureStagePosition(creature)
   const defaultControlsTarget = getCreatureControlsTarget(creature)
@@ -45,7 +49,7 @@ export function getCreatureEntryModelView(creature: Creature): CreatureModelView
     cameraPosition: entryView?.camera ?? creature.model.defaultCamera,
     controlsTarget: entryView?.target ?? defaultControlsTarget,
     stagePosition: entryView?.stagePosition ?? defaultStagePosition,
-    stageScale: getRuntimeStageScale(entryView?.scale ?? creature.model.scale),
+    stageScale: getRuntimeStageScale(getResponsiveAuthoredScale(creature, entryView ?? undefined, useMobileScale)),
   }
 }
 
@@ -63,6 +67,18 @@ function getCreatureStagePosition(creature: Creature): Vec3 {
 
 function getCreatureControlsTarget(creature: Creature): Vec3 {
   return creature.model.viewTarget ?? getCreatureStagePosition(creature)
+}
+
+function getResponsiveAuthoredScale(
+  creature: Creature,
+  view: CreatureViewPreset | undefined,
+  useMobileScale: boolean,
+): number {
+  const authoredScale = view?.scale ?? creature.model.scale
+  if (!useMobileScale) return authoredScale
+  if (view?.mobileScale !== undefined) return view.mobileScale
+  if (creature.model.mobileScale === undefined) return authoredScale
+  return authoredScale * (creature.model.mobileScale / creature.model.scale)
 }
 
 function getAnchorFallbackView(creature: Creature, anchor: Vec3): Pick<CreatureModelView, 'cameraPosition' | 'controlsTarget'> {
