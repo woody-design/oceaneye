@@ -11,15 +11,10 @@
     "source": "https://www.mbari.org/animal/vampire-squid/",
     "note": "MBARI gives 600-900 m for vampire squid in Monterey Bay. OceanEye places this curated encounter at 850 m, near the lower edge of the twilight zone; the range is not presented as a complete global limit."
   },
-  "habitat": "Low-oxygen midwater where the last traces of daylight fade and marine snow drifts down from above.",
-  "stageSummary": "A webbed, fin-driven cephalopod that survives the deep twilight by collecting falling debris instead of chasing prey.",
-  "summary": "Its name suggests a hunter, but the vampire squid is a patient detritivore. It drifts through oxygen-poor midwater, gathers marine snow with two retractile filaments, and carries the collected particles toward its mouth with mucus, suckers, and soft cirri. Its webbed arms, enormous reflective eyes, and controlled blue light are adaptations to darkness—not signs of aggression.",
-  "lifeStrategy": [
-    "marine-snow feeding",
-    "low-energy drifting",
-    "oxygen-minimum-zone survival",
-    "controlled bioluminescence"
-  ],
+  "habitat": "Throughout temperate and tropical oceans in extreme deep sea conditions.",
+  "stageSummary": "Despite the name, the vampire squid is neither a vampire nor a squid, but the last surviving member of an ancient group of cephalopods.",
+  "summary": "\"Don’t be fooled by the misleading name—this cephalopod is neither a vampire or a squid! The vampire squid is a gentle scavenger floats through the deep sea collecting drifting debris called marine snow with long feeding filaments. The unique characteristics that set them apart from other cephalopods help them survive in the ocean’s darkest depths.\" - Monterey Bay Aquarium",
+  "lifeStrategy": [],
   "vitals": {
     "typicalDepth": "600-900 m",
     "waterPressure": "about 60-90 atm",
@@ -27,16 +22,24 @@
   },
   "overviewLinks": [
     {
-      "name": "MBARI animal guide",
-      "url": "https://www.mbari.org/animal/vampire-squid/"
+      "name": "Google Images",
+      "url": "https://www.google.com/search?tbm=isch&q=Vampyroteuthis+infernalis"
+    },
+    {
+      "name": "NOAA",
+      "url": "https://oceanservice.noaa.gov/facts/vampire-squid-fish.html"
+    },
+    {
+      "name": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Vampire_squid"
     },
     {
       "name": "Monterey Bay Aquarium",
       "url": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/vampire-squid"
     },
     {
-      "name": "WoRMS taxonomy",
-      "url": "https://www.marinespecies.org/aphia.php?id=141887&p=taxdetails"
+      "name": "MBARI",
+      "url": "https://www.mbari.org/animal/vampire-squid/"
     }
   ],
   "links": {
@@ -90,39 +93,39 @@
     "viewPresets": {
       "feeding-filament": {
         "camera": [
-          4.25,
-          1.45,
-          5.45
+          6.8968,
+          4.9792,
+          -2.1163
         ],
         "target": [
-          0.8,
-          -0.25,
-          0.25
+          0.7695,
+          -0.2647,
+          0.2328
         ],
         "stagePosition": [
           0.8,
           -0.2,
           0
         ],
-        "scale": 1.16
+        "scale": 1.156
       },
       "webbed-cloak": {
         "camera": [
-          0.9,
-          -0.55,
-          5.7
+          -2.3377,
+          5.1437,
+          -4.8742
         ],
         "target": [
-          0.8,
-          -0.25,
-          0.3
+          0.8296,
+          -0.2379,
+          0.2778
         ],
         "stagePosition": [
           0.8,
           -0.2,
           0
         ],
-        "scale": 1.04
+        "scale": 1.0375
       },
       "cirri-and-suckers": {
         "camera": [
@@ -162,21 +165,21 @@
       },
       "large-eyes": {
         "camera": [
-          5.15,
-          0.4,
-          1.55
+          6.955,
+          0.7316,
+          0.5046
         ],
         "target": [
-          0.8,
-          -0.05,
-          0.05
+          0.7968,
+          -0.0523,
+          0.1022
         ],
         "stagePosition": [
           0.8,
           -0.2,
           0
         ],
-        "scale": 0.98
+        "scale": 0.9803
       }
     },
     "quality": {
@@ -188,7 +191,7 @@
   "annotations": [
     {
       "id": "feeding-filament",
-      "title": "A meal made of marine snow",
+      "title": "Not a Squid",
       "anchor": [
         0.26,
         -0.54,
@@ -197,102 +200,19 @@
       "anchorSpace": "named-node",
       "anchorNodeName": "OE_anchor_feeding-filament",
       "viewPresetId": "feeding-filament",
-      "shortText": "Retractile filaments collect drifting debris; the arms move the gathered material to the mouth.",
-      "body": "Vampire squid extend one of two thin feeding filaments into the water. Sticky mucus catches fragments of animals, fecal pellets, and other marine snow; the filament is then drawn through the webbed arms so the collected material can be carried into the oral center shown here.",
-      "sourceUrls": [
-        {
-          "name": "MBARI",
-          "url": "https://www.mbari.org/animal/vampire-squid/"
-        },
-        {
-          "name": "Hoving & Robison 2012",
-          "url": "https://doi.org/10.1098/rspb.2012.1357"
-        }
-      ],
-      "confidence": "high",
-      "enabled": true
-    },
-    {
-      "id": "webbed-cloak",
-      "title": "A cloak, not a weapon",
-      "anchor": [
-        -0.58,
-        0.44,
-        1.03
-      ],
-      "anchorSpace": "named-node",
-      "anchorNodeName": "OE_anchor_webbed-cloak",
-      "viewPresetId": "webbed-cloak",
-      "shortText": "Eight arms are joined by a continuous web that can turn inside out around the body.",
-      "body": "When disturbed, a vampire squid can invert its webbed arms over the mantle in the so-called pineapple posture. The display makes the animal look larger and exposes rows of cirri while keeping the vulnerable head and body behind the web.",
+      "shortText": "",
+      "body": "\"Scientists named this animal Vampyroteuthis infernalis, which means “vampire squid from hell.” But the vampire squid is no squid at all—they’re the only living member of the family Vampyroteuthidae in the phylum Mollusca.\n\nThis misleadingly-named cephalopod has a storied history of misclassification. When this species was first discovered in 1903, they were classified as a type of cirrate octopus like the flapjack octopus due to the webbing between the arms and pair of fins on the mantle. In the 1940s and 1950s, however, scientists determined that it was neither an octopus nor squid, but part of a different group based on its unique features.\" - Monterey Bay Aquarium",
       "sourceUrls": [
         {
           "name": "Monterey Bay Aquarium",
           "url": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/vampire-squid"
-        },
-        {
-          "name": "MBARI",
-          "url": "https://www.mbari.org/animal/vampire-squid/"
         }
       ],
-      "confidence": "high",
-      "enabled": true
-    },
-    {
-      "id": "cirri-and-suckers",
-      "title": "Soft tools for feeding",
-      "anchor": [
-        0.46,
-        -0.39,
-        1.02
-      ],
-      "anchorSpace": "named-node",
-      "anchorNodeName": "OE_anchor_cirri-and-suckers",
-      "viewPresetId": "cirri-and-suckers",
-      "shortText": "Cirri, suckers, and mucus help move collected particles toward the mouth.",
-      "body": "The paired cirri along the arms are soft sensory and handling structures, not teeth or claws. Together with mucus-producing suckers, they help package and transfer the material collected by the feeding filament.",
-      "sourceUrls": [
-        {
-          "name": "MBARI",
-          "url": "https://www.mbari.org/animal/vampire-squid/"
-        },
-        {
-          "name": "Hoving & Robison 2012",
-          "url": "https://doi.org/10.1098/rspb.2012.1357"
-        }
-      ],
-      "confidence": "high",
-      "enabled": true
-    },
-    {
-      "id": "photophores",
-      "title": "Light instead of ink",
-      "anchor": [
-        0.48,
-        0.26,
-        -1.42
-      ],
-      "anchorSpace": "named-node",
-      "anchorNodeName": "OE_anchor_photophores",
-      "viewPresetId": "photophores",
-      "shortText": "Small light organs replace the ink cloud used by many shallow-water cephalopods.",
-      "body": "Vampire squid have no ink sac. They can pulse blue light from organs near the arm tips and release luminous mucus, creating a moving distraction in the dark while the animal slips away.",
-      "sourceUrls": [
-        {
-          "name": "MBARI",
-          "url": "https://www.mbari.org/animal/vampire-squid/"
-        },
-        {
-          "name": "Robison et al. 2003",
-          "url": "https://doi.org/10.2307/1543231"
-        }
-      ],
-      "confidence": "high",
-      "enabled": true
+      "confidence": "high"
     },
     {
       "id": "large-eyes",
-      "title": "Eyes for the last light",
+      "title": "Huge Eyes",
       "anchor": [
         0.69,
         0.11,
@@ -301,32 +221,47 @@
       "anchorSpace": "named-node",
       "anchorNodeName": "OE_anchor_large-eyes",
       "viewPresetId": "large-eyes",
-      "shortText": "Very large clear eyes gather faint light in the deep twilight.",
-      "body": "The eyes can appear blue under remotely operated vehicle lights, but that color is reflected illumination rather than eye bioluminescence. In normal darkness they read as deep, clear, and highly light-sensitive.",
+      "shortText": "",
+      "body": "\"One of the vampire squid’s most striking characteristics is their large eyes—the biggest eyes of any living animal in proportion to their body size. Their eyes are about one inch in diameter, while their bodies can grow up to 12 inches in total length. If a human had the same proportions, our eyes would be about 9 inches in diameter!\n\nIf you watch a video of a vampire squid in the deep sea, you’d think their eyes glow bright blue. But that’s actually a trick of the light. When the clear eyes of a vampire squid are illuminated by the lights of a remotely operated vehicle, they reflect the surrounding water and appear blue in the footage captured by scientists.\" - Monterey Bay Aquarium",
       "sourceUrls": [
         {
           "name": "Monterey Bay Aquarium",
           "url": "https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/vampire-squid"
         }
       ],
-      "confidence": "high",
-      "enabled": true
+      "confidence": "high"
+    },
+    {
+      "id": "webbed-cloak",
+      "title": "Camouflaged color",
+      "anchor": [
+        -0.58,
+        0.44,
+        1.03
+      ],
+      "anchorSpace": "named-node",
+      "anchorNodeName": "OE_anchor_webbed-cloak",
+      "viewPresetId": "webbed-cloak",
+      "shortText": "",
+      "body": "\"Vampire squid thrive in the oxygen minimum zone, where oxygen levels are only a fraction of those near the surface. Their passive feeding strategy requires very little energy, making it ideal for life in low-oxygen environments.\n\nRelatively few predators can hunt in the oxygen minimum zone, but the vampire squid does not take any chances. That dark, reddish-brown color keeps Vampyroteuthis camouflaged in twilight waters where red light cannot reach. When threatened, vampire squid turn their cloak of webbed arms inside out, changing their appearance to confuse predators. If danger remains, the tips of their eight arms glow with pulsing blue bioluminescence—another form of visual trickery. They do not have ink for defense like many cephalopods, but can release bioluminescent fluid to distract predators.\" - MBARI",
+      "sourceUrls": [
+        {
+          "name": "MBARI",
+          "url": "https://www.mbari.org/animal/vampire-squid/"
+        }
+      ],
+      "confidence": "high"
     }
   ],
   "translations": {
     "zh": {
       "commonName": "吸血鬼乌贼",
-      "productLayer": "安静的收集者",
+      "productLayer": "寂静的收集者",
       "actualDepthRangeNote": "MBARI 给出蒙特雷湾吸血鬼乌贼常见的 600-900 米深度。OceanEye 将这次相遇安排在 850 米、暮光层下缘附近；这里不把该范围表述为完整的全球分布极限。",
-      "habitat": "阳光最后痕迹逐渐消失、海洋雪从上方缓慢落下的低氧中层水域。",
-      "stageSummary": "一种以鳍游动、八腕相连的头足类；它不追逐猎物，而靠收集落下的碎屑度过深暮光。",
-      "summary": "它的名字听起来像猎手，实际却是耐心的碎屑食者。吸血鬼乌贼漂浮在低氧中层水域，用两根可伸缩长丝收集海洋雪，再借助黏液、吸盘和柔软触毛把颗粒送向口部。相连的腕网、巨大的反光眼和可控蓝光，都是适应黑暗的方式，而不是攻击性的标志。",
-      "lifeStrategy": [
-        "海洋雪取食",
-        "低能耗漂游",
-        "低氧带生存",
-        "可控生物发光"
-      ],
+      "habitat": "广泛分布于全球温带与热带海域，栖息在环境极端的深海水层。",
+      "stageSummary": "别被名字骗了：吸血鬼乌贼既不是吸血鬼，也不是乌贼，而是一个古老头足类支系最后的幸存者。",
+      "summary": "“别被这个容易误导的名字骗了——这种头足类既不吸血，也不是乌贼！吸血鬼乌贼是性情温和的腐屑食者，漂游在深海中，用细长的取食丝收集缓缓下沉的碎屑，也就是‘海洋雪’。那些使它有别于其他头足类的独特特征，帮助它在海洋最幽暗的深处生存。” - Monterey Bay Aquarium",
+      "lifeStrategy": [],
       "vitals": {
         "typicalDepth": "600-900 米",
         "waterPressure": "约 60-90 atm",
@@ -334,29 +269,19 @@
       },
       "annotations": {
         "feeding-filament": {
-          "title": "以海洋雪为食",
-          "shortText": "可伸缩取食丝收集漂落碎屑，再由腕把食物送向口部。",
-          "body": "吸血鬼乌贼会把两根细长取食丝中的一根伸入水中。黏性黏液捕捉动物碎片、粪粒和其他海洋雪；随后长丝从相连的腕间收回，收集到的物质再被送向这里所展示的口部中心。"
-        },
-        "webbed-cloak": {
-          "title": "斗篷，而不是武器",
-          "shortText": "八条腕由连续腕网相连，并能向外翻转包住身体。",
-          "body": "受到惊扰时，吸血鬼乌贼可以把相连的腕网翻到外套膜上，形成所谓的“菠萝姿态”。这个展示让它显得更大，并露出成排触毛，同时把脆弱的头部和身体藏在腕网后。"
-        },
-        "cirri-and-suckers": {
-          "title": "柔软的取食工具",
-          "shortText": "触毛、吸盘和黏液共同把收集到的颗粒送向口部。",
-          "body": "腕上成对排列的触毛是柔软的感觉与操控结构，不是牙齿或爪。它们与能产生黏液的吸盘一起，把取食丝收集到的物质包裹并转移。"
-        },
-        "photophores": {
-          "title": "用光代替墨汁",
-          "shortText": "小型发光器取代了许多浅水头足类使用的墨云。",
-          "body": "吸血鬼乌贼没有墨囊。它能让腕尖附近的发光器脉冲式发出蓝光，也能释放发光黏液；这些移动的光在黑暗中转移捕食者注意，让它悄然离开。"
+          "title": "并不是乌贼",
+          "shortText": "",
+          "body": "“科学家将这种动物命名为 Vampyroteuthis infernalis，意为‘来自地狱的吸血鬼乌贼’。但吸血鬼乌贼根本不是乌贼——它是软体动物门幽灵蛸科（Vampyroteuthidae）唯一的现生成员。\n\n这种名不副实的头足类，有一段屡遭误判的分类史。1903 年首次被发现时，科学家因为它的腕间有蹼膜、外套膜上生有一对鳍，把它归入了与烙饼章鱼相似的有翅亚目章鱼。直到 20 世纪 40 至 50 年代，科学家才根据它独有的特征确定：它既不是章鱼，也不是乌贼，而是属于另一个独立的类群。” - Monterey Bay Aquarium"
         },
         "large-eyes": {
-          "title": "捕捉最后微光的眼睛",
-          "shortText": "非常巨大的透明眼睛，在深暮光中收集微弱光线。",
-          "body": "在遥控潜水器灯光下，这双眼睛可能呈蓝色；但那是照明的反射，并不是眼睛自身发光。在自然黑暗里，它们更像深色、清澈而高度感光的结构。"
+          "title": "比例惊人的大眼睛",
+          "shortText": "",
+          "body": "“吸血鬼乌贼最醒目的特征之一，是一双巨大的眼睛；若按眼睛与身体的比例计算，它拥有所有现生动物中最大的眼睛。它的眼睛直径约 1 英寸（2.5 厘米），全长则可达 12 英寸（30 厘米）。如果人类也有同样的比例，我们的眼睛直径将接近 9 英寸（23 厘米）！\n\n观看深海影像时，你或许会以为吸血鬼乌贼的眼睛正发出亮蓝色光芒；其实，那只是光线制造的错觉。透明的眼睛被遥控潜水器的灯光照亮后，会映出周围海水的蓝色，因此在科学家拍摄的影像中显得像在发光。” - Monterey Bay Aquarium"
+        },
+        "webbed-cloak": {
+          "title": "藏进暮光的体色",
+          "shortText": "",
+          "body": "“吸血鬼乌贼生活在大洋最小含氧带，那里的含氧量只有近表层水域的一小部分。它以被动方式取食，所需能量极低，十分适合低氧环境。\n\n能进入最小含氧带捕猎的动物并不多，但吸血鬼乌贼仍不掉以轻心。它暗红褐色的体表，在红光无法抵达的暮光水域里，几乎与周围融为一体。受到威胁时，它会把相连的腕网向外翻转，像斗篷一样罩住身体，以突变的轮廓迷惑捕食者。如果危险仍未解除，八条腕的末端还会以脉冲方式发出蓝色生物光——又一次视觉欺骗。它不像许多头足类那样用墨汁防御，却能释放发光液体，转移捕食者的注意。” - MBARI"
         }
       }
     }
